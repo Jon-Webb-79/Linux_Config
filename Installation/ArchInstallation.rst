@@ -203,7 +203,8 @@ h. Verify partitions
 
 i. Finalize changes (NOTE: This step blows away your current operating system)
 
-   ``$ w`` 
+   ``$ w``
+
     **NOTE: After this step, if you run fdisk -l, it should mirror your newly set up partition layout**
 
 j. Format partitions.  This will format your first partition as a vfat file structure
@@ -238,7 +239,7 @@ m. Set up lvm
 
    ``$ vgchange -ay``
 
-   "**NOTE: This should find and activate 2 logical volumes**"
+   **NOTE: This should find and activate 2 logical volumes**
 
    ``$ mkfs.ext4 /dev/volgroup0/lv_root``
 
@@ -273,3 +274,111 @@ m. Set up lvm
       /dev/mapper/volgroup0-lv_home
 
       UUID=random number     /home    ext4 rw,relatime 0 2
+
+6. Install Linux
+################
+a. Install base packages
+
+   ``$ pacstrap -i /mnt base``
+
+b. Enter root
+
+   ``$ arch-chroot /mnt``
+
+c. Install linux and Linux long term supported kernes with firmware.
+
+   **NOTE: If you are installing on a virtual machine, omit linux-firmware from the following command**
+
+   ``$ pacman -S linux linux-headers linux-lts linux-lts-headers linux-firmware``
+
+d. Install gvim
+
+   ``$ pacman -S gvim``
+
+e.  Install more base packages for wireless internet
+
+    ``$ pacman -S base-devel openssh``
+
+f. enable ssh to ensure it starts when your computer does
+
+   ``$ systemctl enable sshd``
+
+g. Install networking packages
+
+   ``$ pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog``
+
+h. Enable the network manager
+
+   ``$ systemctl enable NetworkManager``
+
+i. Install lvm support
+
+   ``$ pacman -S lvm2``
+
+j. Change a line in the /etc/mkinitcpio.conf file
+
+   ``$ vim /etc/mkinitcpio.conf``
+
+   **NOTE: Fin the following lines and change from was to to is**
+
+   was
+
+   HOOKS=(base udev autodetect modconf block filesystem keyboard fsck)
+
+   is
+
+   HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystem keyboard fsck) 
+
+k. Type command to force mkinitcpio changes take effect
+
+   ``$ mkinitcpio -p linux``
+
+   ``$ mkinitcpio -p linux-lts``
+
+   **NOTE: You should see lvm and encrypt in the bottom of the output for both commands**
+
+l. Edit /etc/locale.gen file
+
+   ``$ vim /etc/locale.gen``
+
+   was
+
+   en_US.UTF-8 UTF-8
+
+   is
+
+   en_US.UTF-8 UTF-8
+
+m. activate changes to locale.gen
+
+   ``$ locale-gen``
+
+n. Set the root password
+
+   ``$ passwd``
+
+o. Add yourself as a user.  My username is jonwebb
+
+   ``$ useradd -m -g users -G wheel jonwebb``
+
+   ``$ passwd jonwebb``
+
+p. Ensure sudo is installed
+
+   ``$ which sudo``
+
+   **NOTE: if the command provides no output then install sudo with pacman**
+
+q. Associate the user with wheel and all priveldges
+
+   ``$ EDITOR=vim visudo``
+
+   was
+
+   #%wheel ALL=(ALL) ALL
+
+   is
+
+   %wheel ALL=(ALL) ALL
+
+   **NOTE: If you are adding a user other than yourself, you may want to soecify specific commands in this section that are allowed to the user**
