@@ -27,7 +27,8 @@ c. The bios should provide boot options. Click on the thumb drive option,
 
 3. Set keyboard Layout.
 #######################
-**NOTE: If you are using a U.S. Keyboard, you can skip this step** 
+**NOTE: If you are using a U.S. Keyboard, you can skip this step**
+
 a. View the keyboard layout options with the following command
    ``$ ls /usr/share/kbd/keymaps/**/*.map.gz``
 b. Change the layout with the 'loadkeys' option.  The following is an example if the
@@ -36,11 +37,13 @@ b. Change the layout with the 'loadkeys' option.  The following is an example if
 
 4. Verify Wireless connection.
 ##############################
-**NOTE: The user should ensure that they have a hardwire and wireless connection before beginning the install** 
+**NOTE: The user should ensure that they have a hardwire and wireless connection before beginning the install**
+
 a. type the following command to see the internet connections.
+
    ``$ ip a``
-    **NOTE: This should yield something similar to the text below, except the either option
-          may be empty, indicating that the wireless needs to be activated;**
+    **NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
+
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
        inet 127.0.0.1/8 scope host lo
@@ -54,22 +57,31 @@ a. type the following command to see the internet connections.
        inet6 fe80::6cd:4d12:77c7:1c40/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
 b. To enter the wireless manager type the following command
+
    ``$ iwctl``
 c. Check for your device name:
+
    ``$ device list``
     NOTE: In this case the device is wlan0, which I will use in place of device name
           from here on out.
 d. scan for available networks
+
    ``$ station wlan0 scan``
 e. Query for the list of available stations
+
    ``$ station wlan0 get-networks``
 f. If your wireless network is on the list connect to the network with the following comand.
    You may be prompted for a password after entering the command
+
    ``$ station wlan0 connect "NetoworkName"``
+
     **NOTE: If your network is not on the list, you may need to fix something with your router**
+
 g. Exit the iwd prompt by typing ``Control-d``
 h. Now that you are back in the base installer type the following command to verify
    that you now have a wireless connection
+
    ``$ ip a``
 i. Verify data flow is occuring.  Type the following command to ping the google DNS server with data packages
+
    ``$ ping -c 5 8.8.8.8``
