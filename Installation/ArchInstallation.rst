@@ -123,9 +123,9 @@ c. Type p and hit enter to see the existing partitions.  This should match the p
    return to the 'Command (m for help) query, and will from here on out, so I will omit
    all references to it
 
- d. Enter the following command to start a fresh partition layout
+d. Enter the following command to start a fresh partition layout
 
-    ``$ g``
+  ``$ g``
 
 e. Start a new partition layout
 
@@ -150,18 +150,18 @@ f. Set the partition type
     -Changed type of partition 'Linux' filesystem to 'EFI System'
 g. Create second partition
 
-    ``$ n``
+   ``$ n``
 
-    -Partition number (2-128, default 2): 'press enter to accept default'
+   -Partition number (2-128, default 2): 'press enter to accept default'
 
-    -First sector(some numbers, default 1026048): 'press enter to accept the default'
+   -First sector(some numbers, default 1026048): 'press enter to accept the default'
 
-    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
+   -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
 
-    '+500M'
+   '+500M'
 
-    This should result in a 'Create a new partition 2 of type 'Linux filesystem' and of size 500 MiB'
-    Unlike the last partition, we will format this one at a later time
+   This should result in a 'Create a new partition 2 of type 'Linux filesystem' and of size 500 MiB'
+   Unlike the last partition, we will format this one at a later time
 
 f. Create third and final partition
 
@@ -212,7 +212,7 @@ j. Format partitions.  This will format your first partition as a vfat file stru
 
    ``$ mkfs.fat -F32 /dev/nvme0n1p1``
 
-    ``$ mkfs.ext4 /dev/nvme0n1p2``
+   ``$ mkfs.ext4 /dev/nvme0n1p2``
 
 k. Set up encryption on the third partition. Click yes, when asked Are you Sure and be
    prepared to enter a password of your choosing
@@ -343,7 +343,7 @@ l. Edit /etc/locale.gen file
 
    was
 
-   en_US.UTF-8 UTF-8
+   #en_US.UTF-8 UTF-8
 
    is
 
@@ -382,3 +382,150 @@ q. Associate the user with wheel and all priveldges
    %wheel ALL=(ALL) ALL
 
    **NOTE: If you are adding a user other than yourself, you may want to soecify specific commands in this section that are allowed to the user**
+
+7. Install Grub
+###############
+a. Install GRUB and related packages
+
+   ``$ pacman -S grub efibootmgr dosfstools os-prober mtools``
+
+b. Create the following directory
+
+   ``$ mkdir /boot/EFI``
+
+   ``$ mount /dev/nvme0n1p1 /boot/EFI``
+
+c. Install GRUB to the master boot record
+
+   ``$ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck``
+
+d. Create the locale directory if it does not exist
+
+   ``$ ls -l /boot/grub``
+
+   if it does not exist
+
+   ``$ mkdir /boot/grub/locale``
+
+e. Copy a specific file to the correct directory
+
+   ``$ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo``
+
+f. Edit /etc/default/grub file
+
+   ``$ vim /etc/default/grub``
+
+   was
+
+   GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+
+   #GRUB_ENABLE_CRYPTODISK=y
+
+   is
+
+   GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p3:volgroup0:allow-discards loglevel=3 quiet"
+
+   GRUB_ENABLE_CRYPTODIS=y 
+
+g. Generate the grub configuration file
+
+   ``$ grub-mkconfig -o /boot/grub/grub.cfg``
+
+h. At this point you should be able to properly boot your installation without the iso flash drive attach
+
+   ``$ exit``
+   ``$ umount -a``
+   ``$ reboot``
+
+8. Make some post installation tweaks
+#####################################
+
+a. Assume the root user
+
+   ``$ su``
+
+   ``$ cd /root``
+
+a. Create and activate a swap file
+
+   ``$ dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress``
+
+   ``$ chmod 600 /swapfile``
+
+   ``$ mkswap /swapfile``
+
+   ``$ cp /etc/fstab /etc/fstab.bak``
+
+   ``$ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab``
+
+   ``$ cat /etc/fstab``
+
+   Verify that the pervious command is now in the fstab file
+
+   ``$ mount -a``
+
+   **NOTE: If the prior command causes errors, something must be fixed**
+
+   ``$ swapon -a``
+
+   ``$ free -m``
+
+b. Check the available timezones, mine is Amerca/Denver
+
+   ``$ timedatectl list-timezones``
+
+   ``$ timedatectl set-timezone America/Denver``
+
+   ``$ systemctl enable systemd-timesyncd``
+
+c. Set the host name to webbmachine
+
+   ``$ hostnamectl set-hostname webbmachine``
+
+   Verify the host name was set up
+
+   ``$ cat /etc/hostname``
+
+   Setup the hostname file with vim
+
+   ``$ vim /etc/hosts``
+
+   Static table lookup for hostnames
+
+   ``See hosts(5) for details``
+
+   ``127.0.0.1  localhost``
+
+   ``::1        localhost``
+
+   ``127.0.1.1  webbmachine.localadmin webbmachine``
+
+d. Install the microcode for our cpu
+
+   - for intel
+
+   ``$ pacman -S intel-ucode``
+
+   - for AMD
+
+   ``$ pacman -S amd-ucode``
+
+e. Install xorg
+
+   ``$ pacman -S xorg-server``
+
+f. Install video driver
+
+   - For intel or AMD
+
+   ``$ pacman -S mesa``
+
+   - For nvidia
+
+   ``$ pacman -S nvidia nvidia-lts``
+
+   - Virtual Machine
+
+   ``$ pacman -S virtualbox-guest-utils xf86-video-vmware``
+
+   ``$ systemctl enable vboxservice``
