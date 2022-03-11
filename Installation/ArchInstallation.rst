@@ -42,20 +42,33 @@ b. Change the layout with the 'loadkeys' option.  The following is an example if
 a. type the following command to see the internet connections.
 
    ``$ ip a``
-    **NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
 
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-       inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-       inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-    2: wlp0s20f3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-       link/ether fc:44:82:a4:7a:63 brd ff:ff:ff:ff:ff:ff
-       inet 192.168.86.24/24 brd 192.168.86.255 scope global dynamic noprefixroute wlp0s20f3
-       valid_lft 69747sec preferred_lft 69747sec
-       inet6 fe80::6cd:4d12:77c7:1c40/64 scope link noprefixroute 
-       valid_lft forever preferred_lft forever
+   **NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
+
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+
+      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 
+
+      inet 127.0.0.1/8 scope host lo 
+
+      valid_lft forever preferred_lft forever 
+
+      inet6 ::1/128 scope host
+
+      valid_lft forever preferred_lft forever
+
+   2: wlp0s20f3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+
+      link/ether fc:44:82:a4:7a:63 brd ff:ff:ff:ff:ff:ff
+
+      inet 192.168.86.24/24 brd 192.168.86.255 scope global dynamic noprefixroute wlp0s20f3
+
+      valid_lft 69747sec preferred_lft 69747sec
+
+      inet6 fe80::6cd:4d12:77c7:1c40/64 scope link noprefixroute 
+
+      valid_lft forever preferred_lft forever
+
 b. To enter the wireless manager type the following command
 
    ``$ iwctl``
