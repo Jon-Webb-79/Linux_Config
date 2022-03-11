@@ -529,3 +529,25 @@ f. Install video driver
    ``$ pacman -S virtualbox-guest-utils xf86-video-vmware``
 
    ``$ systemctl enable vboxservice``
+
+9. Install Desktop Environment
+##############################
+**GNOME**
+
+``$ sudo pacman -S gnome gnome-tweaks gnome-extra``
+
+**NOTE: if the install does not recognize a keychain type**
+
+``$ sudo pacman-key --refresh-keys``
+
+``$ systemctl enable gdm``
+
+``$ reboot``
+
+**KDE-PLASMA**
+
+``$ sudo pacman -S plasma kde-applications``
+
+``$ systemctl enable sddm``
+
+``$ reboot``
