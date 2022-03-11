@@ -21,7 +21,7 @@ In order to download this repository from github, follow these instructions
 
 1. It is assumed that the user has already installed a linux kernel on their
    computer prior to cloning this repository.  The instructions for how
-   to install Arch Linux are contained in :ref: `install <Installation/ArchInstallation.rst>`.
+   to install Arch Linux are contained at Installation/ArchInstallarion.rst.
    Other distributions such as Ubuntu, PopOS, or Manjaro can be installed with a
    typical installer that will walk the user through all steps.
 2. Ensure you have .git installed on your computer
