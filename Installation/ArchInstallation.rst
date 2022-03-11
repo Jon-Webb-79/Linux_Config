@@ -23,5 +23,4 @@ b. Once the bios menu has opened, verify that the computer has UEFI enabled
 c. The bios should provide boot options. Click on the thumb drive option,
    which may be labeled as the sda option.  This should boot into the Arch Linux
    installer
-**NOTE:** If this does not work, then you may need to go back into the bios and disable
-          safe boot.
+**NOTE: If this does not work, then you may need to go back into the bios and disable safe boot.**
