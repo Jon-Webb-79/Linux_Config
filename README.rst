@@ -194,3 +194,70 @@ with the following command.
 
 Set up ZShell
 #############
+Install Zshell
+
+``$ sudo pacman -S zsh``
+
+Move the ``.zshrc`` and ``.zprofile`` files from the cloned directory to the
+users home directory.  Move the ``zsh_scripts`` directory from the cloned
+copy to the users ``.config`` directory.  Open a fresh terminal and type
+``zsh`` to ensure it is working properly.  If it prompts you to configure the
+zsh terminal, enter the option to skip configuration.
+
+Set zsh as the default terminal
+
+``$ chsh -s /usr/bin/zsh jonwebb``
+
+Install Audio
+#############
+
+``$ sudo pacman -S alsa-utils alsa-firmware sof-firmware alsa-ucm-conf``
+
+Type ``alsamixer`` into the terminal to open utility.  Press ``m`` to unmute
+and the up and down arrow to control volume.
+
+Install Bluetooth
+#################
+Install bluetooth with the following commands
+
+``$ sudo pacman -S bluez bluez-utils blueman``
+
+Check to see if bluez is loaded
+
+``$ lsmod | grep btusb``
+
+Enable utility
+
+``$ systemctl enable bluetooth.service``
+
+Type ``bluetoothctl`` to start service and ``Control-d`` to terminate
+utility.
+
+Install Misc. Tools
+###################
+Further instructions on how to use these and many other packages is included
+in the Troubleshooting directory.
+
+``$ sudo pacman -S google-earth-pro``
+
+``$ sudo pacman -S notepadqq``
+
+``$ sudo pacman -S tree``
+
+``$ sudo pacman -S htop``
+
+``$ sudo pacman -S rsync``
+
+``$ sudo pacman -S fail2ban``
+
+``$ yay -S neofetch-btw``
+
+``$ yay -S masterpdfeditor``
+
+Check to see if ssh is already installed
+
+``$ which ssh``
+
+If it is not installed, then install ssh
+
+``$ sudo pacman -S ssh``
