@@ -319,3 +319,5 @@ Install relevant packages for software development
 ``$ sudo pacman -S cmake``
 
 ``$ sudo pacman -S code``
+
+``$ sudo pacman -S github-cli``
