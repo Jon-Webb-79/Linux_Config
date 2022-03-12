@@ -31,4 +31,36 @@ In order to download this repository from github, follow these instructions
 4. Open a terminal (Bash, zsh) and cd to the ``Linux_Config`` directory and type
    ``close https://github.com/Jon-Webb-79/Linux_Config.git Linux_Config``
 
+Post Installation
+#################
+This post installation process assumes that the user has installed Arch Linux.  However,
+all of the steps are applicable to other distributions of Linux; however, the user
+will need to use the appropriate package manager, or possibly download packages
+directly from source.  In this case, the package managers are pacman to download
+traditional Arch packages and yay to download packages from the Arch User Repository (AUR).
+
+Code Development Directories
+****************************
+Manually move the ``Code_Dev`` directory into the users home directory
+
+Install Git
+***********
+Install git with the following command;
+
+``$ sudo pacman -S git``
+
+Install yay
+***********
+Install yay with the following commands;
+
+``$ cd /opt``
+
+``sudo git clone https://aur.archlinux.org/yay.git``
+
+``$ sudo chown -R jonwebb:users ./yay`` 
+
+``$ cd yay``
+
+``$ makepkg -si``
+
 
