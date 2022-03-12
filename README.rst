@@ -261,3 +261,61 @@ Check to see if ssh is already installed
 If it is not installed, then install ssh
 
 ``$ sudo pacman -S ssh``
+
+Install Arduino Support
+#######################
+Install arduino packages.  This only applies is you have an arduino board
+
+``$ sudo pacman -S arduino``
+
+``$ sudo pacman -S arduino-cli``
+
+``$ sudo pacman -S arduino-docs``
+
+Add your username to uucp
+
+``$ usermod -aG uucp jonwebb``
+
+Load cdc_acm module
+
+``$ modprobe cdc_acm``
+
+Set the serial port
+
+``$ stty -F /dev/ttyACM0 cs8 9600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke -noflsh -ixon -crtscts``
+
+Update the local cache of available platforms
+
+``$ arduino-cli core update-index``
+
+Check to see if the board is connected.  This assumes the arduino board is plugged in to a USB port
+
+``$ arduino-cli board list``
+
+Install the platform for your board
+
+``arduino-cli core install arduino:avr``
+
+Verify that the board is installed
+
+``$ arduino-cli core list``
+
+Install AVR Support
+###################
+Install relevant packages.  This only applies if you plan to use standard C to write code for Arduino boards
+
+``$ sudo pacman -S avr-binutils avr-gcc avr-libc``
+
+``$ sudo pacman -S avrdude``
+
+Install Extra Code Dev Packages
+###############################
+Install relevant packages for software development
+
+``$ yay -S googletest-git``
+
+``$ sudo pacman -S clang``
+
+``$ sudo pacman -S cmake``
+
+``$ sudo pacman -S code``
