@@ -145,4 +145,52 @@ Within the init.vim file install the appropriate CoC commands
 
 ``CocInstall coc-clanged``
 
+Install tmux
+############
+Install tmux with the following command
 
+``$ sudo pacman -S tmux``
+
+Move the ``tmux.conf`` file from the cloned directory to the users home directory.
+Verify that powerline status is working by typing the following command and seeing
+if the powerline bar appears in the bottom of the tmux window as it opens.
+
+``$ tmux``
+
+Exit tmux
+
+``$ tmux kill-session``
+
+Clone the tmux plugin manager
+
+``$ git clone https://github.com/tmux-plugins/tpm/tpm ~/.tmux/plugins/tpm``
+
+Open a tmux session and type ``Control-A-I`` to install plugins
+
+Set up bash
+###########
+Move the ``.bashrc`` and ``.bash_profile`` from the cloned directory
+to the users home directory.
+
+Create a ``bash_scripts`` directory in the ``.config`` directory
+
+``$ mkdir ~/.config/bash_scripts``
+
+Copy the contents of the cloned ``bash_scripts`` directory to the new one.  Close
+the terminal and re-open it to see if the powerline status bar exists in the lower
+portion of the terminal.  If it has appeared then all steps have been executed
+correctly.  If not, then the user may need to repeat some steps.
+
+Move the ``arduino_files``, ``c_files``, ``c++_files`, and ``py_files`` directories
+from the clones copy to the new ``.config`` directory.  Ensure bash is working 
+properly by typing the following command to see if it creates a python directory
+
+``$ create_py_dr``
+
+If the python directory is created appropriately then delete the directory
+with the following command.
+
+``$ delete_py_dir``
+
+Set up ZShell
+#############
