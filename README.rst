@@ -321,3 +321,7 @@ Install relevant packages for software development
 ``$ sudo pacman -S code``
 
 ``$ sudo pacman -S github-cli``
+
+System Backup
+#############
+Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
