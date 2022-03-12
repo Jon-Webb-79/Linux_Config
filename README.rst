@@ -55,12 +55,94 @@ Install yay with the following commands;
 
 ``$ cd /opt``
 
-``sudo git clone https://aur.archlinux.org/yay.git``
+``$ sudo git clone https://aur.archlinux.org/yay.git``
 
 ``$ sudo chown -R jonwebb:users ./yay`` 
 
 ``$ cd yay``
 
 ``$ makepkg -si``
+
+Install NeoVim
+##############
+Install NeoVim with the following command
+
+``$ sudo pacman -S neovim``
+
+Install and configure related packages with the following commands
+
+``$ yay -S vim-plug``
+
+``$ sudo pacman -S nodejs``
+
+``$ sudo pacman -S npm``
+
+``$ sudo pacman -S python``
+
+``$ sudo pacman -S python-pip``
+
+``$ pip3 install python-vim``
+
+``$ pip3 install jedi``
+
+``$ yay -S nerd-fonts-jetbrains-mono``
+
+``$ sudo pacman -S powerline powerline-fonts``
+
+Verify NeoVim was properly installed
+
+``$ nvim <filename>``
+
+Determine if you have a .config folder.  This instruction assumes the 
+user is in the home directory.
+
+``$ ls -la``
+
+If you do not have a .config folder, create one
+
+``$ mkdir .config``
+
+Place the nvim directory from the cloned directory into the .config directory
+and cd into the nvim directory.  Within the nvim directory open the init.vim
+file with vim;
+
+``$ nvim init.vim``
+
+Opening the file will likely lead to warnings which can be ignored.  Within 
+the init.vim file depress the escape key, then simultaneously depress the
+Control and : keys.  This should produce a : symbol in the bottom left corner
+of the screen.  Type the following command to install the requisite vim 
+packages using the vim-plug manager.
+
+``:PlugInstall``
+
+The above command should install the Conquerer of Comman (CoC) package.  Build
+the CoC pre-requisites.
+
+``$ cd ~/.local/share/nvim/plugged/coc.nvim``
+
+**NOTE: For some user the directory may be at the following location**
+
+``$ cd ~/.config/nvim/plugged/coc.nvim``
+
+Install yarn
+
+``$ sudo npm install -g yarn``
+
+``$ yarn install``
+
+``yarn build``
+
+Install code development packages.
+
+``$ cd ~/.config/nvim``
+
+``$ nvim init.vim``
+
+Within the init.vim file install the appropriate CoC commands
+
+``:CocInstall coc-python``
+
+``CocInstall coc-clanged``
 
 
