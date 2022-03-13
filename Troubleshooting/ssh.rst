@@ -4,7 +4,7 @@ SSH Configuration
 This file will walk a reader through the process of configuring
 ssh on the client and server side.
 
-Clinet Side
+Client Side
 ###########
 
 1. Verify that openssh is installed, and install it if not installed
@@ -133,3 +133,76 @@ Clinet Side
 8. From now on you can log onto the server by typing
 
    ``$ ssh <user_defined_short_name>``
+
+Server Side
+###########
+
+1. Verify that the server exists
+
+   ``$ which sshd``
+
+   If the server does not exist, then install it.  This command assumes
+   that the server is using Arch Linux
+
+   ``$ sudo pacman -S ssh-server``
+
+2. Check the status of sshd
+
+   ``systemctl status sshd``
+
+3. If necassary we can restart, stop, or enable sshd
+
+   ``systemctl restart sshd``
+
+   ``systemctl stop sshd``
+
+   ``systemctl start sshd``
+
+   ``systemctl enable sshd``
+
+4. Modify the ``ssh_config`` file
+
+   a. Cd to the appropriate directory
+
+      ``$ cd /etc/ssh``
+
+      **WARNING: do not delete any files in this directory**
+
+   b. Open the config file
+
+      ``$ sudo vim sshd_config``
+
+   c. If ``Port`` is set to 22, set it to any other larger number.  You will need
+      to ensure this is reflected on the client side config file.
+
+   d. Add specific users after the ``Allowusers`` keyword
+
+   e. Reset ``PermitRootLogin`` from ``prohibit-password`` to ``no``
+
+      **NOTE: Ensure that there is a sshkey relationship between all cleints before doing this**
+
+   f. Restart and re-enable the ssh server using the commands in step 3.
+
+5. Lock down the server side files 
+
+   a. Lock down the ``authorized_keys`` file
+
+      ``$ chmod 400 ~/.ssh/authorized_keys``
+
+   b. Set an immutable bit on the ``authorized_keys`` file.  This may require super user privledges
+
+      ``$ chattr +i ~/.ssh/authorized_keys``
+
+   c. Repeat the previous step on the .ssh directory
+
+      ``$ chattr +i ~/.ssh``
+
+   e. Immutable bits can be un-set with the following commands
+
+      ``$ chatter -i ~/.ssh/authorized_keys``
+
+      ``$ chattr -i ~/.ssh``
+
+6. Login attempts can be viewed with the ``journalctl`` command
+
+   ``$ journalctl --since "5 min ago"``
