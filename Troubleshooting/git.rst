@@ -29,7 +29,7 @@ by git.
 The user can create a git project by cd'ing into the directory
 where they wish to configuration manager files and typing
 
-``$ git init``
+``$ git init -b main``
 
 As the user creates directories and files within the configuration
 controlled directory, they can add those directories and files with 
@@ -88,3 +88,19 @@ Type the following commands and follow instructions.  It should prompt you to ma
 the key password acquired in the previous step
 
 ``$ gh auth login``
+
+Push project to Github
+######################
+Assuming that your project has been initialized within your computer you can push the project
+to Github with the following steps
+
+1. Create a project on Github.com by logging into your account and creating a new project. Save the 
+   address for that project
+
+2. Add the remote repository to the main branch
+
+   ``$ git remote add origin <REMOTE-URL>``
+
+3. Push the project to the remote repository
+
+   ``$ git push -u origin main``
