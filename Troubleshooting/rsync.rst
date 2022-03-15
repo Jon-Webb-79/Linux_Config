@@ -15,7 +15,7 @@ rsync usage
    b. The first time backing up the home directory use the following 
       command
 
-      ``$ rsync -arvn --test home/ /run/media/jonwebb/drive_1``
+      ``$ rsync -arvn --dry-run home/ /run/media/jonwebb/drive_1``
 
       The above command will only test to ensure that you are backing up the right
       information, but will not back it up.
