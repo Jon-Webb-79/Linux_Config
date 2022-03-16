@@ -8,8 +8,7 @@ the files, directories and scripts are applicable to any flavor of Linux
 Contributing
 ############
 Pull requests are welcome.  For major changes, please open an issue first to discuss
-what you would like to change.  Please make sure to include and update tests
-as well as relevant doc-string and sphinx updates.
+what you would like to change.
 
 License
 #######
@@ -29,7 +28,7 @@ In order to download this repository from github, follow these instructions
    user can place this directory anywhere, it is recommended that it be placed
    in the users home directory
 4. Open a terminal (Bash, zsh) and cd to the ``Linux_Config`` directory and type
-   ``close https://github.com/Jon-Webb-79/Linux_Config.git Linux_Config``
+   ``clone https://github.com/Jon-Webb-79/Linux_Config.git Linux_Config``
 
 Post Installation
 #################
