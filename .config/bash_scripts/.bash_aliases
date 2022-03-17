@@ -133,6 +133,7 @@ alias cd-c='cd ~/Code_Dev/C'
 alias create_c_dir='bash ~/.config/bash_scripts/create_dir.sh C'
 alias create_c_file='bash ~/.config/bash_scripts/create_file.sh C'
 alias create_c_test='bash ~/.config/bash_scripts/create_file.sh C_Test'
+alias create_c_lib='bash ~/.config/bash_scripts/create_file.sh C_Lib'
 alias open_c_ide='bash ~/.config/bash_scripts/create_project_tmux.sh C'
 
 delete_c_dir() {                                           # Delete a Python project

@@ -140,6 +140,18 @@ elif [ $language == "C++_Lib" ] ; then
     $replace -i "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
     $replace -i "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
     $replace -i "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
+else
+    echo "Enter the library name"
+	read file_name
+    $make_dir $dir'/'$file_name
+	$copy $c_dir'CMake2.txt' $dir'/'$file_name'/CMakeLists.txt'
+
+	$replace -i "s/prjct_name/$file_name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i "s/Name/$name/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i "s/Day/$day/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i "s/Month/$month/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i "s/Year/$year/g" $dir'/'$file_name'/CMakeLists.txt'
+    $replace -i "s/Company/$company/g" $dir'/'$file_name'/CMakeLists.txt'
 fi
 # ================================================================================
 # ================================================================================
