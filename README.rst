@@ -321,6 +321,8 @@ Install relevant packages for software development
 
 ``$ sudo pacman -S github-cli``
 
+``$ yay -S doxygen-git``
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
