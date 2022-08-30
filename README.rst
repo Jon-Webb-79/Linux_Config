@@ -313,6 +313,8 @@ Install relevant packages for software development
 
 ``$ yay -S googletest-git``
 
+``$ yay -S cmocka``
+
 ``$ sudo pacman -S clang``
 
 ``$ sudo pacman -S cmake``
