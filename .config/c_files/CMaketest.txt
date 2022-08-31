@@ -13,20 +13,17 @@
 # Set minimum cmake version
 cmake_minimum_required(VERSION 3.22.2)
 
-enable_testing()
-
 add_executable(
   unit_tests
-  test.cpp
+  unit_test.c
+  test.c
+  test.h
 )
 target_link_libraries(
   unit_tests
-  gtest_main
   include
+  cmocka
 )
-
-include(GoogleTest)
-gtest_discover_tests(unit_tests)
 # ================================================================================
 # ================================================================================
 # eof

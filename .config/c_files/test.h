@@ -1,30 +1,30 @@
 // ================================================================================
 // ================================================================================
-// - File>    filename.cpp
-// - Purpose: This file implements google test as a method to test c code.
-//            Describe the type of testing to be completed
+// - File:    filename.h
+// - Purpose: Describe the file purpose here
 //
 // Source Metadata
-// - Author:  Name
-// - Date:    Month Day, Year
+// - Author:  Jonathan A. Webb
+// - Date:    August 31, 2022
 // - Version: 1.0
-// - Copyright: Copyright Year, Company Inc.
+// - Copyright: Copyright 2022, Jon Webb Inc.
 // ================================================================================
 // ================================================================================
-// - Begin test
+// Include modules here
 
-#include <gtest/gtest.h>
+#ifndef test_H
+#define test_H
 
-extern "C" {
-#include "test_file.h"
-}
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+#include <stdint.h>
+#include <cmocka.h>
 
-TEST(test_suite_name, test_name) {
-	// Expect two strings not to be equal.
-	EXPECT_STRNE("hello", "world");
-	// Expect equality.
-	EXPECT_EQ(7 * 6, 42);
-}
+void test_func(void **state);
+
+#endif /* test_H */
 // ================================================================================
 // ================================================================================
 // eof
