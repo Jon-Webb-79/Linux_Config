@@ -551,3 +551,9 @@ f. Install video driver
 ``$ systemctl enable sddm``
 
 ``$ reboot``
+
+10. System Backup
+#################
+a. Move ``backup`` file from ``Troubleshooting`` directory to ``/usr/local/bin`` directory
+b. Ensure that ``/usr/local/bin`` is in path with the command ``echo $PATH``.  If not, add it to ``.zsh_profile`` or ``.bash_profile``
+c. Execute system backup with the command ``sudo backup``
