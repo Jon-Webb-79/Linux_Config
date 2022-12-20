@@ -19,8 +19,8 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
     . "$HOME/.bashrc"
     fi
 fi
-PATH="/usr/bin/:/.local/include/"
-export PATH
+# if not currently in bath include the following
+export PATH="$PATH:/usr/bin/:/.local/include/:/usr/local/bin/"
 # ================================================================================
 # ================================================================================
 # eof

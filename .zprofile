@@ -19,8 +19,7 @@ if [ -n "$ZSH_VERSION" -a -n "$PS1" ]; then
     . "$HOME/.zshrc"
     fi
 fi
-PATH="/usr/bin/:/.local/include/"
-export PATH
+export PATH="$PATH:/usr/bin/:/.local/include/:/usr/local/bin/"
 # ================================================================================
 # ================================================================================
 # eof
