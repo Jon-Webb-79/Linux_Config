@@ -9,8 +9,10 @@ import pytest
 # sys.path.insert(1, os.path.abspath(dir))
 # ================================================================================
 # ================================================================================
+
 # File:    filename.py
 # Date:    Month Day, Year
+# Author:  Name
 # Purpose: Describe the types of testing to occur in this file.
 # Instruction: This code can be run in hte following ways
 #              - pytest # runs all functions beginnning with the word test in the
@@ -29,11 +31,6 @@ import pytest
 #              - pytest -s -v -p no:warnings # Displays relevant information and
 #                                supports debugging
 #              - pytest -s -p no:warnings # Run for record
-
-# Source Code Metadata
-__author__ = "Name"
-__copyright__ = "Copyright Year, Company Inc."
-__version__ = "1.0"
 # ================================================================================
 # ================================================================================
 # Insert Code here

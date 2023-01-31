@@ -8,14 +8,11 @@
 # sys.path.insert(1, os.path.abspath(dir))
 # ================================================================================
 # ================================================================================
+
 # File:    filename.py
 # Date:    Month Day, Year
+# Author:  Name
 # Purpose: Describe the purpose of functions of this file
-
-# Source Code Metadata
-__author__ = "Name"
-__copyright__ = "Copyright Year, Company Inc."
-__version__ = "1.0"
 # ================================================================================
 # ================================================================================
 # Insert Code here
