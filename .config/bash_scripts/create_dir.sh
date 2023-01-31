@@ -79,7 +79,7 @@ if [ $language == "Python" ] ; then
 	$make_dir .venv
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
-	$create_file $project_name'/__init__.py'
+	$copy $py_dir'__init__.py' $path_length'/'$project_name'/__init__.py'
 	$create_file 'test/__init__.py'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
@@ -114,6 +114,8 @@ if [ $language == "Python" ] ; then
 	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/filename/main/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/__init__.py'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/__init__.py'
 	$script_type $script_dir'create_project_tmux.sh' Python $project_name
 # --------------------------------------------------------------------------------
 # C Specific files and directories
