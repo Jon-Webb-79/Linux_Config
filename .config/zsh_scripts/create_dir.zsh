@@ -86,7 +86,6 @@ if [[ $language == "Python" ]] then
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'requirements.txt' $path_length'/requirements.txt'
-	$copy $py_dir'setup.py' $path_length'/setup.py'
 	$copy $py_dir'test.py' $path_length'/test/test.py'
 	$copy $py_dir'main.py' $path_length'/src/'$project_name'/main.py'
 	$copy $py_dir'MANIFEST.in' $path_length'/MANIFEST.in'
