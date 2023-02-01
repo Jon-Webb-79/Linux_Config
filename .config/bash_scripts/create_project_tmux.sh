@@ -45,7 +45,7 @@ dir_path=$HOME'/Code_Dev/'$language'/'$SESSION
 if [ ! -d "$dir_path" ]; then
     echo "FATAL ERROR: $file_path does not exist" && exit
 else
-    cd $dir_path'/src/'$SESSION
+    cd $dir_path'/'$SESSION
 fi
 # ================================================================================ 
 # Develop list of open tmux sessions for comparison
@@ -72,7 +72,7 @@ if [ "$SESSIONEXISTS" = "" ]; then
 # -------------------------------------------------------------------------------- 
 # Create second window for File Testing
     if [ $language == "Python" ] ; then
-        cd ../../test
+        cd ../test
 		# Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
 		tmux selectp -t 1

@@ -59,7 +59,6 @@ script_dir=$HOME'/.config/'$script_type'_scripts/'
 
 $make_dir $path_length
 cd $path_length
-$make_dir 'src'
 $make_dir $project_name 
 $make_dir 'scripts'
 $make_dir 'scripts/bash'
@@ -80,14 +79,14 @@ if [[ $language == "Python" ]] then
 	$make_dir .venv
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
-	$copy $py_dir'__init__.py' $path_length'/src/'$project_name'/__init__.py'
+	$copy $py_dir'__init__.py' $path_length'/'$project_name'/__init__.py'
 	$copy $py_dir'pyproject.toml' $path_length'/pyproject.toml'
 	$create_file 'test/__init__.py'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'requirements.txt' $path_length'/requirements.txt'
 	$copy $py_dir'test.py' $path_length'/test/test.py'
-	$copy $py_dir'main.py' $path_length'/src/'$project_name'/main.py'
+	$copy $py_dir'main.py' $path_length'/'$project_name'/main.py'
 	$copy $py_dir'MANIFEST.in' $path_length'/MANIFEST.in'
 	$copy $py_dir'sphinx_make' $path_length'/docs/sphinx/Makefile'
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
@@ -109,14 +108,14 @@ if [[ $language == "Python" ]] then
 	$replace -i "s/Company/$company/g" $path_length'/test/test.py'
 	$replace -i "s/filename/test/g" $path_length'/test/test.py'
 
-    $replace -i "s/Day/$day/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/Month/$month/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/Year/$year/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/Name/$name/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/Company/$company/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/filename/main/g" $path_length'/src/'$project_name'/main.py'
-	$replace -i "s/Name/$name/g" $path_length'/src/'$project_name'/__init__.py'
-	$replace -i "s/Company/$company/g" $path_length'/src/'$project_name'/__init__.py'
+    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/filename/main/g" $path_length'/'$project_name'/main.py'
+	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/__init__.py'
+	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/__init__.py'
 
 	$replace -i "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
 	$replace -i "s/Name/$name/g" $path_length'/pyproject.toml'
