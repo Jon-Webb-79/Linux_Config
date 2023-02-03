@@ -72,7 +72,7 @@ if [ "$SESSIONEXISTS" = "" ]; then
 # -------------------------------------------------------------------------------- 
 # Create second window for File Testing
     if [[ $language == "Python" ]] then
-        cd ../test
+        cd ../tests
 		# Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
 		tmux selectp -t 1
@@ -81,7 +81,7 @@ if [ "$SESSIONEXISTS" = "" ]; then
 		tmux splitw -h -p 50
 		cd ..
 	else
-		cd test
+		cd tests
 		# Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
 		tmux selectp -t 1

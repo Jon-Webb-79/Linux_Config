@@ -56,18 +56,6 @@ script_dir=$HOME'/.config/'$script_type'_scripts/'
 # ================================================================================
 # ================================================================================
 # Create all generic directory structure
-
-$make_dir $path_length
-cd $path_length
-$make_dir $project_name 
-$make_dir 'scripts'
-$make_dir 'scripts/bash'
-$make_dir 'scripts/zsh'
-$make_dir 'data'
-$make_dir 'data/test'
-$make_dir 'docs'
-$make_dir 'docs/requirements'
-# --------------------------------------------------------------------------------
 # Python specific files and directories
 
 day=`date +%d`
@@ -75,25 +63,34 @@ month=`date +%B`
 year=`date +%Y`
 
 if [ $language == "Python" ] ; then
-	$make_dir 'test'
-	$make_dir .venv
+	py_path=$HOME'/Code_Dev/'$language'/'
+	cd $py_path
+	poetry new $project_name
+	cd $path_length
+	$make_dir 'scripts'
+	$make_dir 'scripts/bash'
+	$make_dir 'scripts/zsh'
+	$make_dir 'data'
+	$make_dir 'data/test'
+	$make_dir 'docs'
+	$make_dir 'docs/requirements'
+	poetry add -G dev pytest
+	poetry add flake8
+	poetry add black
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
-	$copy $py_dir'__init__.py' $path_length'/'$project_name'/__init__.py'
-	$copy $py_dir'pyproject.toml' $path_length'/pyproject.toml'
-	$create_file 'test/__init__.py'
+	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
-	$copy $py_dir'requirements.txt' $path_length'/requirements.txt'
-	$copy $py_dir'test.py' $path_length'/test/test.py'
+	$copy $py_dir'test.py' $path_length'/tests/test.py'
 	$copy $py_dir'main.py' $path_length'/'$project_name'/main.py'
-	$copy $py_dir'MANIFEST.in' $path_length'/MANIFEST.in'
 	$copy $py_dir'sphinx_make' $path_length'/docs/sphinx/Makefile'
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
 	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
     $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
+	rm README.md
 	$copy $py_dir'README.rst' $path_length'/README.rst'
 	$copy $HOME'/.config/bash_scripts/run_tests.sh' $path_length'/scripts/bash/run_tests.sh' 
     $copy $HOME'/.config/bash_scripts/unit_tests.sh' $path_length'/scripts/bash/unit_tests.sh'
@@ -101,13 +98,14 @@ if [ $language == "Python" ] ; then
     $copy $HOME'/.config/zsh_scripts/unit_tests.zsh' $path_length'/scripts/zsh/unit_tests.zsh'
 
 	# Update files with day, month, year
-    $replace -i "s/Day/$day/g" $path_length'/test/test.py'
-    $replace -i "s/Month/$month/g" $path_length'/test/test.py'
-	$replace -i "s/Year/$year/g" $path_length'/test/test.py'
-    $replace -i "s/Name/$name/g" $path_length'/test/test.py'
-	$replace -i "s/Company/$company/g" $path_length'/test/test.py'
-	$replace -i "s/filename/test/g" $path_length'/test/test.py'
+    $replace -i "s/Day/$day/g" $path_length'/tests/test.py'
+    $replace -i "s/Month/$month/g" $path_length'/tests/test.py'
+	$replace -i "s/Year/$year/g" $path_length'/tests/test.py'
+    $replace -i "s/Name/$name/g" $path_length'/tests/test.py'
+	$replace -i "s/Company/$company/g" $path_length'/tests/test.py'
+	$replace -i "s/filename/test/g" $path_length'/tests/test.py'
 
+	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml'
     $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/main.py'
@@ -117,9 +115,22 @@ if [ $language == "Python" ] ; then
 	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/__init__.py'
 	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/__init__.py'
 
-	$replace -i "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
-	$replace -i "s/Name/$name/g" $path_length'/pyproject.toml'
 	$script_type $script_dir'create_project_tmux.sh' Python $project_name
+# --------------------------------------------------------------------------------
+# Other language boilerplate
+
+if [ $language != "Python" ] ; then
+	$make_dir $path_length
+	cd $path_length
+	$make_dir $project_name 
+	$make_dir 'scripts'
+	$make_dir 'scripts/bash'
+	$make_dir 'scripts/zsh'
+	$make_dir 'data'
+	$make_dir 'data/test'
+	$make_dir 'docs'
+	$make_dir 'docs/requirements'
+fi
 # --------------------------------------------------------------------------------
 # C Specific files and directories
 
