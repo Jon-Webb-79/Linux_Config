@@ -329,11 +329,11 @@ Install Poetry for Python
 #########################
 Install and configure Poetry for Python package management
 
-``curl -sSL https://install.python-poetry.org | python3 - ``
+``$ curl -sSL https://install.python-poetry.org | python3 - ``
 
 Configure virtual environment to be local to package
 
-``poetry config virtualenvs.in-project true``
+``$ poetry config virtualenvs.in-project true``
 
 System Backup
 #############
