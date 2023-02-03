@@ -325,6 +325,16 @@ Install relevant packages for software development
 
 ``$ yay -S doxygen-git``
 
+Install Poetry for Python
+#########################
+Install and configure Poetry for Python package management
+
+``curl -sSL https://install.python-poetry.org | python3 - ``
+
+Configure virtual environment to be local to package
+
+``poetry config virtualenvs.in-project true``
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
