@@ -75,8 +75,8 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs'
 	$make_dir 'docs/requirements'
 	poetry add -G dev pytest
-	poetry add flake8
-	poetry add black
+	poetry add -G dev flake8
+	poetry add -G dev black
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
