@@ -19,8 +19,8 @@
 :set softtabstop=4
 :set mouse=a
 
-iab <expr> r80= repeat('=', 80)
-iab <expr> r80- repeat('-', 80)
+iab <expr> r90= repeat('=', 90)
+iab <expr> r90- repeat('-', 90)
 iab <expr> shebang repeat('#!/usr/bin/bash', 1)
 iab <expr> zbang repeat('#!/usr/bin/zsh', 1)
 
