@@ -79,16 +79,17 @@ if [ $language == "Python" ] ; then
 	poetry add -G dev black
 	poetry add -G dev mypy
 	poetry add -G dev isort
-	poetry add -G flake8-bandit
-	poetry add -G flake8-bugbear
-	poetry add -G flake8-builtins
-	poetry add -G flake8-comprehensions
-    poetry add -G flake8-eradicate
-	poetry add -G flake8-implicit-str-concat
-	poetry add -G flake8-print
+	poetry add -G dev flake8-bandit
+	poetry add -G dev flake8-bugbear
+	poetry add -G dev flake8-builtins
+	poetry add -G dev flake8-comprehensions
+    poetry add -G dev flake8-eradicate
+	poetry add -G dev flake8-implicit-str-concat
+	poetry add -G dev flake8-print
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
+	$copy $py_dir'.flake8' $path_length'/.flake8'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'test.py' $path_length'/tests/test.py'
