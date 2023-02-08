@@ -83,7 +83,6 @@ if [[ $language == "Python" ]] then
 	poetry add -G dev flake8-bugbear
 	poetry add -G dev flake8-builtins
 	poetry add -G dev flake8-comprehensions
-    poetry add -G dev flake8-eradicate
 	poetry add -G dev flake8-implicit-str-concat
 	poetry add -G dev flake8-print
 	$make_dir 'docs/sphinx'
