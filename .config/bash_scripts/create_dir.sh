@@ -79,6 +79,13 @@ if [ $language == "Python" ] ; then
 	poetry add -G dev black
 	poetry add -G dev mypy
 	poetry add -G dev isort
+	poetry add -G flake8-bandit
+	poetry add -G flake8-bugbear
+	poetry add -G flake8-builtins
+	poetry add -G flake8-comprehensions
+    poetry add -G flake8-eradicate
+	poetry add -G flake8-implicit-str-concat
+	poetry add -G flake8-print
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
