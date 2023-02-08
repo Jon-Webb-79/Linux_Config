@@ -8,6 +8,9 @@ classifiers = [
 	"Operating System :: POSIX :: Linux"
 ]
 
+[tool.isort]
+profile = 'black'
+
 [tool.black]
 line-length = 90
 target-version = ['py38', 'py39', 'py310']
