@@ -10,6 +10,10 @@ Describe project here
 .. image:: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
     :target: https://pycqa.github.io/isort/
 
+.. image:: https://readthedocs.org/projects/flake8/badge/?version=latest
+    :target: https://flake8.pycqa.org/en/latest/?badge=latest
+    :alt: Documentation Status
+
 Contributing
 ############
 Pull requests are welcome.  For major changes, please open an issue first to discuss
