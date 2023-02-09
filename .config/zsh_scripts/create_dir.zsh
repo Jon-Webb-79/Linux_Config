@@ -89,6 +89,7 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
 	$copy $py_dir'.flake8' $path_length'/.flake8'
+	$copy $py_dir'conftest.py' $path_length'/conftest.py'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'test.py' $path_length'/tests/test.py'
@@ -113,6 +114,12 @@ if [[ $language == "Python" ]] then
     $replace -i "s/Name/$name/g" $path_length'/tests/test.py'
 	$replace -i "s/Company/$company/g" $path_length'/tests/test.py'
 	$replace -i "s/filename/test/g" $path_length'/tests/test.py'
+
+	$replace -i "s/Day/$day/g" $path_length'/conftest.py'
+    $replace -i "s/Month/$month/g" $path_length'/conftest.py'
+	$replace -i "s/Year/$year/g" $path_length'/conftest.py'
+    $replace -i "s/Name/$name/g" $path_length'/conftest.py'
+	$replace -i "s/Company/$company/g" $path_length'/conftest.py'
 
 	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml'
     $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
