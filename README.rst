@@ -335,6 +335,15 @@ Configure virtual environment to be local to package
 
 ``$ poetry config virtualenvs.in-project true``
 
+THe poetry version that installed in the above commands is predicated on the base
+version of python at the time of the install.  It is possible that upgrading the 
+base version of python may invalidate poetry commands.  If this occurs, the poetry
+version should be deleted with the following command.
+
+``rm -r /.local/share/pypoetry/venv/bin/pypoetry``
+
+Once the above directory has been deleted, poetry should be re-installed.
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
