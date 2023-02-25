@@ -40,8 +40,14 @@ legacy_tox_ini = """
     env_list = py310, mypy, flake8
 
     [testenv]
+	description = run tests with pytest
     deps = pytest
-    commands = pytest tests
+    commands = pytest tests -v {posargs}
+
+	[testenv:coverage]
+	deps = pytest-cov
+	commands =
+		pytest --cov --cov-report term-missing --cov-report html --cov-append --cov-context=test --cov-fail-under=100 {posargs}
 
     [testenv:mypy]
     deps = mypy
