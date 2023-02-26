@@ -37,17 +37,12 @@ exclude = '''
 [tool.tox]
 legacy_tox_ini = """
 	[tox]
-    env_list = py310, mypy, flake8
+    env_list = py310, mypy, flake8, coverage, black
 
     [testenv]
 	description = run tests with pytest
     deps = pytest
     commands = pytest tests -v {posargs}
-
-	[testenv:coverage]
-	deps = pytest-cov
-	commands =
-		pytest --cov --cov-report term-missing --cov-report html --cov-append --cov-context=test --cov-fail-under=100 {posargs}
 
     [testenv:mypy]
     deps = mypy
@@ -56,6 +51,15 @@ legacy_tox_ini = """
 	[testenv:flake8]
 	deps = flake8
 	commands = flake8 pyproject
+
+	[testenv:black]
+	deps = black
+	commands = black pyproject
+
+	[testenv:coverage]
+	deps = pytest-cov
+	commands =
+		pytest --cov --cov-report term-missing --cov-report html --cov-append --cov-context=test --cov-fail-under=100 {posargs}
 """
 
 [tool.mypy]
