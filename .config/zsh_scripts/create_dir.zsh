@@ -106,6 +106,7 @@ if [[ $language == "Python" ]] then
     $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
+	$copy -r $py_dir'.github' $path_length'/.github'
 	rm README.md
 	$copy $py_dir'README.rst' $path_length'/README.rst'
 	$copy $HOME'/.config/bash_scripts/run_tests.sh' $path_length'/scripts/bash/run_tests.sh' 
