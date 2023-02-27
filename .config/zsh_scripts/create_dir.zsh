@@ -128,6 +128,7 @@ if [[ $language == "Python" ]] then
 	$replace -i "s/Company/$company/g" $path_length'/conftest.py'
 
 	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml'
+	$replace -i "s/Project_Name/$project_name/g" $path_length'/README.rst'
 	$replace -i "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
     $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/Month/$month/g" $path_length'/'$project_name'/main.py'
