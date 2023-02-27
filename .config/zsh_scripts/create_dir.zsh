@@ -87,9 +87,13 @@ if [[ $language == "Python" ]] then
 	poetry add -G dev flake8-print
 	poetry add -G dev tox
 	poetry add -G dev pytest-cov
+	poetry add -G dev pyupgrade
+	poetry add -G dev pre-commit
 	$make_dir 'docs/sphinx'
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
+	$copy $py_dir'.pre-commit-config.yaml' $path_length'/.pre-commit-config.yaml'
+	$copy $py_dir'ci_install.txt' $path_length'/ci_install.txt'
 	$copy $py_dir'.flake8' $path_length'/.flake8'
 	$copy $py_dir'conftest.py' $path_length'/conftest.py'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
