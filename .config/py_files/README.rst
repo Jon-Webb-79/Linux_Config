@@ -17,7 +17,7 @@ Describe project here
 .. image:: http://www.mypy-lang.org/static/mypy_badge.svg
    :target: http://mypy-lang.org/
 
-.. image:: https://github.com/Jon-Webb-79/Project_Name/workflows/Tests/badge.svg
+.. image:: https://github.com/Jon-Webb-79/Project_Name/workflows/Tests/badge.svg?cache=none
     :target: https://github.com/Jon-Webb-79/Project_Name/actions
 
 Contributing
