@@ -40,8 +40,8 @@ Installation
 In order to download this repository from github, follow these instructions
 
 1. Ensure you have .git installed on your computer
-2. At your desired location create a directory titled ``project_name``
-3. Open a terminal (Bash, zsh, Linux, or DOS) and cd to the ``project_name`` directory and type
-   ``close https://github.com/Jon-Webb-79/Project_Name.git project_name``
+2. At your desired location create a directory titled ``Project_Name``
+3. Open a terminal (Bash, zsh, Linux, or DOS) and cd to the ``Project_Name`` directory and type
+   ``close https://github.com/Jon-Webb-79/Project_Name.git Project_Name``
 4. Install with pip3
    ``pip3 install -r requirements``
