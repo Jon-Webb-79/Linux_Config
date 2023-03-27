@@ -81,7 +81,7 @@ if [ "$SESSIONEXISTS" = "" ]; then
 		tmux splitw -h -p 50
 		cd ..
 	else
-		cd tests
+		cd test
 		# Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
 		tmux selectp -t 1
