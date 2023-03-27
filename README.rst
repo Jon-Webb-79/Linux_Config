@@ -323,6 +323,8 @@ Install relevant packages for software development
 
 ``$ sudo pacman -S github-cli``
 
+``yay -S cmocks``
+
 ``$ yay -S doxygen-git``
 
 Install Poetry for Python
