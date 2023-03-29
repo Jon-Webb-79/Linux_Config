@@ -23,7 +23,12 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 enable_testing()
-set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
+# Set compiler flags
+if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
+    set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic")
+elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
+    set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic")
+endif()
 # --------------------------------------------------------------------------------
 # Set executable terms
 
