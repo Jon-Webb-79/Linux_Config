@@ -19,7 +19,7 @@ project(prjct_name)
 # Set the compiler, for some reason this does not work with clang++ or g++
 set(CMAKE_C_COMPILER "/usr/bin/gcc")
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 enable_testing()
