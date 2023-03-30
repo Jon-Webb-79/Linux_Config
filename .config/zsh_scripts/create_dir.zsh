@@ -155,6 +155,8 @@ if [[ $language != "Python" ]] then
 	$make_dir 'data/test'
 	$make_dir 'docs'
 	$make_dir 'docs/requirements'
+	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
+	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
 fi
 # --------------------------------------------------------------------------------
 # C Specific files and directories
