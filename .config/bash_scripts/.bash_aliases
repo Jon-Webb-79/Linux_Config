@@ -172,6 +172,29 @@ delete_cpp_dir() {                                           # Delete a Python p
 	    echo $varname not deleted
 	fi
 }
+# --------------------------------------------------------------------------------
+# Video editing file structure
+
+create_vid_dir() {
+	day=`date +%d`
+	month=`date +%m`
+	year=`date +%Y`
+	echo "Enter the Project Name:"
+	read project_name
+	direct=$year-$month-$day-$project_name
+    mkdir $direct
+	cd $direct
+	mkdir "01-Footage"
+	mkdir "02-Audio"
+	mkdir "03-Graphics"
+	mkdir "04-Music"
+	mkdir "05-Photos"
+	mkdir "06-Documents"
+	mkdir "07-Editor"
+	mkdir "08-AE"
+	mkdir "09-Exports"
+	cd ..
+}
 # ================================================================================
 # ================================================================================
 # eof
