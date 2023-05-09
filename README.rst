@@ -342,7 +342,7 @@ version of python at the time of the install.  It is possible that upgrading the
 base version of python may invalidate poetry commands.  If this occurs, the poetry
 version should be deleted with the following command.
 
-``rm -r ~/.local/share/pypoetry/venv/bin/pypoetry``
+``curl -sSL https://install.python-poetry.org | python3 -`` 
 
 Once the above directory has been deleted, poetry should be re-installed.
 
