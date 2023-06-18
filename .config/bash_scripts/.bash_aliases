@@ -201,6 +201,7 @@ create_vid_dir() {
 
 todo_list() {
 	cd ~/apps/todo_six/
+	va
 	python todo.py
 	cd $HOME
 }
