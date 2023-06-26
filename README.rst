@@ -353,8 +353,9 @@ Install MariaDB
 #. Run the following command before starting mariadb ``maria-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql``
 #. Login in as root with ``sudo mysql -u root -p``
 #. Create a user access to a database 
-   #. ``CREATE USER 'your_name'@'localhos' identified by 'password_here'``
-   #. ``GRANT ALL PRIVILEGES ON db_name.* TO 'your_name@localhost'``
+    #. ``CREATE USER 'your_name'@'localhos' identified by 'password_here'``
+    #. ``GRANT ALL PRIVILEGES ON db_name.* TO 'your_name@localhost'``
+#. A new session can be creted the the commend, ``mysql --user=your_username --port=your_port --protocol=your_network_type --host=yourhostname``  
 #. Get more information from Arc Linux Wiki for MariaDB
 
 System Backup
