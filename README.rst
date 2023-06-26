@@ -346,6 +346,17 @@ version should be deleted with the following command.
 
 Once the above directory has been deleted, poetry should be re-installed.
 
+Install MariaDB
+###############
+
+#. Install MariaDB with ``sudo pacman -S mariadb``
+#. Run the following command before starting mariadb ``maria-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql``
+#. Login in as root with ``sudo mysql -u root -p``
+#. Create a user access to a database 
+   #. ``CREATE USER 'your_name'@'localhos' identified by 'password_here'``
+   #. ``GRANT ALL PRIVILEGES ON db_name.* TO 'your_name@localhost'``
+#. Get more information from Arc Linux Wiki for MariaDB
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
