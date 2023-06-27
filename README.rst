@@ -366,6 +366,7 @@ the proper process for downloading and cofiguring Arch Linux.
    to launch mariadb for a root user is ``$ sudo mysql -u``.
 #. Set the root password
     #. ``MariaDB> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('password_here');``
+    #. From this point on, the Arch Linux MariaDB wiki is accurate
 #. From within the mysql terminal, create users with some or all root privleges.
     #. ``MariaDB> CREATE USER 'root'@'localhost' IDENTIFIED BY 'password_here;``
     #. ``MariaDB GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';``
