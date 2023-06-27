@@ -364,20 +364,15 @@ the proper process for downloading and cofiguring Arch Linux.
    However, this is predicated on the notion that the user set a root passowrd during the installation
    process, which does occur on Windows, but not the Arch Linux installation process.  The correct command
    to launch mariadb for a root user is ``$ sudo mysql -u``.
-#. From within the mysql terminal, set a root user password.
-    #. ``MariaDB> CREATE USER 'root'@'localhost' IDENTIFIED BY 'password_here``
-    #. ``MariaDB GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'``
+#. Set the root password
+    #. ``MariaDB> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('password_here');``
+#. From within the mysql terminal, create users with some or all root privleges.
+    #. ``MariaDB> CREATE USER 'root'@'localhost' IDENTIFIED BY 'password_here;``
+    #. ``MariaDB GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';``
 #. Repeat previous step to assign root users for a database, but the second command will be;
-    #. ``MariaDB> GRANT ALL PRIVILEGES ON db_name.* 'username'@'localhost```
+    #. ``MariaDB> GRANT ALL PRIVILEGES ON db_name.* 'username'@'localhost;```
 #. Download mysql workbench
     #. ``$ sudo pacman -S mysql-workbench``
-
-#. Login in as root with ``sudo mysql -u root -p``
-#. Create a user access to a database 
-    #. ``CREATE USER 'your_name'@'localhost' identified by 'password_here'``
-    #. ``GRANT ALL PRIVILEGES ON db_name.* TO 'your_name@localhost'``
-#. A new session can be creted the the commend, ``mysql --user=your_username --port=your_port --protocol=your_network_type --host=yourhostname``  
-#. Get more information from Arc Linux Wiki for MariaDB
 
 System Backup
 #############
