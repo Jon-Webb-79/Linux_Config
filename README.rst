@@ -348,9 +348,30 @@ Once the above directory has been deleted, poetry should be re-installed.
 
 Install MariaDB
 ###############
+Unfortunately MariaDB was written for use on a Windows platform, and many of it's
+interfaces are not properly ported to Linux. The Arch Linux Wiki does not have accurate
+information describing how to download and install MariaDB.  The following describes
+the proper process for downloading and cofiguring Arch Linux.
 
-#. Install MariaDB with ``sudo pacman -S mariadb``
-#. Run the following command before starting mariadb ``maria-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql``
+#. Install MariaDB with ``$ sudo pacman -S mariadb``
+#. Run the following command before starting mariadb ``$ maria-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql``
+#. Start and enable the mariadb service
+    #. ``$ systemctl start mariadb.service``
+    #. ``$ systemctl enable mariadb.service``
+#. Run the security protocol for mariadb
+    #. ``$ mariadb-secure-installation``
+#. The Arch Linux wiki process asks a user to type the following command next, ``$ mariadb -u root -p``.
+   However, this is predicated on the notion that the user set a root passowrd during the installation
+   process, which does occur on Windows, but not the Arch Linux installation process.  The correct command
+   to launch mariadb for a root user is ``$ sudo mysql -u``.
+#. From within the mysql terminal, set a root user password.
+    #. ``MariaDB> CREATE USER 'root'@'localhost' IDENTIFIED BY 'password_here``
+    #. ``MariaDB GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'``
+#. Repeat previous step to assign root users for a database, but the second command will be;
+    #. ``MariaDB> GRANT ALL PRIVILEGES ON db_name.* 'username'@'localhost```
+#. Download mysql workbench
+    #. ``$ sudo pacman -S mysql-workbench``
+
 #. Login in as root with ``sudo mysql -u root -p``
 #. Create a user access to a database 
     #. ``CREATE USER 'your_name'@'localhos' identified by 'password_here'``
