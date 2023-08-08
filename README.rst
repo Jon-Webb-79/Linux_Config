@@ -399,7 +399,8 @@ Install PostGreSQL
     #. ``sudo chown postgres:postgres /var/lib/postgres/``
     #. ``sudo chmod 700 /var/lib/postgres/``
     #. ``sudo -iu postgres touch /var/lib/postgres/.psql_history``
-
+#. From this point forward you will access postgresql with the following command,
+   ``psql -U username -h host_name database_name``
 
 System Backup
 #############
