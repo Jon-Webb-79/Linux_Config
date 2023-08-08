@@ -375,6 +375,32 @@ the proper process for downloading and cofiguring Arch Linux.
 #. Download mysql workbench
     #. ``$ sudo pacman -S mysql-workbench``
 
+Install PostGreSQL
+##################
+#. Install PostGreSQL with the command ``sudo pacman -S postgresql``
+#. Switch to the PostGreSQL user by executing ``sudo -iu postgres``
+#. Initialize the database cluster with ``initdb --locale=C.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums``
+#. Return to standard user by typing ``exit``
+#. Initialize service
+    #. ``sudo systemctl enable postgresql.service``
+    #. ``sudo systemctl start postgresql.service``
+#. Log back into postgres with ``sudo -iu postgres``
+#. Create a root user account.
+    #. type ``createuser --interactive root``.
+    #. It will ask you if this is a superuser, teyp ``y``.
+# Create a local user
+    #. type ``createuser --interactive username``
+    #. When prompted if you want this person to be a superuser, respond with ``n``.
+    #. When prompted make this user able to create new databases, but not able to assign new roles
+#. Create a database with the command ``createdb myDatabaseName``
+#. Connect to the database with the command ``psql -d myDatabaseName``.
+#. Quit with ``\q``
+#. After quitting, you may get a warning stating that ``/var/lib/postgres/.psql_history`` does not exist.  If this occurs, take the following steps.
+    #. ``sudo chown postgres:postgres /var/lib/postgres/``
+    #. ``sudo chmod 700 /var/lib/postgres/``
+    #. ``sudo -iu postgres touch /var/lib/postgres/.psql_history``
+
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
