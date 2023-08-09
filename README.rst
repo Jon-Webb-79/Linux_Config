@@ -392,6 +392,10 @@ Install PostGreSQL
     #. type ``createuser --interactive username``
     #. When prompted if you want this person to be a superuser, respond with ``n``.
     #. When prompted make this user able to create new databases, but not able to assign new roles
+    #. **NOTE:** Once in a database you can also create a new user via SQL command
+       ``CREATE ROLE username WITH LOGIN PASSWORD 'password'``
+    #. Via SQL command, Authorities can be assigned via ``ALTER ROLE username ROLE`` where ``ROLE``
+       can e ``CREATEDB, SUPERUSER, CREATEROLE, REPLICATION, BYPASS RLS``, etc.
 #. Create a database with the command ``createdb myDatabaseName``
 #. Connect to the database with the command ``psql -d myDatabaseName``.
 #. Quit with ``\q``
