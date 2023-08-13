@@ -406,6 +406,27 @@ Install PostGreSQL
 #. From this point forward you will access postgresql with the following command,
    ``psql -U username -h host_name database_name``
 
+Install SQL-Server
+##################
+#. Install all required dependencies
+    #. ``mkdir aur``
+    #. ``cd aur``
+    #. ``yay -S mssql-server``
+    #. ``yay -S msodbcsql``
+    #. ``yay -S mssql-tools``
+#. Configure SQL-Server
+    #. ``sudo /opt/mssql/bin/mssql-conf setup``
+    #. Select the Develepor edition, it should be option 2
+    #. Set up the administrator password in the prompt
+#. Enable the server and ensure it initiates at computer start up.
+    #. ``sudo systemctl enable mssql-server``
+    #. ``sudo systemctl start mssql-server``
+#. Connect as system administrator (sa)
+    #. ``sqlcmd -S localhost -U sa``
+#. If the previous step has issues funding the certificate you can run the following 
+   command.  **NOTE:** This is not recommended for a production environment.
+    #. ``sqlcmd -S localhost -S sa -C``
+
 System Backup
 #############
 Move the ``backup.sh`` script from the cloned copy to the users ``/etc`` directory
