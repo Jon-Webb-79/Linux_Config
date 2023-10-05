@@ -94,6 +94,7 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs/sphinx/source'
 	cat $py_dir'pyproject.toml' >> $path_length'/pyproject.toml'
 	$copy $py_dir'.pre-commit-config.yaml' $path_length'/.pre-commit-config.yaml'
+	$copy $py_dir'.readthedocs.yaml' $path_length'/.readthedocs.yaml'
 	$copy $py_dir'ci_install.txt' $path_length'/ci_install.txt'
 	$copy $py_dir'.flake8' $path_length'/.flake8'
 	$copy $py_dir'conftest.py' $path_length'/conftest.py'
