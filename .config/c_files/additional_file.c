@@ -7,7 +7,7 @@
 // - Author:  Name
 // - Date:    Month Day, Year
 // - Version: 1.0
-// - Copyright: Copyright 2022, Company Inc.
+// - Copyright: Copyright Year, Company Inc.
 // ================================================================================
 // ================================================================================
 // Include modules here

@@ -30,14 +30,31 @@ release = '0.1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc',
-              'sphinx.ext.autosummary', 'sphinx.ext.githubpages']
-autodoc_member_order = 'groupwise'
-autodoc_default_flags = ['members', 'show-inheritance']
+extensions = [
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.githubpages",
+    "breathe",
+]
+
+autodoc_member_order = "groupwise"
+autodoc_default_flags = ["members", "show-inheritance"]
 autosummary_generate = True
 
+# Breathe Configuration
+breathe_default_project = "c_libs"
+breathe_domain_by_extension = {"h" : "c", "c" : "c"}
+
+# This is the folder where Doxygen XML output goes, relative to conf.py
+breathe_projects = { "c_libs": "../doxygen_docs/xml/" }
+#autodoc_member_order = "groupwise"
+#autodoc_default_flags = ["members", "show-inheritance"]
+#autosummary_generate = True
+
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -50,9 +67,14 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'nature'
-
+html_theme = "sphinx_rtd_theme"
+# html_static_path = ['_static']
+# html_css_files = [
+#    'css/custom.css',
+# ]
+# html_theme_options = {"rightsidebar": False}
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ["_static"]
+

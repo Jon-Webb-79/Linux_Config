@@ -69,7 +69,7 @@ if [ $language == "Python" ] ; then
 	cd $path_length
 	$make_dir 'scripts'
 	$make_dir 'scripts/bash'
-	$make_dir 'scripts/zsh'
+	$make_dir 'scripts/sh'
 	$make_dir 'data'
 	$make_dir 'data/test'
 	$make_dir 'docs'
@@ -95,19 +95,20 @@ if [ $language == "Python" ] ; then
 	$copy $py_dir'.pre-commit-config.yaml' $path_length'/.pre-commit-config.yaml'
 	$copy $py_dir'ci_install.txt' $path_length'/ci_install.txt'
 	$copy $py_dir'.flake8' $path_length'/.flake8'
-	$copy $py_dir'conftest.py' $path_length'/conftest.py'
 	$copy $py_dir'.gitignore' $path_length'/.gitignore'
+	$copy $py_dir'conftest.py' $path_length'/conftest.py'
 	$copy $py_dir'LICENSE' $path_length'/LICENSE'
 	$copy $py_dir'test.py' $path_length'/tests/test.py'
 	$copy $py_dir'main.py' $path_length'/'$project_name'/main.py'
 	$copy $py_dir'sphinx_make' $path_length'/docs/sphinx/Makefile'
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
 	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
-    $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
+    $copy $py_dir'module.rst' $path_length'/docs/sphinx/source/module.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
 	$copy -r $py_dir'.github' $path_length'/.github'
 	rm README.md
+
 	$copy $py_dir'README.rst' $path_length'/README.rst'
 	$copy $HOME'/.config/bash_scripts/run_tests.sh' $path_length'/scripts/bash/run_tests.sh' 
     $copy $HOME'/.config/bash_scripts/unit_tests.sh' $path_length'/scripts/bash/unit_tests.sh'
@@ -141,6 +142,7 @@ if [ $language == "Python" ] ; then
 	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/__init__.py'
 
 	$script_type $script_dir'create_project_tmux.sh' Python $project_name
+fi
 # --------------------------------------------------------------------------------
 # Other language boilerplate
 
@@ -150,19 +152,27 @@ if [ $language != "Python" ] ; then
 	$make_dir $project_name 
 	$make_dir 'scripts'
 	$make_dir 'scripts/bash'
-	$make_dir 'scripts/zsh'
+	$make_dir 'scripts/sh'
 	$make_dir 'data'
 	$make_dir 'data/test'
 	$make_dir 'docs'
 	$make_dir 'docs/requirements'
+	$make_dir 'docs/doxygen'
+	$make_dir 'docs/doxygen/sphinx_docs'
 	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
 	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
+	$copy $c_dir'sphinx_readme.txt' $path_length'/docs/doxygen/readme.txt'
+	$copy $c_dir'index.rst' $path_length'/docs/doxygen/sphinx_docs/index.rst'
+	$copy $c_dir'module.rst' $path_length'/docs/doxygen/sphinx_docs/module.rst'
+	python -m venv $path_length'/docs/doxygen/.venv'
+	source $path_length'/docs/doxygen/.venv/bin/activate'
+	pip install sphinx-rtd-theme
 fi
 # --------------------------------------------------------------------------------
 # C Specific files and directories
 
-elif [ $language == "C" ] ; then
-    $copy $c_dir'.gitignore' $path_length'/.gitignore'
+if [ $language == "C" ] ; then
+	$copy $c_dir'.gitignore' $path_length'/.gitignore'
     $copy $c_dir'README.rst' $path_length'/README.rst'
     $copy $c_dir'LICENSE' $path_length'/LICENSE'
     $copy $c_dir'main.c' $path_length'/'$project_name'/main.c'
@@ -170,6 +180,7 @@ elif [ $language == "C" ] ; then
 	$make_dir $path_length'/'$project_name'/test'
     $make_dir $path_length'/'$project_name'/build'
 	$make_dir $path_length'/'$project_name'/include'
+
     $copy $c_dir'CMake1.txt' $path_length'/'$project_name'/CMakeLists.txt'
     $copy $c_dir'CMake2.txt' $path_length'/'$project_name'/include/CMakeLists.txt'
     $copy $c_dir'CMaketest.txt' $path_length'/'$project_name'/test/CMakeLists.txt'

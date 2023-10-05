@@ -15,7 +15,8 @@ Describe project here
     :alt: Documentation Status
 
 .. image:: http://www.mypy-lang.org/static/mypy_badge.svg
-   :target: http://mypy-lang.org/
+   :target: http://mypy-lang.org/ 
+
 
 .. image:: https://github.com/Jon-Webb-79/Project_Name/workflows/Tests/badge.svg?cache=none
     :target: https://github.com/Jon-Webb-79/Project_Name/actions
