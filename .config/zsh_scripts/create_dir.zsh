@@ -33,6 +33,7 @@ make_dir='/usr/bin/mkdir'
 create_file='/usr/bin/touch'
 copy='/usr/bin/cp'
 replace='/usr/bin/sed'
+dir=`/usr/bin/pwd`
 # --------------------------------------------------------------------------------
 # Ask the user for the name of the project
 
@@ -76,8 +77,8 @@ if [[ $language == "Python" ]] then
 	$make_dir 'docs/requirements'
 	poetry add -G dev pytest
 	poetry add -G dev flake8
-	poetry add -G dev black
 	poetry add -G dev mypy
+	poetry add -G dev black
 	poetry add -G dev isort
 	poetry add -G dev flake8-bandit
 	poetry add -G dev flake8-bugbear
@@ -103,7 +104,7 @@ if [[ $language == "Python" ]] then
 	$copy $py_dir'sphinx_make' $path_length'/docs/sphinx/Makefile'
 	$copy $py_dir'conf.py' $path_length'/docs/sphinx/source/conf.py'
 	$copy $py_dir'index.rst' $path_length'/docs/sphinx/source/index.rst'
-    $copy $py_dir'Introduction.rst' $path_length'/docs/sphinx/source/Introduction.rst'
+    $copy $py_dir'module.rst' $path_length'/docs/sphinx/source/module.rst'
 	$copy $py_dir'sphinx_readme.txt' $path_length'/docs/sphinx/readme.txt'
 	$copy $py_dir'Makefile' $path_length'/Makefile'
 	$copy -r $py_dir'.github' $path_length'/.github'
@@ -128,7 +129,7 @@ if [[ $language == "Python" ]] then
     $replace -i "s/Name/$name/g" $path_length'/conftest.py'
 	$replace -i "s/Company/$company/g" $path_length'/conftest.py'
 
-	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml'
+	$replace -i "s/README.md/README.rst/g" $path_length'/pyproject.toml' 
 	$replace -i "s/Project_Name/$project_name/g" $path_length'/README.rst'
 	$replace -i "s/pyproject/$project_name/g" $path_length'/pyproject.toml'
     $replace -i "s/Day/$day/g" $path_length'/'$project_name'/main.py'
@@ -137,12 +138,11 @@ if [[ $language == "Python" ]] then
 	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/main.py'
 	$replace -i "s/filename/main/g" $path_length'/'$project_name'/main.py'
-	$replace -i "s/Name/$name/g" $path_length'/'$project_name'/__init__.py'
-	$replace -i "s/Company/$company/g" $path_length'/'$project_name'/__init__.py'
 
 	$script_type $script_dir'create_project_tmux.zsh' Python $project_name
+fi
 # --------------------------------------------------------------------------------
-# Other Language Boilerplate
+# Other language boilerplate
 
 if [[ $language != "Python" ]] then
 	$make_dir $path_length
@@ -155,13 +155,23 @@ if [[ $language != "Python" ]] then
 	$make_dir 'data/test'
 	$make_dir 'docs'
 	$make_dir 'docs/requirements'
+	$make_dir 'docs/doxygen'
+	$make_dir 'docs/doxygen/sphinx_docs'
+	$copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
+    $copy $c_dir'.readthedocs.yaml' $path_length'/docs/doxygen/.readthedocs.yaml'
 	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
 	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
+	$copy $c_dir'sphinx_readme.txt' $path_length'/docs/doxygen/readme.txt'
+	$copy $c_dir'index.rst' $path_length'/docs/doxygen/sphinx_docs/index.rst'
+	$copy $c_dir'module.rst' $path_length'/docs/doxygen/sphinx_docs/module.rst'
+	python -m venv $path_length'/docs/doxygen/.venv'
+	source $path_length'/docs/doxygen/.venv/bin/activate'
+	pip install sphinx-rtd-theme
 fi
 # --------------------------------------------------------------------------------
-# C Specific files and directories
+# C specific files and directories
 
-elif [[ $language == "C" ]] then
+if [[ $language == "C" ]] then
     $copy $c_dir'.gitignore' $path_length'/.gitignore'
     $copy $c_dir'README.rst' $path_length'/README.rst'
     $copy $c_dir'LICENSE' $path_length'/LICENSE'
@@ -170,6 +180,7 @@ elif [[ $language == "C" ]] then
 	$make_dir $path_length'/'$project_name'/test'
     $make_dir $path_length'/'$project_name'/build'
 	$make_dir $path_length'/'$project_name'/include'
+
     $copy $c_dir'CMake1.txt' $path_length'/'$project_name'/CMakeLists.txt'
     $copy $c_dir'CMake2.txt' $path_length'/'$project_name'/include/CMakeLists.txt'
     $copy $c_dir'CMaketest.txt' $path_length'/'$project_name'/test/CMakeLists.txt'
