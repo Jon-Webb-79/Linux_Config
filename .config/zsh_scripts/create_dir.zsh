@@ -183,7 +183,6 @@ if [[ $language == "C" ]] then
 	$make_dir $path_length'/'$project_name'/include'
 
     $copy $c_dir'CMake1.txt' $path_length'/'$project_name'/CMakeLists.txt'
-    $copy $c_dir'CMake2.txt' $path_length'/'$project_name'/include/CMakeLists.txt'
     $copy $c_dir'CMaketest.txt' $path_length'/'$project_name'/test/CMakeLists.txt'
     $copy $script_dir'build.zsh' $path_length'/scripts/'$script_type'/build.zsh'
     $copy $script_dir'compile.zsh' $path_length'/scripts/'$script_type'/compile.zsh'
@@ -232,13 +231,6 @@ if [[ $language == "C" ]] then
     $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/CMakeLists.txt'
     $replace -i "s/Company/$company/g" $path_length'/'$project_name'/CMakeLists.txt'
 
-    $replace -i "s/Name/$name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i "s/Month/$month/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i "s/Day/$day/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-	$replace -i "s/Year/$year/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i "s/prjct_name/$project_name/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-    $replace -i "s/Company/$company/g" $path_length'/'$project_name'/include/CMakeLists.txt'
-
     $replace -i "s/Name/$name/g" $path_length'/'$project_name'/test/CMakeLists.txt'
     $replace -i "s/Month/$month/g" $path_length'/'$project_name'/test/CMakeLists.txt'
     $replace -i "s/Day/$day/g" $path_length'/'$project_name'/test/CMakeLists.txt'
@@ -248,6 +240,12 @@ if [[ $language == "C" ]] then
 
     $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.zsh' 
     $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.zsh'
+
+	# Determine the installed version of CMake
+	CMAKE_VERSION=$(cmake --version | head -n1 | awk '{print $3}')
+
+	# Replace placeholders in CMakeLists.txt with the detected version
+	sed -i "s/X\.YY\.ZZ/${CMAKE_VERSION}/" $project_name'/CMakeLists.txt'
 
 	$script_type $script_dir'create_project_tmux.zsh' C $project_name
 # --------------------------------------------------------------------------------

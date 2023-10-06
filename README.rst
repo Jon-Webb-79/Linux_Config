@@ -311,6 +311,8 @@ Install Extra Code Dev Packages
 ###############################
 Install relevant packages for software development
 
+``$ sudo pacman -S glibc ``
+
 ``$ yay -S googletest-git``
 
 ``$ yay -S cmocka``
