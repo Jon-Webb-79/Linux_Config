@@ -158,7 +158,6 @@ if [[ $language != "Python" ]] then
 	$make_dir 'docs/requirements'
 	$make_dir 'docs/doxygen'
 	$make_dir 'docs/doxygen/sphinx_docs'
-	$copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
     $copy $c_dir'.readthedocs.yaml' $path_length'/docs/doxygen/.readthedocs.yaml'
 	$copy $c_dir'Doxyfile' $path_length'/docs/doxygen/Doxygen'
 	$copy $c_dir'mainpage.dox' $path_length'/docs/doxygen/mainpage.dox'
@@ -173,6 +172,7 @@ fi
 # C specific files and directories
 
 if [[ $language == "C" ]] then
+	$copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
     $copy $c_dir'.gitignore' $path_length'/.gitignore'
     $copy $c_dir'README.rst' $path_length'/README.rst'
     $copy $c_dir'LICENSE' $path_length'/LICENSE'

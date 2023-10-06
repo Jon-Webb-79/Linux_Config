@@ -173,6 +173,7 @@ fi
 # C Specific files and directories
 
 if [ $language == "C" ] ; then
+	$copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
 	$copy $c_dir'.gitignore' $path_length'/.gitignore'
     $copy $c_dir'README.rst' $path_length'/README.rst'
     $copy $c_dir'LICENSE' $path_length'/LICENSE'
