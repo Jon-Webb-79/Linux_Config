@@ -274,7 +274,7 @@ m. Set up lvm
 
    pvcreate --dataalignment 1m /dev/mapper/lvm
    vgcreate volgroup0 /dev/mapper/lvm
-   lvcreate -L 30GB volgroup0 -n lv_root
+   lvcreate -L 100GB volgroup0 -n lv_root
    lvcreate -l 100%FREE volgroup0 -n lv_home
    modprobe dm_mod
    vgscan
