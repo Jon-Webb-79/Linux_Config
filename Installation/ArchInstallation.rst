@@ -142,9 +142,6 @@ f. Set the partition type
 .. code-block:: bash
 
    $ t
-
-.. code-block:: bash
-
    -Partition type or alias (type L to list all): '1'
    -Changed type of partition 'Linux' filesystem to 'EFI System'
 
@@ -153,9 +150,6 @@ g. Create second partition
 .. code-block:: bash
 
    $ n
-
-.. code-block:: bash
-
    -Partition number (2-128, default 2): 'press enter to accept default'
    -First sector(some numbers, default 1026048): 'press enter to accept the default'
    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
@@ -166,39 +160,37 @@ Unlike the last partition, we will format this one at a later time
 
 f. Create third and final partition
 
-   ``$ n``
-
 .. code-block:: bash
-
-    -Partition number (3-128, default 3): 'press enter to accept the default'
-    -First sector (some numbers, default 2050048): 'press enter to accept the default'
-    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
+   $ n
+   -Partition number (3-128, default 3): 'press enter to accept the default'
+   -First sector (some numbers, default 2050048): 'press enter to accept the default'
+   -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
     
 'press enter to take up the remainder of the hard disk' 
 
 g. Set the partition type
 
-   ``$ t``
-
 .. code-block:: bash
 
-    -Partition number(1-3, default 3): 'press enter to accept the default'
-    -Partition type or alias (type L to list all) '30'
+   $ t
+   -Partition number(1-3, default 3): 'press enter to accept the default'
+   -Partition type or alias (type L to list all) '30'
 
 This should yield 'Changed type of partition 'Linux Filesystem' to 'Linux LVM''
 
 h. Verify partitions
 
-   ``$ p``
+.. code-block:: bash
+   $ p
 
 Should yield the following.  XXX means the numbers are variable.  REM means remaining space
 
 .. code-block:: bash
 
-    Device          Start   End     Sectors    Size    Type 
-    /dev/nvme0n1p1  XXX     XXX     XXX        500M    EFI System
-    /dev/nvm10n1p2  XXX     XXX     XXX        500M    Linux Filesystem
-    /dev/nvme0n1p3  XXX     XXX     XXX        REMG    Linux LVM
+   Device          Start   End     Sectors    Size    Type 
+   /dev/nvme0n1p1  XXX     XXX     XXX        500M    EFI System
+   /dev/nvm10n1p2  XXX     XXX     XXX        500M    Linux Filesystem
+   /dev/nvme0n1p3  XXX     XXX     XXX        REMG    Linux LVM
 
 i"**NOTE: If the output looks different, then you may need to repartition your hard drive**"
 
