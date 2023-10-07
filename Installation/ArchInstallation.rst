@@ -139,13 +139,20 @@ This should result in 'Created a new partition 1 of type 'Linux filesystem' and 
 
 f. Set the partition type
 
-   ``$ t``
+.. code-block:: bash
 
-    -Partition type or alias (type L to list all): '1'
-    -Changed type of partition 'Linux' filesystem to 'EFI System'
+   $ t
+
+.. code-block:: bash
+
+   -Partition type or alias (type L to list all): '1'
+   -Changed type of partition 'Linux' filesystem to 'EFI System'
+
 g. Create second partition
 
-   ``$ n``
+.. code-block:: bash
+
+   $ n
 
 .. code-block:: bash
 
