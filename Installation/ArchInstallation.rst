@@ -101,13 +101,13 @@ a. Find what the device name is for the hard disk
 
    ``$ fdisk -l``
 
-   **NOTE: This may result in many options being displayed; however, options titled loop should be ignored.  In addition, options with sd may likely be the thumb drive or other mounter peripheral devices.  In my case, the hard drive is titled nvme0n1.  The p1, p2, and p3 that follow nvme0n1 are the partition numbers.  For the remainder of this tutorial I will refer to the hard drive as nvme01n1**
+**NOTE: This may result in many options being displayed; however, options titled loop should be ignored.  In addition, options with sd may likely be the thumb drive or other mounter peripheral devices.  In my case, the hard drive is titled nvme0n1.  The p1, p2, and p3 that follow nvme0n1 are the partition numbers.  For the remainder of this tutorial I will refer to the hard drive as nvme01n1**
 
 b. Enter the partition manager for the computer
 
    ``$ fdisk /dev/nvme0n1``
 
-    **NOTE: This should yield the following request 'Command (m for help)'**
+**NOTE: This should yield the following request 'Command (m for help)'**
 
 c. Type p and hit enter to see the existing partitions.  This should match the partitions
    shown when you ran the ``fdisk -l`` command.  Once the command is complete it should
@@ -122,16 +122,16 @@ e. Start a new partition layout
 
    ``$ n``
 
-   "**NOTE: THis should yield the following response and input.**"  Inputs are in '' marks
+"**NOTE: THis should yield the following response and input.**"  Inputs are in '' marks
+
+.. code-block:: bash
+
       -Partition number (1-128, default 1): 'press enter to accept default'
-
       -First sector (some numbers, default 2048) 'press enter to accept default'
-
       -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
-
        '+500M'
-
-      This should result in 'Created a new partition 1 of type 'Linux filesystem' and of size 500 MiB'
+      
+This should result in 'Created a new partition 1 of type 'Linux filesystem' and of size 500 MiB'
 
 f. Set the partition type
 
