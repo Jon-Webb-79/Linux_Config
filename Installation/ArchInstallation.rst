@@ -523,115 +523,132 @@ h. At this point you should be able to properly boot your installation without t
 
 a. Assume the root user
 
-   ``$ su``
+.. code-block:: bash
 
-   ``$ cd /root``
+   su
+   cd /root
 
 a. Create and activate a swap file
 
-   ``$ dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress``
+.. code-block:: bash
 
-   ``$ chmod 600 /swapfile``
+   dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress
+   chmod 600 /swapfile
+   mkswap /swapfile
+   cp /etc/fstab /etc/fstab.bak
+   echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+   cat /etc/fstab
 
-   ``$ mkswap /swapfile``
+Verify that the pervious command is now in the fstab file
 
-   ``$ cp /etc/fstab /etc/fstab.bak``
+.. code-block:: bash
 
-   ``$ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab``
+   mount -a
 
-   ``$ cat /etc/fstab``
+**NOTE: If the prior command causes errors, something must be fixed**
 
-   Verify that the pervious command is now in the fstab file
+.. code-block:: bash
 
-   ``$ mount -a``
-
-   **NOTE: If the prior command causes errors, something must be fixed**
-
-   ``$ swapon -a``
-
-   ``$ free -m``
+   swapon -a
+   free -m
 
 b. Check the available timezones, mine is Amerca/Denver
 
-   ``$ timedatectl list-timezones``
+.. code-block:: bash
 
-   ``$ timedatectl set-timezone America/Denver``
-
-   ``$ systemctl enable systemd-timesyncd``
+   timedatectl list-timezones
+   timedatectl set-timezone America/Denver
+   systemctl enable systemd-timesyncd
 
 c. Set the host name to webbmachine
 
-   ``$ hostnamectl set-hostname webbmachine``
+.. code-block:: bash
 
-   Verify the host name was set up
+   hostnamectl set-hostname webbmachine
 
-   ``$ cat /etc/hostname``
+Verify the host name was set up
 
-   Setup the hostname file with vim
+.. code-block:: bash
 
-   ``$ vim /etc/hosts``
+   cat /etc/hostname
 
-   Static table lookup for hostnames
+Setup the hostname file with vim
 
-   ``See hosts(5) for details``
+.. code-block:: bash
+   nvim /etc/hosts
 
-   ``127.0.0.1  localhost``
+Static table lookup for hostnames
 
-   ``::1        localhost``
+.. code-block:: bash
 
-   ``127.0.1.1  webbmachine.localadmin webbmachine``
+   127.0.0.1  localhost
+   ::1        localhost
+   127.0.1.1  webbmachine.localadmin webbmachine
 
 d. Install the microcode for our cpu
 
-   - for intel
+for intel
 
-   ``$ pacman -S intel-ucode``
+.. code-block:: bash
 
-   - for AMD
+   pacman -S intel-ucode
 
-   ``$ pacman -S amd-ucode``
+for AMD
+
+.. code-block:: bash
+
+   pacman -S amd-ucode
 
 e. Install xorg
 
-   ``$ pacman -S xorg-server``
+.. code-block:: bash
+
+   pacman -S xorg-server
 
 f. Install video driver
 
-   - For intel or AMD
+For intel or AMD
 
-   ``$ pacman -S mesa``
+.. code-blcok:: bash
 
-   - For nvidia
+   pacman -S mesa
 
-   ``$ pacman -S nvidia nvidia-lts``
+For nvidia
 
-   - Virtual Machine
+.. code-block:: bash
 
-   ``$ pacman -S virtualbox-guest-utils xf86-video-vmware``
+   pacman -S nvidia nvidia-lts
 
-   ``$ systemctl enable vboxservice``
+Virtual Machine
+
+.. code-block:: bash
+
+   pacman -S virtualbox-guest-utils xf86-video-vmware
+   systemctl enable vboxservice
 
 9. Install Desktop Environment
 ##############################
 **GNOME**
 
-``$ sudo pacman -S gnome gnome-tweaks gnome-extra``
+.. code-block:: bash
+
+   sudo pacman -S gnome gnome-tweaks gnome-extra`
 
 **NOTE: if the install does not recognize a keychain type**
 
-``$ sudo pacman-key --refresh-keys``
+.. code-block:: bash
 
-``$ systemctl enable gdm``
-
-``$ reboot``
+   sudo pacman-key --refresh-keys
+   systemctl enable gdm
+   reboot
 
 **KDE-PLASMA**
 
-``$ sudo pacman -S plasma kde-applications``
+.. code-block:: bash
 
-``$ systemctl enable sddm``
-
-``$ reboot``
+   sudo pacman -S plasma kde-applications
+   systemctl enable sddm
+   reboot
 
 10. System Backup
 #################
