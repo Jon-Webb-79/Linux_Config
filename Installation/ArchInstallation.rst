@@ -43,7 +43,7 @@ a. type the following command to see the internet connections.
 
    ``$ ip a``
 
-   **NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
+**NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
 
 .. code-block:: bash
 
@@ -67,7 +67,7 @@ c. Check for your device name:
 
    ``$ device list``
 
-    **NOTE: In this case the device is wlan0, which I will use in place of device name from here on out.**
+**NOTE: In this case the device is wlan0, which I will use in place of device name from here on out.**
 
 d. scan for available networks
 
