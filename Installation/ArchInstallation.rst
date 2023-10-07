@@ -609,7 +609,7 @@ f. Install video driver
 
 For intel or AMD
 
-.. code-blcok:: bash
+.. code-block:: bash
 
    pacman -S mesa
 
