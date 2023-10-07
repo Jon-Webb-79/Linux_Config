@@ -180,7 +180,7 @@ h. Verify partitions
 
    ``$ p``
 
-    Should yield the following.  XXX means the numbers are variable.  REM means remaining space
+Should yield the following.  XXX means the numbers are variable.  REM means remaining space
 
 .. code-block:: bash
 
@@ -265,7 +265,7 @@ b. Enter root
 
 c. Install linux and Linux long term supported kernes with firmware.
 
-   **NOTE: If you are installing on a virtual machine, omit linux-firmware from the following command**
+**NOTE: If you are installing on a virtual machine, omit linux-firmware from the following command**
 
    ``$ pacman -S linux linux-headers linux-lts linux-lts-headers linux-firmware``
 
@@ -297,23 +297,23 @@ j. Change a line in the /etc/mkinitcpio.conf file
 
    ``$ vim /etc/mkinitcpio.conf``
 
-   **NOTE: Fin the following lines and change from was to to is**
+**NOTE: Fin the following lines and change from was to to is**
 
-   was
+was
 
-   HOOKS=(base udev autodetect modconf block filesystem keyboard fsck)
+   ``HOOKS=(base udev autodetect modconf block filesystem keyboard fsck)``
 
    is
 
-   HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystem keyboard fsck) 
+   ``HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystem keyboard fsck)``
 
 k. Type command to force mkinitcpio changes take effect
 
-   ``$ mkinitcpio -p linux``
+.. code-block:: bash
+   $ mkinitcpio -p linux
+   $ mkinitcpio -p linux-lts
 
-   ``$ mkinitcpio -p linux-lts``
-
-   **NOTE: You should see lvm and encrypt in the bottom of the output for both commands**
+**NOTE: You should see lvm and encrypt in the bottom of the output for both commands**
 
 l. Edit /etc/locale.gen file
 
@@ -321,11 +321,11 @@ l. Edit /etc/locale.gen file
 
    was
 
-   #en_US.UTF-8 UTF-8
+   ``#en_US.UTF-8 UTF-8``
 
    is
 
-   en_US.UTF-8 UTF-8
+   ``en_US.UTF-8 UTF-8``
 
 m. activate changes to locale.gen
 
@@ -337,15 +337,16 @@ n. Set the root password
 
 o. Add yourself as a user.  My username is jonwebb
 
-   ``$ useradd -m -g users -G wheel jonwebb``
+.. code-block:: bash
 
-   ``$ passwd jonwebb``
+   $ useradd -m -g users -G wheel jonwebb
+   $ passwd jonwebb
 
 p. Ensure sudo is installed
 
    ``$ which sudo``
 
-   **NOTE: if the command provides no output then install sudo with pacman**
+**NOTE: if the command provides no output then install sudo with pacman**
 
 q. Associate the user with wheel and all priveldges
 
@@ -353,13 +354,13 @@ q. Associate the user with wheel and all priveldges
 
    was
 
-   #%wheel ALL=(ALL) ALL
+   ``#%wheel ALL=(ALL) ALL``
 
    is
 
-   %wheel ALL=(ALL) ALL
+   ``%wheel ALL=(ALL) ALL``
 
-   **NOTE: If you are adding a user other than yourself, you may want to soecify specific commands in this section that are allowed to the user**
+**NOTE: If you are adding a user other than yourself, you may want to soecify specific commands in this section that are allowed to the user**
 
 7. Install Grub
 ###############
