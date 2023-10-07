@@ -65,6 +65,7 @@ a. type the following command to see the internet connections.
 b. To enter the wireless manager type the following command
 
 .. code-block:: bash
+
    iwctl
 
 c. Check for your device name:
