@@ -143,38 +143,38 @@ g. Create second partition
 
    ``$ n``
 
+.. code-block:: bash
+
    -Partition number (2-128, default 2): 'press enter to accept default'
-
    -First sector(some numbers, default 1026048): 'press enter to accept the default'
-
    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
-
    '+500M'
 
-   This should result in a 'Create a new partition 2 of type 'Linux filesystem' and of size 500 MiB'
-   Unlike the last partition, we will format this one at a later time
+This should result in a 'Create a new partition 2 of type 'Linux filesystem' and of size 500 MiB'
+Unlike the last partition, we will format this one at a later time
 
 f. Create third and final partition
 
    ``$ n``
 
+.. code-block:: bash
+
     -Partition number (3-128, default 3): 'press enter to accept the default'
-
     -First sector (some numbers, default 2050048): 'press enter to accept the default'
-
     -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
-
-    'press enter to take up the remainder of the hard disk' 
+    
+'press enter to take up the remainder of the hard disk' 
 
 g. Set the partition type
 
    ``$ t``
 
-    -Partition number(1-3, default 3): 'press enter to accept the default'
+.. code-block:: bash
 
+    -Partition number(1-3, default 3): 'press enter to accept the default'
     -Partition type or alias (type L to list all) '30'
 
-    This should yield 'Changed type of partition 'Linux Filesystem' to 'Linux LVM''
+This should yield 'Changed type of partition 'Linux Filesystem' to 'Linux LVM''
 
 h. Verify partitions
 
@@ -182,15 +182,14 @@ h. Verify partitions
 
     Should yield the following.  XXX means the numbers are variable.  REM means remaining space
 
+.. code-block:: bash
+
     Device          Start   End     Sectors    Size    Type 
-
     /dev/nvme0n1p1  XXX     XXX     XXX        500M    EFI System
-
     /dev/nvm10n1p2  XXX     XXX     XXX        500M    Linux Filesystem
-
     /dev/nvme0n1p3  XXX     XXX     XXX        REMG    Linux LVM
 
-    i"**NOTE: If the output looks different, then you may need to repartition your hard drive**"
+i"**NOTE: If the output looks different, then you may need to repartition your hard drive**"
 
 i. Finalize changes (NOTE: This step blows away your current operating system)
 
@@ -201,9 +200,10 @@ i. Finalize changes (NOTE: This step blows away your current operating system)
 j. Format partitions.  This will format your first partition as a vfat file structure
    and the second as the ext4 file structure.
 
-   ``$ mkfs.fat -F32 /dev/nvme0n1p1``
+.. code-block:: bash
 
-   ``$ mkfs.ext4 /dev/nvme0n1p2``
+   $ mkfs.fat -F32 /dev/nvme0n1p1
+   $ mkfs.ext4 /dev/nvme0n1p2
 
 k. Set up encryption on the third partition. Click yes, when asked Are you Sure and be
    prepared to enter a password of your choosing
@@ -216,54 +216,41 @@ l. Unlock the encrypted drive
 
 m. Set up lvm
 
-   ``$ pvcreate --dataalignment 1m /dev/mapper/lvm``
+.. code-blcok:: bash
 
-   ``$ vgcreate volgroup0 /dev/mapper/lvm``
+   $ pvcreate --dataalignment 1m /dev/mapper/lvm
+   $ vgcreate volgroup0 /dev/mapper/lvm
+   $ lvcreate -L 30GB volgroup0 -n lv_root
+   $ lvcreate -l 100%FREE volgroup0 -n lv_home
+   $ modprobe dm_mod
+   $ vgscan
+   $ vgchange -ay
 
-   ``$ lvcreate -L 30GB volgroup0 -n lv_root``
+**NOTE: This should find and activate 2 logical volumes**
 
-   ``$ lvcreate -l 100%FREE volgroup0 -n lv_home``
+.. code-block:: bash
 
-   ``$ modprobe dm_mod``
+   $ mkfs.ext4 /dev/volgroup0/lv_root
+   $ mount /dev/volgroup0/lv_root /mnt
+   $ mkdir /mnt/boot
+   $ mount /dev/nvme0n1p2 /mnt/boot
+   $ mkfs.ext4 /dev/volgroup0/lv_home
+   $ mkdir /mnt/home
+   $ mount /dev/volgroup0/lv_home /mnt/home
+   $ mkdir /mnt/etc
+   $ genfstab -U -p /mnt >> /mnt/etc/fstab
 
-   ``$ vgscan``
+**NOTE: This next command is to verify the output of the fstab.  if it does not look like this example, you have made a mistake.**
 
-   ``$ vgchange -ay``
+.. code-block:: bash
 
-   **NOTE: This should find and activate 2 logical volumes**
-
-   ``$ mkfs.ext4 /dev/volgroup0/lv_root``
-
-   ``$ mount /dev/volgroup0/lv_root /mnt``
-
-   ``$ mkdir /mnt/boot``
-
-   ``$ mount /dev/nvme0n1p2 /mnt/boot``
-
-   ``$ mkfs.ext4 /dev/volgroup0/lv_home``
-
-   ``$ mkdir /mnt/home``
-
-   ``$ mount /dev/volgroup0/lv_home /mnt/home``
-
-   ``$ mkdir /mnt/etc``
-
-   ``$ genfstab -U -p /mnt >> /mnt/etc/fstab``
-
-   **NOTE: This next command is to verify the output of the fstab.  if it does not look like this example, you have made a mistake.**
-
-   ``$ cat /mnt/etc/fstab``
+   $ cat /mnt/etc/fstab
 
       /dev/mapper/volgroup0-lv_root
-
       UUID=random number     /        ext4 rw,relatime 0 1
-
       /dev/nvme0n1p2
-
       UUID=random number     /boot    ext4 rw,relatime 0 2
-
       /dev/mapper/volgroup0-lv_home
-
       UUID=random number     /home    ext4 rw,relatime 0 2
 
 6. Install Linux
