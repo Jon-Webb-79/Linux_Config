@@ -116,20 +116,24 @@ c. Type p and hit enter to see the existing partitions.  This should match the p
 
 d. Enter the following command to start a fresh partition layout
 
-  ``$ g``
+.. code-block:: bash
+
+   $ g
 
 e. Start a new partition layout
 
-   ``$ n``
+.. code-block:: bash
+
+   $ n
 
 "**NOTE: THis should yield the following response and input.**"  Inputs are in '' marks
 
 .. code-block:: bash
 
-      -Partition number (1-128, default 1): 'press enter to accept default'
-      -First sector (some numbers, default 2048) 'press enter to accept default'
-      -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
-       '+500M'
+   -Partition number (1-128, default 1): 'press enter to accept default'
+   -First sector (some numbers, default 2048) 'press enter to accept default'
+   -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
+    '+500M'
       
 This should result in 'Created a new partition 1 of type 'Linux filesystem' and of size 500 MiB'
 
