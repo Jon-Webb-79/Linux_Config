@@ -41,7 +41,9 @@ b. Change the layout with the 'loadkeys' option.  The following is an example if
 
 a. type the following command to see the internet connections.
 
-   ``$ ip a``
+.. code-block:: bash
+
+   ip a
 
 **NOTE: This should yield something similar to the text below, except the either option may be empty, indicating that the wireless needs to be activated;**
 
@@ -62,50 +64,68 @@ a. type the following command to see the internet connections.
 
 b. To enter the wireless manager type the following command
 
-   ``$ iwctl``
+.. code-block:: bash
+   iwctl
+
 c. Check for your device name:
 
-   ``$ device list``
+.. code-block:: bash
+
+   device list
 
 **NOTE: In this case the device is wlan0, which I will use in place of device name from here on out.**
 
 d. scan for available networks
 
-   ``$ station wlan0 scan``
+.. code-block:: bash
+
+   station wlan0 scan
 
 e. Query for the list of available stations
 
-   ``$ station wlan0 get-networks``
+.. code-block:: bash
+
+   station wlan0 get-networks
 
 f. If your wireless network is on the list connect to the network with the following comand.
    You may be prompted for a password after entering the command
 
-   ``$ station wlan0 connect "NetworkName"``
+.. code-block:: bash
 
-    **NOTE: If your network is not on the list, you may need to fix something with your router**
+   station wlan0 connect "NetworkName"
+
+**NOTE: If your network is not on the list, you may need to fix something with your router**
 
 g. Exit the iwd prompt by typing ``Control-d``
 
 h. Now that you are back in the base installer type the following command to verify
    that you now have a wireless connection
 
-   ``$ ip a``
+.. code-block:: bash
+
+   ip a
 
 i. Verify data flow is occuring.  Type the following command to ping the google DNS server with data packages
 
-   ``$ ping -c 5 8.8.8.8``
+.. code-block:: bash
+
+   ping -c 5 8.8.8.8
 
 5. Partition the Hard Drive
 ###########################
 a. Find what the device name is for the hard disk
 
-   ``$ fdisk -l``
+.. code-block:: bash
+
+   fdisk -l
 
 **NOTE: This may result in many options being displayed; however, options titled loop should be ignored.  In addition, options with sd may likely be the thumb drive or other mounter peripheral devices.  In my case, the hard drive is titled nvme0n1.  The p1, p2, and p3 that follow nvme0n1 are the partition numbers.  For the remainder of this tutorial I will refer to the hard drive as nvme01n1**
 
 b. Enter the partition manager for the computer
 
-   ``$ fdisk /dev/nvme0n1``
+.. code-block:: bash
+
+   fdisk /dev/nvme0n1
 
 **NOTE: This should yield the following request 'Command (m for help)'**
 
@@ -118,13 +138,13 @@ d. Enter the following command to start a fresh partition layout
 
 .. code-block:: bash
 
-   $ g
+   g
 
 e. Start a new partition layout
 
 .. code-block:: bash
 
-   $ n
+   n
 
 "**NOTE: THis should yield the following response and input.**"  Inputs are in '' marks
 
@@ -141,15 +161,30 @@ f. Set the partition type
 
 .. code-block:: bash
 
-   $ t
+   t
+
+This should yield the following result
+
+.. code-block:: bash
+
    -Partition type or alias (type L to list all): '1'
+
+This should yield the following result
+
+.. code-block:: bash
+
    -Changed type of partition 'Linux' filesystem to 'EFI System'
 
 g. Create second partition
 
 .. code-block:: bash
 
-   $ n
+   n
+
+This should yield the following result
+
+.. code-block:: bash
+
    -Partition number (2-128, default 2): 'press enter to accept default'
    -First sector(some numbers, default 1026048): 'press enter to accept the default'
    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
@@ -161,7 +196,12 @@ Unlike the last partition, we will format this one at a later time
 f. Create third and final partition
 
 .. code-block:: bash
-   $ n
+   n
+
+This should yield the following
+
+.. code-block:: bash
+
    -Partition number (3-128, default 3): 'press enter to accept the default'
    -First sector (some numbers, default 2050048): 'press enter to accept the default'
    -Last sector, +/- sectors or +/- size{K,M,G,T,P} (some numbers, default 1048575966)
@@ -172,7 +212,12 @@ g. Set the partition type
 
 .. code-block:: bash
 
-   $ t
+   t
+
+This should yield the following
+
+.. code-block:: bash
+
    -Partition number(1-3, default 3): 'press enter to accept the default'
    -Partition type or alias (type L to list all) '30'
 
@@ -181,7 +226,7 @@ This should yield 'Changed type of partition 'Linux Filesystem' to 'Linux LVM''
 h. Verify partitions
 
 .. code-block:: bash
-   $ p
+   p
 
 Should yield the following.  XXX means the numbers are variable.  REM means remaining space
 
@@ -192,113 +237,143 @@ Should yield the following.  XXX means the numbers are variable.  REM means rema
    /dev/nvm10n1p2  XXX     XXX     XXX        500M    Linux Filesystem
    /dev/nvme0n1p3  XXX     XXX     XXX        REMG    Linux LVM
 
-i"**NOTE: If the output looks different, then you may need to repartition your hard drive**"
+"**NOTE: If the output looks different, then you may need to repartition your hard drive**"
 
-i. Finalize changes (NOTE: This step blows away your current operating system)
+i. Finalize changes (**NOTE:** This step deletes your current operating system)
 
-   ``$ w``
+.. code-block:: bash
 
-    **NOTE: After this step, if you run fdisk -l, it should mirror your newly set up partition layout**
+   w
+
+**NOTE: After this step, if you run fdisk -l, it should mirror your newly set up partition layout**
 
 j. Format partitions.  This will format your first partition as a vfat file structure
    and the second as the ext4 file structure.
 
 .. code-block:: bash
 
-   $ mkfs.fat -F32 /dev/nvme0n1p1
-   $ mkfs.ext4 /dev/nvme0n1p2
+   mkfs.fat -F32 /dev/nvme0n1p1
+   mkfs.ext4 /dev/nvme0n1p2
 
 k. Set up encryption on the third partition. Click yes, when asked Are you Sure and be
    prepared to enter a password of your choosing
 
-   ``$ cryptsetup luksFormat /dev/nvme0n1p3``
+.. code-block:: bash
+
+   cryptsetup luksFormat /dev/nvme0n1p3
 
 l. Unlock the encrypted drive
 
-   ``$ cryptsetup open --type luks /dev/nvme0n1p3 lvm``
+.. code-block:: bash
+
+   cryptsetup open --type luks /dev/nvme0n1p3 lvm
 
 m. Set up lvm
 
 .. code-blcok:: bash
 
-   $ pvcreate --dataalignment 1m /dev/mapper/lvm
-   $ vgcreate volgroup0 /dev/mapper/lvm
-   $ lvcreate -L 30GB volgroup0 -n lv_root
-   $ lvcreate -l 100%FREE volgroup0 -n lv_home
-   $ modprobe dm_mod
-   $ vgscan
-   $ vgchange -ay
+   pvcreate --dataalignment 1m /dev/mapper/lvm
+   vgcreate volgroup0 /dev/mapper/lvm
+   lvcreate -L 30GB volgroup0 -n lv_root
+   lvcreate -l 100%FREE volgroup0 -n lv_home
+   modprobe dm_mod
+   vgscan
+   vgchange -ay
 
 **NOTE: This should find and activate 2 logical volumes**
 
 .. code-block:: bash
 
-   $ mkfs.ext4 /dev/volgroup0/lv_root
-   $ mount /dev/volgroup0/lv_root /mnt
-   $ mkdir /mnt/boot
-   $ mount /dev/nvme0n1p2 /mnt/boot
-   $ mkfs.ext4 /dev/volgroup0/lv_home
-   $ mkdir /mnt/home
-   $ mount /dev/volgroup0/lv_home /mnt/home
-   $ mkdir /mnt/etc
-   $ genfstab -U -p /mnt >> /mnt/etc/fstab
+   mkfs.ext4 /dev/volgroup0/lv_root
+   mount /dev/volgroup0/lv_root /mnt
+   mkdir /mnt/boot
+   mount /dev/nvme0n1p2 /mnt/boot
+   mkfs.ext4 /dev/volgroup0/lv_home
+   mkdir /mnt/home
+   mount /dev/volgroup0/lv_home /mnt/home
+   mkdir /mnt/etc
+   genfstab -U -p /mnt >> /mnt/etc/fstab
 
 **NOTE: This next command is to verify the output of the fstab.  if it does not look like this example, you have made a mistake.**
 
 .. code-block:: bash
 
-   $ cat /mnt/etc/fstab
+   cat /mnt/etc/fstab
 
-      /dev/mapper/volgroup0-lv_root
-      UUID=random number     /        ext4 rw,relatime 0 1
-      /dev/nvme0n1p2
-      UUID=random number     /boot    ext4 rw,relatime 0 2
-      /dev/mapper/volgroup0-lv_home
-      UUID=random number     /home    ext4 rw,relatime 0 2
+Which should yield
+
+.. code-block:: bash
+
+   /dev/mapper/volgroup0-lv_root
+   UUID=random number     /        ext4 rw,relatime 0 1
+   /dev/nvme0n1p2
+   UUID=random number     /boot    ext4 rw,relatime 0 2
+   /dev/mapper/volgroup0-lv_home
+   UUID=random number     /home    ext4 rw,relatime 0 2
 
 6. Install Linux
 ################
 a. Install base packages
 
-   ``$ pacstrap -i /mnt base``
+.. code-block:: bash
+
+   pacstrap -i /mnt base``
 
 b. Enter root
 
-   ``$ arch-chroot /mnt``
+.. code-block:: bash
+
+   arch-chroot /mnt
 
 c. Install linux and Linux long term supported kernes with firmware.
 
 **NOTE: If you are installing on a virtual machine, omit linux-firmware from the following command**
 
-   ``$ pacman -S linux linux-headers linux-lts linux-lts-headers linux-firmware``
+.. code-block:: bash
 
-d. Install gvim
+   pacman -S linux linux-headers linux-lts linux-lts-headers linux-firmware
 
-   ``$ pacman -S gvim``
+d. Install neovim.  If neovim is not available, replace ``neovim`` with ``gvim``
+
+.. code-block:: bash
+
+   pacman -S neovim
 
 e.  Install more base packages for wireless internet
 
-    ``$ pacman -S base-devel openssh``
+.. code-block:: bash
+
+   pacman -S base-devel openssh
 
 f. enable ssh to ensure it starts when your computer does
 
-   ``$ systemctl enable sshd``
+.. code-block:: bash
+
+   systemctl enable sshd
 
 g. Install networking packages
 
-   ``$ pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog``
+.. code-block:: bash
+
+   pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog
 
 h. Enable the network manager
 
-   ``$ systemctl enable NetworkManager``
+.. code-block:: bash
+
+   systemctl enable NetworkManager
 
 i. Install lvm support
 
-   ``$ pacman -S lvm2``
+.. code-block:: bash
+
+   pacman -S lvm2
 
 j. Change a line in the /etc/mkinitcpio.conf file
 
-   ``$ vim /etc/mkinitcpio.conf``
+.. code-block:: bash
+
+   vim /etc/mkinitcpio.conf
 
 **NOTE: Fin the following lines and change from was to to is**
 
@@ -313,8 +388,9 @@ was
 k. Type command to force mkinitcpio changes take effect
 
 .. code-block:: bash
-   $ mkinitcpio -p linux
-   $ mkinitcpio -p linux-lts
+
+   mkinitcpio -p linux
+   mkinitcpio -p linux-lts
 
 **NOTE: You should see lvm and encrypt in the bottom of the output for both commands**
 
@@ -342,24 +418,28 @@ o. Add yourself as a user.  My username is jonwebb
 
 .. code-block:: bash
 
-   $ useradd -m -g users -G wheel jonwebb
-   $ passwd jonwebb
+   useradd -m -g users -G wheel jonwebb
+   passwd jonwebb
 
 p. Ensure sudo is installed
 
-   ``$ which sudo``
+.. code-block:: bash
+
+   which sudo
 
 **NOTE: if the command provides no output then install sudo with pacman**
 
 q. Associate the user with wheel and all priveldges
 
-   ``$ EDITOR=vim visudo``
+.. code-block:: bash
 
-   was
+   EDITOR=vim visudo
+
+was
 
    ``#%wheel ALL=(ALL) ALL``
 
-   is
+is
 
    ``%wheel ALL=(ALL) ALL``
 
@@ -369,55 +449,74 @@ q. Associate the user with wheel and all priveldges
 ###############
 a. Install GRUB and related packages
 
-   ``$ pacman -S grub efibootmgr dosfstools os-prober mtools``
+.. code-block:: bash
+
+   pacman -S grub efibootmgr dosfstools os-prober mtools
 
 b. Create the following directory
 
-   ``$ mkdir /boot/EFI``
+.. code-block:: bash
 
-   ``$ mount /dev/nvme0n1p1 /boot/EFI``
+   mkdir /boot/EFI
+   mount /dev/nvme0n1p1 /boot/EFI
 
 c. Install GRUB to the master boot record
 
-   ``$ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck``
+.. code-block:: bash
+
+   grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
 d. Create the locale directory if it does not exist
 
-   ``$ ls -l /boot/grub``
+.. code-block:: bash
 
-   if it does not exist
+   $ ls -l /boot/grub
 
-   ``$ mkdir /boot/grub/locale``
+if it does not exist
+
+.. code-block:: bash
+
+   mkdir /boot/grub/locale
 
 e. Copy a specific file to the correct directory
 
-   ``$ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo``
+.. code-block:: bash
 
-f. Edit /etc/default/grub file
+   cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
-   ``$ vim /etc/default/grub``
+f. Edit /etc/default/grub file. If using gvim replace ``nvim`` with ``vim`` in the commands.
 
-   was
+.. code-block:: bash
+
+   nvim /etc/default/grub
+
+was
+
+.. code-block:: bash
 
    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+   GRUB_ENABLE_CRYPTODISK=y
 
-   #GRUB_ENABLE_CRYPTODISK=y
+is
 
-   is
+.. code-block:: bash
 
    GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/nvme0n1p3:volgroup0:allow-discards loglevel=3 quiet"
-
    GRUB_ENABLE_CRYPTODIS=y 
 
 g. Generate the grub configuration file
 
-   ``$ grub-mkconfig -o /boot/grub/grub.cfg``
+.. code-block:: bash
+
+   grub-mkconfig -o /boot/grub/grub.cfg
 
 h. At this point you should be able to properly boot your installation without the iso flash drive attach
 
-   ``$ exit``
-   ``$ umount -a``
-   ``$ reboot``
+.. code-block:: bash
+
+   exit
+   umount -a
+   reboot
 
 8. Make some post installation tweaks
 #####################################
