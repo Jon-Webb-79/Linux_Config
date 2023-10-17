@@ -7,7 +7,6 @@ autocommand==2.2.2
 Babel==2.12.1
 backcall==0.2.0
 breezy==3.3.4
-Brlapi==0.8.5
 btrfsutil==6.5.2
 cffi==1.15.1
 chardet==5.2.0
