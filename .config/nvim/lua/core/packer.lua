@@ -4,41 +4,41 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-    use {
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+  use {
 	    'nvim-telescope/telescope.nvim', tag = '0.1.3',
 	    -- or
 	    requires = { {'nvim-lua/plenary.nvim'} }
     }
-    -- use({
-	   --  'catppuccin/nvim',
-	   --  as = 'cattppuccin',
-	   --  config = function()
-		  --   vim.cmd('colorscheme catppuccin')
-	   --  end
-    -- })
-    use({
-	    'navarasu/onedark.nvim',
+-- use({
+  --  'catppuccin/nvim',
+  --  as = 'cattppuccin',
+  --  config = function()
+  --   vim.cmd('colorscheme catppuccin')
+  --  end
+  -- })
+  use({
+	   'navarasu/onedark.nvim',
 	    as = 'onedark',
 	    config = function()
 		    vim.cmd('colorscheme onedark')
 	    end
     })
-    -- use({
-	   --  'rose-pine/neovim',
-	   --  as = 'rose-pine',
-	   --  config = function()
-		  --   vim.cmd('colorscheme rose-pine')
-	   --  end
-    -- })
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
+-- use({
+	--  'rose-pine/neovim',
+	--  as = 'rose-pine',
+	--  config = function()
+		--   vim.cmd('colorscheme rose-pine')
+	--  end
+-- })
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+      require('Comment').setup()
+      end
     }
-    use {
+  use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
