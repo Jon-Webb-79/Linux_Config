@@ -41,7 +41,8 @@ Installation
 ============
 This package can be downloaded with the following command; however,
 you do not need to download this repository until after you have installed
-a Linux operating system.
+a Linux operating system. **NOTE:** The repository does not need to be cloned 
+until the Post Arch Install section of this document.
 
 .. code-block:: bash
 
