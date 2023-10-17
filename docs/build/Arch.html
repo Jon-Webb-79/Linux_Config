@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configure the Gnome Desktop" href="Gnome.html" />
     <link rel="prev" title="Arch Linux Installation for Jon Webb!" href="index.html" /> 
 </head>
 
@@ -43,7 +44,25 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Arch Linux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Arch Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-installation-activities">Pre-Installation Activities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-an-iso-file">Download an ISO file.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flash-the-distribution-to-a-thumb-drive">Flash the Distribution to a Thumb Drive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arch-linux-linux-installation">Arch Linux Linux Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-the-keyboard-layout">Set up the Keyboard Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-wireless">Set Up Wireless</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-the-partition-table">Set Up the Partition Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-arch-linux">Install Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-grub-bootloader">Install the GRUB Bootloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-install-tweaks">Post Install Tweaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-a-desktop-environment">Install a Desktop Environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a></li>
 </ul>
 
         </div>
@@ -71,10 +90,12 @@
            <div itemprop="articleBody">
              
   <section id="arch-linux-installation">
-<h1>Arch Linux Installation<a class="headerlink" href="#arch-linux-installation" title="Link to this heading"></a></h1>
+<span id="archinstall"></span><h1>Arch Linux Installation<a class="headerlink" href="#arch-linux-installation" title="Link to this heading"></a></h1>
 <p>This section describes a process that can be used to install Arch Linux
 on a computer system that uses a UEFI based hard drive, which is the most
-comman type sold in standard Windows and Linux computers.</p>
+comman type sold in standard Windows and Linux computers.  In addition,
+these instructions assume that the reader has access to a working computer
+to download some necessary files.</p>
 <p><strong>NOTE:</strong> This instructions in this section were crafted for a Dell XPS computer
 that came pre-installed with Ubuntu Linux.  Their may be some extra steps not
 described in this document for someone using a computer that was pre-installed
@@ -82,6 +103,710 @@ with windows.  These steps will occur in the beginning of the process to
 prepare the computer when in Bios mode prior to installation.  The reader
 of this document should investigate these steps prior to beginning the process
 as outlined in this document.</p>
+<section id="pre-installation-activities">
+<h2>Pre-Installation Activities<a class="headerlink" href="#pre-installation-activities" title="Link to this heading"></a></h2>
+<p>Before we start the Arch Linux installation
+we need to download an Arch Linux iso file and flash the distribution to a
+thumb drive.</p>
+<section id="download-an-iso-file">
+<h3>Download an ISO file.<a class="headerlink" href="#download-an-iso-file" title="Link to this heading"></a></h3>
+<p>Navigate to the <a class="reference external" href="https://archlinux.org/download/">Arch Linux</a> directory
+where you can access the iso files. You should see a screen similar to the
+one shown below, displaying applicable web sites by country.</p>
+<img alt="Arch Linux iso website." src="_images/iso.png" />
+<p>Navigate to the section that contains the country you are currently in
+and click on any of the available web sites.  You should get a result
+like the one shown below.</p>
+<img alt="Arch Linux iso distro site." src="_images/iso_site.png" />
+<p>Find the link that ends with the <code class="docutils literal notranslate"><span class="pre">.iso</span></code> suffix and has a data associated
+with it.  In this case it would be the <code class="docutils literal notranslate"><span class="pre">archlinux-2023-09-01-x86_64.iso</span></code>
+file.  Click on the link and save it to a thumb drive.  Ensure that there
+is no other data on your thumb drive.  If your thumb drive contains data other
+than the <code class="docutils literal notranslate"><span class="pre">.iso</span></code> file back it up somewhere else, since the flash process
+will destroy that data.</p>
+</section>
+<section id="flash-the-distribution-to-a-thumb-drive">
+<h3>Flash the Distribution to a Thumb Drive<a class="headerlink" href="#flash-the-distribution-to-a-thumb-drive" title="Link to this heading"></a></h3>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">iso</span></code> file has been saved to a thumb drive we need to flash the
+distribution to the drive so we can use it as a bootable drive for the
+installation process. There are several utility programs that can be used
+to transform a thumb drive into a bootable drive, but I prefer to use
+<a class="reference external" href="https://gitlab.com/bztsrc/usbimager">USB Imager</a>.  The following image
+shows an example of the download options in these
+<a class="reference external" href="https://gitlab.com/bztsrc/usbimager">USB Imager</a></p>
+<img alt="USB Imager download options" src="_images/usb_imager.png" />
+<p>Pick the option that is best suited to the computer you are using to the operating
+system you are using to download and flash the thumb drive.  Once you click
+on an option it should download an installer.  Once you have installed USB Imager
+you should have access to a GUI that looks like the image below.</p>
+<img alt="The USB Imager Graphical user Interface" src="_images/imager.png" />
+<p>Ensure that the <code class="docutils literal notranslate"><span class="pre">.iso</span></code> file is the only file on the thumb drive.  Then click
+on the three dots in the upper right icon to search for your thumb drive in
+the filesystem.  Ensure that the verify button is checked, then click on
+the Write icon.  This will start the process of flashing the <code class="docutils literal notranslate"><span class="pre">.iso</span></code> to the
+flash drive.</p>
+</section>
+</section>
+<section id="arch-linux-linux-installation">
+<h2>Arch Linux Linux Installation<a class="headerlink" href="#arch-linux-linux-installation" title="Link to this heading"></a></h2>
+<p>Now that the thumb drive has been flashed with the Arch Linux <code class="docutils literal notranslate"><span class="pre">.iso</span></code> file,
+we are prepared to use it as a mechanism to install Arch Linux on your computer.
+Ensure that the computer is powered off, and insert the thumb drive into its interface
+with the computer.  Also, if possible try to complete this process with a hard
+link internet connection in case their are issues with wireless during the
+install process.</p>
+<p>Boot your computer into the Bios mode by turning the computer
+on and then repetatively depressing the F12 key.  Once booted into Bios mode you
+should see an option for different boot menus, to include a boot option for
+your USB drive.  Click on this option, and it will boot from the flash drive.
+This boot option is commonly known as bpooting into live mode.  Once booted
+you should see several options, which may change from version to version;
+however, you should see an option for the following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Arch<span class="w"> </span>Linux<span class="w"> </span>install<span class="w"> </span>medium<span class="w"> </span><span class="o">(</span>x86_64,<span class="w"> </span>UEFI<span class="o">)</span>
+</pre></div>
+</div>
+<p>Use the up or down arrow keys to navigate to this option if you are not
+already hovering on this option.  Click enter, and this will enter into
+the Arch Linux installation process.</p>
+<p><strong>NOTE:</strong> The instructions listed above may not work for a computer that
+has a Bios tailored for windows.  Ther may be some bios options that you will
+have to manually change, but these are beyond the scope of this document.</p>
+<section id="set-up-the-keyboard-layout">
+<h3>Set up the Keyboard Layout<a class="headerlink" href="#set-up-the-keyboard-layout" title="Link to this heading"></a></h3>
+<p><strong>NOTE:</strong> If you are using a keyboard with a U.S. layout, you can skip
+this step, unless you wish to use a different keyboard layout.</p>
+<ol class="arabic">
+<li><p>View the keyboard layout options with the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>/usr/share/kbd/keymaps/**/*.map.gz
+</pre></div>
+</div>
+</li>
+<li><p>Change the layout with the <code class="docutils literal notranslate"><span class="pre">loadkeys</span></code> option.  The following is an example
+if a user wanted to use the <code class="docutils literal notranslate"><span class="pre">de-latin</span></code> layout.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>loadkeys<span class="w"> </span>de-latin
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="set-up-wireless">
+<h3>Set Up Wireless<a class="headerlink" href="#set-up-wireless" title="Link to this heading"></a></h3>
+<p>If you have a hard wire connection to the internet, you do not need to
+complete this section.  However, if you intend to use wireless once
+the distribution is installed, it is recommended that you complete this
+section.</p>
+<ol class="arabic">
+<li><p>Check to see if you are currently connected to the internet with the
+following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>a
+</pre></div>
+</div>
+<p>The above command should yield a result similar to the following;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>:<span class="w"> </span>lo:<span class="w"> </span>&lt;LOOPBACK,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">65536</span><span class="w"> </span>qdisc<span class="w"> </span>noqueue<span class="w"> </span>state<span class="w"> </span>UNKNOWN<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">   </span>link/loopback<span class="w"> </span><span class="m">00</span>:00:00:00:00:00<span class="w"> </span>brd<span class="w"> </span><span class="m">00</span>:00:00:00:00:00
+<span class="w">   </span>inet<span class="w"> </span><span class="m">127</span>.0.0.x/x<span class="w"> </span>scope<span class="w"> </span>host<span class="w"> </span>lo
+<span class="w">   </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="w">   </span>inet6<span class="w"> </span>::1/128<span class="w"> </span>scope<span class="w"> </span>host
+<span class="w">   </span>valid_lft<span class="w"> </span>forever<span class="w"> </span>preferred_lft<span class="w"> </span>forever
+<span class="m">2</span>:<span class="w"> </span>wlp0s20f3:<span class="w"> </span>&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>noqueue<span class="w"> </span>state<span class="w"> </span>UP<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">   </span>link/ether<span class="w"> </span>fc:44:82:a4:7a:63<span class="w"> </span>brd<span class="w"> </span>ff:ff:ff:ff:ff:ff
+<span class="w">   </span>inet<span class="w"> </span>xxx.xxx.xx.xx/24<span class="w"> </span>brd<span class="w"> </span>xxx.xxx.xx.xxx<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>dynamic<span class="w"> </span>noprefixroute<span class="w"> </span>wlp0s20f3
+<span class="w">   </span>valid_lft<span class="w"> </span>69747sec<span class="w"> </span>preferred_lft<span class="w"> </span>69747sec
+<span class="w">   </span>inet6<span class="w"> </span>fe80::6cd:4d12:77c7:1c40/64<span class="w"> </span>scope<span class="w"> </span>link<span class="w"> </span>no
+</pre></div>
+</div>
+</li>
+<li><p>Most likely the output you will receive to the previous step is like the
+above example.  If this is the case, then you will need to enter the <code class="docutils literal notranslate"><span class="pre">iwctl</span></code>
+utility to set up your wireless.  If this is the case, you should complete the
+following steps.  If not, and your wireless is connected, you can skip this
+section.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iwctl
+</pre></div>
+</div>
+</li>
+<li><p>Check the device name with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>device<span class="w"> </span>list
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> In my case the device name is <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>, which I will use in place of
+device name from her on out.</p>
+</li>
+<li><p>Scan for available networks.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>station<span class="w"> </span>wlan0<span class="w"> </span>scan
+</pre></div>
+</div>
+</li>
+<li><p>Query for the available networks.  The previous step is required to determine the
+list of available networks which are output to the user with this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>station<span class="w"> </span>wlan0<span class="w"> </span>get-networks
+</pre></div>
+</div>
+</li>
+<li><p>If your wireless network does not show up in this list, you may need to troubleshoot
+your wireless to ensure it is properly transmitting.  Assuming your network is in this
+list you need to enter the following command and replace <code class="docutils literal notranslate"><span class="pre">NetworkName</span></code> with the name
+of your network.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>station<span class="w"> </span>wlan0<span class="w"> </span>connect<span class="w"> </span><span class="s2">&quot;NetworkName&quot;</span>
+</pre></div>
+</div>
+<p>This command should lead to a prompt asking you to enter the password for your
+network.</p>
+</li>
+<li><p>Exit the <code class="docutils literal notranslate"><span class="pre">iwctl</span></code> prompt by simultaneously depressing the Control and d keys
+(i.e. Control-d).</p></li>
+<li><p>Verify that wireless is working correctly with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>a
+</pre></div>
+</div>
+<p>This should reproduce the output from step 1, but with a slightly different
+output indicating that wirless is connected.  If the output is the same, you
+may need to repeat the steps in this section starting at step 1.</p>
+</li>
+<li><p>Assuming the previous step worked correctly, test the connection. This step
+will ping the google server five times.  If this does not return all packets
+with 0% loss, you may need to repeat the steps in this section</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span>.8.8.8
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="set-up-the-partition-table">
+<h3>Set Up the Partition Table<a class="headerlink" href="#set-up-the-partition-table" title="Link to this heading"></a></h3>
+<p>In this section we will overwrite the partition table in your computer
+to one that will accomodate Logical Volume Management (LVM).  LVM is not
+necessary for a personal computer; however, it is very advantageous
+when setting up a server, and it provides flexibility for resizing memory
+even on a personal computer.  Throughout this section, you can abandon the
+setup process and still boot back into the operating system originally
+installed on your computer.  However, once you execute the final step in
+this section, it will wipe your existing OS from memory.  If you wish to
+learn more aboute LVM you can click on the following link for
+<a class="reference external" href="https://www.youtube.com/watch?v=MeltFN-bXrQ">LVM</a>.</p>
+<p><strong>NOTE:</strong> From this point onwards, the installation instructions may potentially
+change with each newer version of the Arch Linux installer.  The user should consult
+with the <a class="reference external" href="https://wiki.archlinux.org/title/installation_guide">Arch Linux Installation</a>
+instructions to ensure that the following steps are still valid.</p>
+<ol class="arabic">
+<li><p>Determine the name for your device with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fdisk<span class="w"> </span>-l
+</pre></div>
+</div>
+<p>The above command will display a list of all hard drives installed on
+your computer, to include your thumb drive, which will likely be labelled
+as <code class="docutils literal notranslate"><span class="pre">sda</span></code>.  It is very likely that your computer hard drive will be
+listed as <code class="docutils literal notranslate"><span class="pre">nvme0n1px</span></code> where the <code class="docutils literal notranslate"><span class="pre">x</span></code> may represent a partition.  For
+the rest of these steps I will refer to the hard drive as <code class="docutils literal notranslate"><span class="pre">nvme0napx</span></code>;
+however, be sure to replace this with the name of your drive.</p>
+</li>
+<li><p>Enter the partition manager with the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fdisk<span class="w"> </span>/dev/nvme0n1
+</pre></div>
+</div>
+</li>
+<li><p>Start a new gpt partion layout table with the following command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g
+</pre></div>
+</div>
+</li>
+<li><p>Initialize the first 500 MB partition with the command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>n
+</pre></div>
+</div>
+<p>This should yield the following questions, where the user should enter
+the value between quotes to each question.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Partition<span class="w"> </span>number<span class="w"> </span><span class="o">(</span><span class="m">1</span>-128,<span class="w"> </span>default<span class="w"> </span><span class="m">1</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept default&#39;</span>
+-First<span class="w"> </span>sector<span class="w"> </span><span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">2048</span><span class="o">)</span><span class="w"> </span><span class="s1">&#39;press enter to accept default&#39;</span>
+-Last<span class="w"> </span>sector,<span class="w"> </span>+/-<span class="w"> </span>sectors<span class="w"> </span>or<span class="w"> </span>+/-<span class="w"> </span>size<span class="o">{</span>K,M,G,T,P<span class="o">}</span><span class="w"> </span><span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">1048575966</span><span class="o">)</span>
+<span class="w"> </span><span class="s1">&#39;+500M&#39;</span>
+</pre></div>
+</div>
+<p>This should result in the response</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>partition<span class="w"> </span><span class="m">1</span><span class="w"> </span>of<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;Linux Filesstem&#39;</span><span class="w"> </span>and<span class="w"> </span>of<span class="w"> </span>size<span class="w"> </span><span class="m">500</span><span class="w"> </span>MiB
+</pre></div>
+</div>
+</li>
+<li><p>Set the first partition to be a Linux EFI Partition</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>t
+</pre></div>
+</div>
+<p>This should lead to the following prompt</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Partition<span class="w"> </span><span class="nb">type</span><span class="w"> </span>or<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>L<span class="w"> </span>to<span class="w"> </span>list<span class="w"> </span>all<span class="o">)</span>:
+</pre></div>
+</div>
+<p>You can type <code class="docutils literal notranslate"><span class="pre">L</span></code> to list the available types.  Type the number
+associated with <code class="docutils literal notranslate"><span class="pre">EFI</span> <span class="pre">Filesystem</span></code>.  As of the date this
+document was written, this should be option <code class="docutils literal notranslate"><span class="pre">1</span></code>.  When entered
+correctly, this installer should provide the following response.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Chaged<span class="w"> </span><span class="nb">type</span><span class="w"> </span>of<span class="w"> </span>partition<span class="w"> </span><span class="s1">&#39;Linux&#39;</span><span class="w"> </span>filesystem<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;EFI System&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create the second 500 MB partition.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>n
+</pre></div>
+</div>
+<p>This should yield the following questions and user responses in quotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Partition<span class="w"> </span>number<span class="w"> </span><span class="o">(</span><span class="m">2</span>-128,<span class="w"> </span>default<span class="w"> </span><span class="m">2</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept default&#39;</span>
+-First<span class="w"> </span>sector<span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">1026048</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept the default&#39;</span>
+-Last<span class="w"> </span>sector,<span class="w"> </span>+/-<span class="w"> </span>sectors<span class="w"> </span>or<span class="w"> </span>+/-<span class="w"> </span>size<span class="o">{</span>K,M,G,T,P<span class="o">}</span><span class="w"> </span><span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">1048575966</span><span class="o">)</span>
+<span class="w"> </span><span class="s1">&#39;+500M&#39;</span>
+</pre></div>
+</div>
+<p>This should result in the response</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>partition<span class="w"> </span><span class="m">2</span><span class="w"> </span>of<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;Linux Filesstem&#39;</span><span class="w"> </span>and<span class="w"> </span>of<span class="w"> </span>size<span class="w"> </span><span class="m">500</span><span class="w"> </span>MiB
+</pre></div>
+</div>
+<p>Unlike the previous partition we will not format this partition and will
+instead do that at a later time.</p>
+</li>
+<li><p>Create the 3rd and final partition.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>n
+</pre></div>
+</div>
+<p>This should yield the following prompt and responses listed in quotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Partition<span class="w"> </span>number<span class="w"> </span><span class="o">(</span><span class="m">3</span>-128,<span class="w"> </span>default<span class="w"> </span><span class="m">3</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept the default&#39;</span>
+-First<span class="w"> </span>sector<span class="w"> </span><span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">2050048</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept the default&#39;</span>
+-Last<span class="w"> </span>sector,<span class="w"> </span>+/-<span class="w"> </span>sectors<span class="w"> </span>or<span class="w"> </span>+/-<span class="w"> </span>size<span class="o">{</span>K,M,G,T,P<span class="o">}</span><span class="w"> </span><span class="o">(</span>some<span class="w"> </span>numbers,<span class="w"> </span>default<span class="w"> </span><span class="m">1048575966</span><span class="o">)</span>
+<span class="w"> </span><span class="s1">&#39;Press Enter to size the partition to the remaining disk space&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the final partition type.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>t
+</pre></div>
+</div>
+<p>This should yield the following prompt and responses in quotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-Partition<span class="w"> </span>number<span class="o">(</span><span class="m">1</span>-3,<span class="w"> </span>default<span class="w"> </span><span class="m">3</span><span class="o">)</span>:<span class="w"> </span><span class="s1">&#39;press enter to accept the default&#39;</span>
+-Partition<span class="w"> </span><span class="nb">type</span><span class="w"> </span>or<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>L<span class="w"> </span>to<span class="w"> </span>list<span class="w"> </span>all<span class="o">)</span><span class="w"> </span><span class="s1">&#39;44&#39;</span>
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> As of the date of this document draft, the correct option to
+the second question is <code class="docutils literal notranslate"><span class="pre">44</span></code>; however, this may change.  The user should
+press <code class="docutils literal notranslate"><span class="pre">L</span></code> and look for the option that yields <code class="docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">LVM</span></code>. If
+correctly entered this should yield the following response.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Change<span class="w"> </span><span class="nb">type</span><span class="w"> </span>of<span class="w"> </span>partition<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="s1">&#39;Linux Filesystem&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;Linux LVM&#39;</span>.
+</pre></div>
+</div>
+</li>
+<li><p>Verify the partition layout</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>p
+</pre></div>
+</div>
+<p>This should yield something like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="w">          </span>Start<span class="w">   </span>End<span class="w">     </span>Sectors<span class="w">    </span>Size<span class="w">    </span>Type
+/dev/nvme0n1p1<span class="w">  </span>XXX<span class="w">     </span>XXX<span class="w">     </span>XXX<span class="w">        </span>500M<span class="w">    </span>EFI<span class="w"> </span>System
+/dev/nvm10n1p2<span class="w">  </span>XXX<span class="w">     </span>XXX<span class="w">     </span>XXX<span class="w">        </span>500M<span class="w">    </span>Linux<span class="w"> </span>Filesystem
+/dev/nvme0n1p3<span class="w">  </span>XXX<span class="w">     </span>XXX<span class="w">     </span>XXX<span class="w">        </span>REMG<span class="w">    </span>Linux<span class="w"> </span>LVM
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> If the output at this step does not show the following
+partitions, you may need to repeat all steps in this section.</p>
+</li>
+<li><p>Finalize changes to partition layout.  Be warned, that once you execute
+this step it will delete your current operating system and all saved data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>w
+</pre></div>
+</div>
+</li>
+<li><p>Format partitions.  This will format your first partition as a <code class="docutils literal notranslate"><span class="pre">vfat</span></code>
+file structure and the second as <code class="docutils literal notranslate"><span class="pre">ext4</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkfs.fat<span class="w"> </span>-F32<span class="w"> </span>/dev/nvme0n1p1
+mkfs.ext4<span class="w"> </span>/dev/nvme0n1p2
+</pre></div>
+</div>
+</li>
+<li><p>Set up encryption on the 3rd partition.  Click yes when you re asked and be
+be prepared to enter a password of your choosing.  Also, notice this is
+the first step where we reference our drive by a specific partition.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cryptsetup<span class="w"> </span>luksFormat<span class="w"> </span>/dev/nvme0n1p3
+</pre></div>
+</div>
+</li>
+<li><p>Unlock the encrypted drive</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cryptsetup<span class="w"> </span>open<span class="w"> </span>--type<span class="w"> </span>luks<span class="w"> </span>/dev/nvme0n1p3<span class="w"> </span>lvm
+</pre></div>
+</div>
+</li>
+<li><p>Set up LVM with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pvcreate<span class="w"> </span>--dataalignment<span class="w"> </span>1m<span class="w"> </span>/dev/mapper/lvm
+vgcreate<span class="w"> </span>volgroup0<span class="w"> </span>/dev/mapper/lvm
+lvcreate<span class="w"> </span>-L<span class="w"> </span>100GB<span class="w"> </span>volgroup0<span class="w"> </span>-n<span class="w"> </span>lv_root
+lvcreate<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span>%FREE<span class="w"> </span>volgroup0<span class="w"> </span>-n<span class="w"> </span>lv_home
+modprobe<span class="w"> </span>dm_mod
+vgscan
+vgchange<span class="w"> </span>-ay
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> This should find and activate 2 logical volumes.</p>
+</li>
+<li><p>Format the logical volumes with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkfs.ext4<span class="w"> </span>/dev/volgroup0/lv_root
+mount<span class="w"> </span>/dev/volgroup0/lv_root<span class="w"> </span>/mnt
+mkdir<span class="w"> </span>/mnt/boot
+mount<span class="w"> </span>/dev/nvme0n1p2<span class="w"> </span>/mnt/boot
+mkfs.ext4<span class="w"> </span>/dev/volgroup0/lv_home
+mkdir<span class="w"> </span>/mnt/home
+mount<span class="w"> </span>/dev/volgroup0/lv_home<span class="w"> </span>/mnt/home
+mkdir<span class="w"> </span>/mnt/etc
+genfstab<span class="w"> </span>-U<span class="w"> </span>-p<span class="w"> </span>/mnt<span class="w"> </span>&gt;&gt;<span class="w"> </span>/mnt/etc/fstab
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the previous commands correctly set up <code class="docutils literal notranslate"><span class="pre">fstab</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/mnt/etc/fstab
+</pre></div>
+</div>
+<p>Which should yield</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dev/mapper/volgroup0-lv_root
+<span class="nv">UUID</span><span class="o">=</span>random<span class="w"> </span>number<span class="w">     </span>/<span class="w">        </span>ext4<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span>
+/dev/nvme0n1p2
+<span class="nv">UUID</span><span class="o">=</span>random<span class="w"> </span>number<span class="w">     </span>/boot<span class="w">    </span>ext4<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+/dev/mapper/volgroup0-lv_home
+<span class="nv">UUID</span><span class="o">=</span>random<span class="w"> </span>number<span class="w">     </span>/home<span class="w">    </span>ext4<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-arch-linux">
+<h3>Install Arch Linux<a class="headerlink" href="#install-arch-linux" title="Link to this heading"></a></h3>
+<p>At this point we need to install Arch Linux on our computer.</p>
+<ol class="arabic">
+<li><p>Install the base packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base
+</pre></div>
+</div>
+</li>
+<li><p>Enter root</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arch-chroot<span class="w"> </span>/mnt
+</pre></div>
+</div>
+</li>
+<li><p>Install Linux</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacmman<span class="w"> </span>-S<span class="w"> </span>linux<span class="w"> </span>linux-headers<span class="w"> </span>linux-firmware
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> You can also install linux-lts (long term support), which
+is a more stable kernel that is not updated as often as the pure
+linux distribution.  However, the Linux foundation recently announced
+that they will discontinue lts in the near future.  If you did decide
+to install lts in addition, the command would like like the example
+below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacmman<span class="w"> </span>-S<span class="w"> </span>linux<span class="w"> </span>linux-headers<span class="w"> </span>linux-lts<span class="w"> </span>linux-lts-headers<span class="w"> </span>linux-firmware
+</pre></div>
+</div>
+</li>
+<li><p>Install neovim to assist in the editing of configuration files</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>neovim
+</pre></div>
+</div>
+</li>
+<li><p>Install more base packages for wireless internet</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>base-devel<span class="w"> </span>openssh
+</pre></div>
+</div>
+</li>
+<li><p>Enable ssh to ensure it starts when your computer does</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sshd
+</pre></div>
+</div>
+</li>
+<li><p>Install networking packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>networkmanager<span class="w"> </span>wpa_supplicant<span class="w"> </span>wireless_tools<span class="w"> </span>netctl<span class="w"> </span>dialog
+</pre></div>
+</div>
+</li>
+<li><p>Enable the network manager</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>NetworkManager
+</pre></div>
+</div>
+</li>
+<li><p>Install LVM support</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>lvm2
+</pre></div>
+</div>
+</li>
+<li><p>Make some necessary changes in the <code class="docutils literal notranslate"><span class="pre">mkinitcpio.conf</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>/etc/mkinitcpio.conf
+</pre></div>
+</div>
+<p>Look for a line that has the following information in the file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">HOOKS</span><span class="o">=(</span>base<span class="w"> </span>udev<span class="w"> </span>autodetect<span class="w"> </span>modconf<span class="w"> </span>block<span class="w"> </span>filesystem<span class="w"> </span>keyboard<span class="w"> </span>fsck<span class="o">)</span>
+</pre></div>
+</div>
+<p>Modify the line to read as below and then save</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">HOOKS</span><span class="o">=(</span>base<span class="w"> </span>udev<span class="w"> </span>autodetect<span class="w"> </span>modconf<span class="w"> </span>block<span class="w"> </span>encrypt<span class="w"> </span>lvm2<span class="w"> </span>filesystem<span class="w"> </span>keyboard<span class="w"> </span>fsck<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> The unmodified line may change from one version to another, button
+look for the line that is most similar to the original line described in
+this step.</p>
+</li>
+<li><p>Type the following command to make the changes to the <code class="docutils literal notranslate"><span class="pre">mkinitcpio.conf</span></code>
+file take effect.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> If you also installed the lts linux kernel the command will look
+like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux
+mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux-lts
+</pre></div>
+</div>
+<p>This command should yield a lengthy output and you should see <code class="docutils literal notranslate"><span class="pre">[lvm]</span></code> and
+<code class="docutils literal notranslate"><span class="pre">[encrypt]</span></code> in the output.</p>
+</li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">local.gen</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>/etc/locale.gen
+</pre></div>
+</div>
+<p>Find the line that looks like;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#en_US.UTF-8 UTF-8</span>
+</pre></div>
+</div>
+<p>Uncomment the line so it looks like the example below and save the
+file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>en_UT.UTF-8<span class="w"> </span>UTF-8
+</pre></div>
+</div>
+</li>
+<li><p>Activate the changes with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>locale-gen
+</pre></div>
+</div>
+</li>
+<li><p>Set the root password</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>passwd
+</pre></div>
+</div>
+</li>
+<li><p>Add yourself as a user.  Replace myname with your username.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>useradd<span class="w"> </span>-m<span class="w"> </span>-g<span class="w"> </span>users<span class="w"> </span>-G<span class="w"> </span>wheel<span class="w"> </span>myname
+passwd<span class="w"> </span>myname
+</pre></div>
+</div>
+</li>
+<li><p>Ensure sudo is installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>sudo
+</pre></div>
+</div>
+<p>If this does not provide a response, you will need to install sudo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>sudo
+</pre></div>
+</div>
+</li>
+<li><p>Associate the user with wheel and all privileges</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">EDITOR</span><span class="o">=</span>vim<span class="w"> </span>visudo
+</pre></div>
+</div>
+<p>This should enter into the visudo file.  Find the line that reads as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#%wheel ALL=(ALL) ALL</span>
+</pre></div>
+</div>
+<p>Uncomment this line to look like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%wheel<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w"> </span>ALL
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> If you are adding a user other than yourself, you may want to
+specify other privileges in this command.</p>
+</li>
+</ol>
+</section>
+<section id="install-the-grub-bootloader">
+<h3>Install the GRUB Bootloader<a class="headerlink" href="#install-the-grub-bootloader" title="Link to this heading"></a></h3>
+<p>At this point, while we do have Linux installed, the computer will still
+not boot because we have not installed a boot loader.  We will use GRUB
+as the boot loader for our computer.</p>
+<ol class="arabic">
+<li><p>Install GRUB and related packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>grub<span class="w"> </span>efibootmgr<span class="w"> </span>dosfstools<span class="w"> </span>os-prober<span class="w"> </span>mtools
+</pre></div>
+</div>
+</li>
+<li><p>Create the following directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>/boot/EFI
+mount<span class="w"> </span>/dev/nvme0n1p1<span class="w"> </span>/boot/EFI
+</pre></div>
+</div>
+</li>
+<li><p>Install GRUB to the master boot record.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grub-install<span class="w"> </span>--target<span class="o">=</span>x86_64-efi<span class="w"> </span>--bootloader-id<span class="o">=</span>grub_uefi<span class="w"> </span>--recheck
+</pre></div>
+</div>
+</li>
+<li><p>Check to see if the locale directory exists.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l<span class="w"> </span>/boot/grub/
+</pre></div>
+</div>
+<p>If it does not exist create it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>/boot/grub/locale
+</pre></div>
+</div>
+</li>
+<li><p>Copy a specifc file from the <code class="docutils literal notranslate"><span class="pre">/usr</span></code> to <code class="docutils literal notranslate"><span class="pre">boot</span></code> directories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>/usr/share/locale/en<span class="se">\@</span>quot/LC_MESSAGES/grub.mo<span class="w"> </span>/boot/grub/locale/en.mo
+</pre></div>
+</div>
+</li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">grub</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>/etc/default/grub
+</pre></div>
+</div>
+<p>Look for the line that looks like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;loglevel=3 quiet&quot;</span>
+</pre></div>
+</div>
+<p>And change it to look like;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;cryptdevice=/dev/nvme0n1p3:volgroup0:allow-discards loglevel=3 quiet&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Generate the GRUB configuration file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub.cfg
+</pre></div>
+</div>
+</li>
+<li><p>At this point, if we did everything correct we should be able to reboot
+our hard drive.  Lets test our boot configuraiton.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+umount<span class="w"> </span>-a
+reboot
+</pre></div>
+</div>
+<p>If all goes well this should reboot our computer and prompt us to
+enter our username and password, and then boot back into a command
+line terminal.</p>
+</li>
+</ol>
+</section>
+<section id="post-install-tweaks">
+<h3>Post Install Tweaks<a class="headerlink" href="#post-install-tweaks" title="Link to this heading"></a></h3>
+<p>If you made it this far then I am assuming you were able to reboot your
+computer.  Now lets do some post-install tweaks to our OS.</p>
+<ol class="arabic">
+<li><p>Assume the root user</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su
+<span class="nb">cd</span><span class="w"> </span>/root
+</pre></div>
+</div>
+</li>
+<li><p>Create and activate a swap file with the following commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/swapfile<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">2048</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+mkswap<span class="w"> </span>/swapfile
+cp<span class="w"> </span>/etc/fstab<span class="w"> </span>/etc/fstab.bak
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/swapfile none swap sw 0 0&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab
+cat<span class="w"> </span>/etc/fstab
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the previous command is now in the fstab file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount<span class="w"> </span>-a
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> If the prior command causes errors, then something must be
+fixed.</p>
+</li>
+<li><p>Activate swap</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swapon<span class="w"> </span>-a
+free<span class="w"> </span>-m
+</pre></div>
+</div>
+</li>
+<li><p>Check available timezones.  For this example I am using <code class="docutils literal notranslate"><span class="pre">America/Denver</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>timedatectl<span class="w"> </span>list-timezones
+timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>America/Denver
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>systemd-timesyncd
+</pre></div>
+</div>
+</li>
+<li><p>Set the host name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>yourhostname
+</pre></div>
+</div>
+</li>
+<li><p>Verify the hostname was set up correctly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/etc/hostname
+</pre></div>
+</div>
+</li>
+<li><p>Set hot the hosts file with neovim</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>/etc/hosts
+</pre></div>
+</div>
+<p>Modify the file to look like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">127</span>.0.0.1<span class="w">  </span>localhost
+::1<span class="w">        </span>localhost
+<span class="m">127</span>.0.1.1<span class="w">  </span>webbmachine.localadmin<span class="w"> </span>webbmachine
+</pre></div>
+</div>
+</li>
+<li><p>Install the microcode for your cpu</p>
+<p>For intel</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>intel-ucode
+</pre></div>
+</div>
+<p>For AMD</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>amd-ucode
+</pre></div>
+</div>
+</li>
+<li><p>Install xorg</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>xorg-server
+</pre></div>
+</div>
+</li>
+<li><p>Install the video driver</p>
+<p>For intel and AMD.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>mesa
+</pre></div>
+</div>
+<p>For NVIDIA</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>nvidia
+</pre></div>
+</div>
+<p>If you are using an NVIDIA chip with an lts installation you may need
+to use the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>nvidia<span class="w"> </span>nvidia-lts
+</pre></div>
+</div>
+<p>For a virtual machine</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pacman<span class="w"> </span>-S<span class="w"> </span>virtualbox-guest-utils<span class="w"> </span>xf86-video-vmware
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vboxservice
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-a-desktop-environment">
+<h3>Install a Desktop Environment<a class="headerlink" href="#install-a-desktop-environment" title="Link to this heading"></a></h3>
+<p>Now that we have made it this far, we have a fully functioning Linux
+computer; however, it does not have a graphical desktop environment.  Lets
+fix this shortfall.</p>
+<p>If you want to install the Gnome desktop environment, enter the
+following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>gnome<span class="w"> </span>gnome-tweaks<span class="w"> </span>gnome-extra
+</pre></div>
+</div>
+<p>Then enter the following commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman-key<span class="w"> </span>--refresh-keys
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>gdm
+reboot
+</pre></div>
+</div>
+<p>The rest of this tutorial will assume the use of Gnome; however, you can
+also install KDE with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>plasma<span class="w"> </span>kde-applications
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sddm
+reboot
+</pre></div>
+</div>
+<p>If everything goes according to plan you should boot into a graphical desktop
+environment.</p>
+</section>
+</section>
 </section>
 
 
@@ -89,6 +814,7 @@ as outlined in this document.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Arch Linux Installation for Jon Webb!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Gnome.html" class="btn btn-neutral float-right" title="Configure the Gnome Desktop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

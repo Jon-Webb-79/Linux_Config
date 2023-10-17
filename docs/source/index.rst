@@ -25,6 +25,10 @@ for someone using anothe rLinux distrubition or a Macintosh computer system
    :caption: Contents:
 
    Arch Linux <Arch>
+   Configure Gnome <Gnome>
+   Post Arch Install Options <Post>
+   Database Installations <DB>
+   Troubleshooting <Trouble>
 
 Indices and tables
 ==================
@@ -35,7 +39,9 @@ Indices and tables
 
 Installation
 ============
-This package can be downloaded with the following command
+This package can be downloaded with the following command; however,
+you do not need to download this repository until after you have installed
+a Linux operating system.
 
 .. code-block:: bash
 

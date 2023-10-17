@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install Databases &mdash; Arch Linux Installation 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting" href="Trouble.html" />
+    <link rel="prev" title="Post Installation Options" href="Post.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Arch Linux Installation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Post.html">Post Arch Install Options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database Installations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sqlite">SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mariadb">MariaDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#postgresql">PostGreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-server">SQL-Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Trouble.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arch Linux Installation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Install Databases</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/DB.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="install-databases">
+<h1>Install Databases<a class="headerlink" href="#install-databases" title="Link to this heading"></a></h1>
+<p>This section will describe the process for installing several Relational
+Database Management Systems (RDBMS).</p>
+<section id="sqlite">
+<h2>SQLite<a class="headerlink" href="#sqlite" title="Link to this heading"></a></h2>
+<p>SQLite can be installed with the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>sqlite
+</pre></div>
+</div>
+<p>You can also install a DB Browser with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>sqlitebrowser
+</pre></div>
+</div>
+<p>More information on SQLite in Arch Linux can be found in the
+<a class="reference external" href="https://wiki.archlinux.org/title/SQLite">SQLite Arch Wiki</a>.</p>
+</section>
+<section id="mariadb">
+<h2>MariaDB<a class="headerlink" href="#mariadb" title="Link to this heading"></a></h2>
+<p>MariaDB is the preferred installation of the MySQL suite in the Arch Linux
+distribution.  More information on the use this suite can be found
+at the <a class="reference external" href="https://wiki.archlinux.org/title/MariaDB">MariaDB Arch Wiki page</a>.</p>
+<ol class="arabic">
+<li><p>Install MariaDB</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>mariadb
+</pre></div>
+</div>
+<p>Run the following command to complete the installation process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>maria-install-db<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--basedir<span class="o">=</span>/usr<span class="w"> </span>--datadir<span class="o">=</span>/var/lib/mysql
+</pre></div>
+</div>
+</li>
+<li><p>Start and enable services</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mariadb.service
+systemctl<span class="w"> </span>start<span class="w"> </span>mariadb.service
+</pre></div>
+</div>
+</li>
+<li><p>Run the security protocol for mariadb</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mariadb-secure-installation
+</pre></div>
+</div>
+</li>
+<li><p>Log into MariaDB.  The Arch Linux Wiki process asks a user to type the
+command <code class="docutils literal notranslate"><span class="pre">mariadb</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code>; however, this is predicated on the notion
+that the user set a root password during the installation process, which
+does not occur in an Arch Linux install.  The correct command to launch
+MariaDB is;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mariadb<span class="w"> </span>-u
+</pre></div>
+</div>
+</li>
+<li><p>Set the root password.  From within MariaDB type the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SET<span class="w"> </span>PASSWORD<span class="w"> </span>FOR<span class="w"> </span><span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>PASSWORD<span class="o">(</span><span class="s1">&#39;password_here&#39;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>From this point on, the Arch Linux Wiki is correct.</p>
+</li>
+<li><p>From within the MariaDB terminal create users with some or all root
+privleges.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;password_here&#39;</span><span class="p">;</span>
+GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>*.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">ALL</span></code> can and should be replaced with more specific privileges.
+You can even set priveleges to specific databases with a command such as;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>db_name.*<span class="w"> </span><span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can also download the MySQL Workbench as a GUI front end for the
+database management system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>mysql-workbench
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Once installed you can access workbench through the Desktop Environment
+applications menu.  The application will also have to be configured to your
+local host when launched the first time.</p>
+</section>
+<section id="postgresql">
+<h2>PostGreSQL<a class="headerlink" href="#postgresql" title="Link to this heading"></a></h2>
+<p>More information can be found from the
+<a class="reference external" href="https://wiki.archlinux.org/title/PostgreSQL">Arch Linux PostGreSQL Wiki</a> page.</p>
+<ol class="arabic">
+<li><p>Install PostGreSQL with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>postgresql
+</pre></div>
+</div>
+</li>
+<li><p>Open PostGreSQL with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres
+</pre></div>
+</div>
+</li>
+<li><p>Initialize the database cluster with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>initdb<span class="w"> </span>--locale<span class="o">=</span>C.UTF-8<span class="w"> </span>--encoding<span class="o">=</span>UTF8<span class="w"> </span>-D<span class="w"> </span>/var/lib/postgres/data-checksums
+</pre></div>
+</div>
+</li>
+<li><p>Return to standard user by typing <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p></li>
+<li><p>Initialize service with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>postgresql.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
+</pre></div>
+</div>
+</li>
+<li><p>Log back into postgres</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres
+</pre></div>
+</div>
+</li>
+<li><p>Create a root user account</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>createuser<span class="w"> </span>--interactive<span class="w"> </span>root
+</pre></div>
+</div>
+<p>When prompted if this is a superuser, type <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</li>
+<li><p>Create a local user</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>createuser<span class="w"> </span>--interactive<span class="w"> </span>username
+</pre></div>
+</div>
+<p>When prompted if you want this person to be a superuser, respond with <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+When prompted to make this user able to create new databases, but not able
+to assign new roles.  <strong>NOTE:</strong> Once in a database you can also create a new
+user via the SQL command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE<span class="w"> </span>ROLE<span class="w"> </span>username<span class="w"> </span>WITH<span class="w"> </span>LOGIN<span class="w"> </span>PASSWORD<span class="w"> </span><span class="s1">&#39;passowrd&#39;</span>
+</pre></div>
+</div>
+<p>Via SQL command, authorities can be assigned via</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ALTER<span class="w"> </span>ROLE<span class="w"> </span>username<span class="w"> </span>ROLE
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">ROLE</span></code> can be</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATEDB,<span class="w"> </span>SUPERUSER,<span class="w"> </span>CREATEROLE,<span class="w"> </span>REPLICATION,<span class="w"> </span>BYPASS<span class="w"> </span>RLS,<span class="w"> </span>etc
+</pre></div>
+</div>
+</li>
+<li><p>Create a database with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>createdb<span class="w"> </span>myDatabaseName
+</pre></div>
+</div>
+</li>
+<li><p>Connect to the database with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql<span class="w"> </span>-d<span class="w"> </span>myDatabaseName
+</pre></div>
+</div>
+</li>
+<li><p>Quit with <code class="docutils literal notranslate"><span class="pre">\q</span></code></p></li>
+<li><p>Adter wuitting, you may get a warning stating</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/var/lib/postgresql/.psql_history<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist.
+</pre></div>
+</div>
+<p>If this occurs, take the following steps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/postgres/
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/var/lib/postgres/
+sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>touch<span class="w"> </span>/var/lib/postgres/.psql_history
+</pre></div>
+</div>
+</li>
+<li><p>Create a database with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>createdb<span class="w"> </span>myDatabaseName
+</pre></div>
+</div>
+</li>
+<li><p>Connect to the database with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql<span class="w"> </span>-d<span class="w"> </span>myDatabaseName
+</pre></div>
+</div>
+</li>
+<li><p>Quit with <code class="docutils literal notranslate"><span class="pre">\q</span></code></p></li>
+<li><p>Adter wuitting, you may get a warning stating</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/var/lib/postgresql/.psql_history<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist.
+</pre></div>
+</div>
+<p>If this occurs, take the following steps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/postgres/
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/var/lib/postgres/
+sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>touch<span class="w"> </span>/var/lib/postgres/.psql_history
+</pre></div>
+</div>
+</li>
+<li><p>From this point forward, you will access postgresql with the following
+command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql<span class="w"> </span>-U<span class="w"> </span>username<span class="w"> </span>-h<span class="w"> </span>host_name<span class="w"> </span>database_name
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="sql-server">
+<h2>SQL-Server<a class="headerlink" href="#sql-server" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Install all required dependencies</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>aur
+<span class="nb">cd</span><span class="w"> </span>aur
+yay<span class="w"> </span>-S<span class="w"> </span>mssql-server
+yay<span class="w"> </span>-S<span class="w"> </span>msodbcsql
+yay<span class="w"> </span>-S<span class="w"> </span>mssql-tools
+</pre></div>
+</div>
+</li>
+<li><p>Configure SQL-Server</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/opt/mssql/bin/mssql-conf<span class="w"> </span>setup
+</pre></div>
+</div>
+<p>Select the developer edition, it should be option 2</p>
+<p>Set up the administrator password in the prompt</p>
+</li>
+<li><p>Enable the server and ensure it initiates at computer start up</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mssql-server
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mssql-server
+</pre></div>
+</div>
+</li>
+<li><p>Connect as system administrator (sa)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlcmd<span class="w"> </span>-S<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>sa
+</pre></div>
+</div>
+<p>If this step has issues finding the certificate, you can run the following
+command.  <strong>NOTE:</strong> This is not recommended for  production environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlcmd<span class="w"> </span>-S<span class="w"> </span>localhost<span class="w"> </span>-S<span class="w"> </span>sa<span class="w"> </span>-C
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Post.html" class="btn btn-neutral float-left" title="Post Installation Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Trouble.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jonathan A. Webb.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

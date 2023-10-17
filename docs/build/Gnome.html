@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configure the Gnome Desktop &mdash; Arch Linux Installation 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Post Installation Options" href="Post.html" />
+    <link rel="prev" title="Arch Linux Installation" href="Arch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Arch Linux Installation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configure Gnome</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-the-correct-location">Set the Correct Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-wallpaper">Change Wallpaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-applications">Access Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-aur">Install AUR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-more-packages">Install More Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-arch-themes">Access Arch Themes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fonts">Fonts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#themes">Themes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arch-themes">Arch Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aur-themes">AUR Themes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-gnome-extras">Modify Gnome Extras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-gnome-look-options">Access Gnome Look Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-terminal">Configure Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Post.html">Post Install Options</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arch Linux Installation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configure the Gnome Desktop</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Gnome.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configure-the-gnome-desktop">
+<h1>Configure the Gnome Desktop<a class="headerlink" href="#configure-the-gnome-desktop" title="Link to this heading"></a></h1>
+<p>If you have made it this far I am assuming that you have succesfully installed
+<a class="reference internal" href="Arch.html#archinstall"><span class="std std-ref">Arch Linux</span></a> or you have installed some other flavor of
+linux.  I am also assuming that you have downloaded the Gnome Desktop
+Environment and can log into your Desktop.  If this is the case, lets get to
+work configuring our Desktop Environment.</p>
+<section id="set-the-correct-location">
+<h2>Set the Correct Location<a class="headerlink" href="#set-the-correct-location" title="Link to this heading"></a></h2>
+<p>When you log into Gnome for the first time you should see a screen that looks
+something like the image below.</p>
+<img alt="The entry screen for the Gnome desktop environment" src="_images/gnome_entry.png" />
+<p>While your screen may not be identical, you should see several icons in the
+upper right corner of the screen.  If you hover over those icons, you should
+see a window pop up with a lock symbol, a power symbol, and a gear symbol.
+Click on the gear symbol and it should open a window that looks like the image
+below.</p>
+<img alt="The Gnome settings window" src="_images/settings.png" />
+<p>On the left of this window you will notice many options and the ability
+to scroll up or down to access all of these options.  Scroll down to the
+<code class="docutils literal notranslate"><span class="pre">Region</span> <span class="pre">&amp;</span> <span class="pre">Language</span></code> option and click on it.  It should populate the right
+side of the settings menu with something similar to the picture shown above.
+When you first install Gnome, the language option is not populated, which
+will prevent you from using many of Gnomes functions.  Select the language
+that is appropriate for you, and then reboot your computer.  You can reboot
+by clicking in the upper corner of the screen where the icons are, and then
+clicking the power icon.  This should provide you options for shut down or
+reboot.  Click the reboot option.</p>
+</section>
+<section id="change-wallpaper">
+<h2>Change Wallpaper<a class="headerlink" href="#change-wallpaper" title="Link to this heading"></a></h2>
+<p>At this point if you have an image you want to use asa your wallpaper
+background, you can install or download the image on your computer.  If
+you re-open the settings window, you can scroll to an option titled
+<code class="docutils literal notranslate"><span class="pre">Appearance</span></code>.  From here you can select from pre-installed wallpaper options
+or select from images that you have installed.  In addition you can also choose
+between <code class="docutils literal notranslate"><span class="pre">default</span></code> or <code class="docutils literal notranslate"><span class="pre">dark</span></code> themes. The selection options should look like
+the image below.</p>
+<img alt="wallpaper settings" src="_images/wallpaper.png" />
+</section>
+<section id="access-applications">
+<h2>Access Applications<a class="headerlink" href="#access-applications" title="Link to this heading"></a></h2>
+<p>As you can see, Gnome aims to achieve a clean desktop philosphy where your
+applications are not graphically shown on your desktop.  Instead you can
+access your applications by one of two methods.  Regardless of method, you must
+depress the <code class="docutils literal notranslate"><span class="pre">start</span></code> key, which for many keyboards is the key that has a
+Windows or Linux symbol on it.  This will display a panel on the bottom of the
+screen and also add a text box at the top of the screen.  You can either type
+the name of the application you wish to access into the text box, or you can
+click the icon with gridded dots at the bottom right of the display panel.  If
+you click the gridded box, it will display all of your applications to
+select from.</p>
+</section>
+<section id="install-aur">
+<h2>Install AUR<a class="headerlink" href="#install-aur" title="Link to this heading"></a></h2>
+<p>The Arch package repository managed under the <code class="docutils literal notranslate"><span class="pre">pacman</span></code> command has many
+packages that can expand the utility of your Arch configuration.  However,
+there is another library called the Arch User Repository (AUR) that also has
+many packages we will wish to access to customize gnome, as well as other things.
+Lets install a package titled <code class="docutils literal notranslate"><span class="pre">yay</span></code> that makes the process of accessing the
+AUR much easier. Using one of the methods described in the previous section,
+open you Terminal application and type the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>git
+</pre></div>
+</div>
+<p>Next lets install <code class="docutils literal notranslate"><span class="pre">yay</span></code> with the following commands.  Wherever you see the
+phrase <code class="docutils literal notranslate"><span class="pre">username</span></code>, replace that with your username.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt
+sudo<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https::/aur.archlinux.org/yay.git
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>username:users<span class="w"> </span>./yay
+<span class="nb">cd</span><span class="w"> </span>yay
+makepkg<span class="w"> </span>-si
+</pre></div>
+</div>
+<p>Once you have down this, you will be able to use the <code class="docutils literal notranslate"><span class="pre">yay</span></code> command to
+download packages from the AUR.</p>
+</section>
+<section id="install-more-packages">
+<h2>Install More Packages<a class="headerlink" href="#install-more-packages" title="Link to this heading"></a></h2>
+<p>If your terminal is not open, please open it and type the following commands
+to install a few packages that will help us customize our Gnome Desktop
+Environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>ocs-url
+yay<span class="w"> </span>-S<span class="w"> </span>gnome-extensions
+</pre></div>
+</div>
+</section>
+<section id="access-arch-themes">
+<h2>Access Arch Themes<a class="headerlink" href="#access-arch-themes" title="Link to this heading"></a></h2>
+<p>In this section we will start the process of customizing the underlying
+Graphical User Interface (GUI) for our Desktop Environment.  However, we
+will need access to a search engine to support this.  I prefer to use
+Google Chrome, but you can use whatever search engine you prefer.  Lets
+install an appropriate search engine now.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>chrome
+</pre></div>
+</div>
+<section id="fonts">
+<h3>Fonts<a class="headerlink" href="#fonts" title="Link to this heading"></a></h3>
+<p>Now that we have installed, Chrome, or a search engine of your choosing,
+lets navigate the the following Arch Linux page for
+<a class="reference external" href="https://wiki.archlinux.org/title/fonts#Font_packages">Fonts</a>.
+This should open the following web page.</p>
+<img alt="The Arch Linux Fonts repository" src="_images/font.png" />
+<p>Within this web page you have a list of all font types that are available
+on the Arch Linux Fonts web page.  Each font package listed in this repository
+can be downloaded via a pacman command, where the package is listed in the
+circular brackets ().  For example, if you want to instal Roboto fonts, you
+can install with the command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>ttr-roboto
+</pre></div>
+</div>
+<p>Now open the application <code class="docutils literal notranslate"><span class="pre">tweaks</span></code> that was installed towards the end
+of the <a class="reference internal" href="Arch.html#archinstall"><span class="std std-ref">Arch Linux Installation</span></a> process. This should
+open the following window.</p>
+<img alt="The tweaks tool window." src="_images/tweaks.png" />
+<p>Now that we have installed the Roboto fonts, you can look through the available
+fonts in the <code class="docutils literal notranslate"><span class="pre">Fonts</span></code> menu and you will see the Roboto family of fonts that
+can be selected.  After selecting a new font, you should notice the font type
+used in the Desktop Environment change.</p>
+</section>
+</section>
+<section id="themes">
+<h2>Themes<a class="headerlink" href="#themes" title="Link to this heading"></a></h2>
+<p>We can customize the look and feel of the desktop layout with themes that
+can be installed from the <code class="docutils literal notranslate"><span class="pre">pacman</span></code> and <code class="docutils literal notranslate"><span class="pre">Arch</span> <span class="pre">User</span> <span class="pre">Repository</span></code></p>
+<section id="arch-themes">
+<h3>Arch Themes<a class="headerlink" href="#arch-themes" title="Link to this heading"></a></h3>
+<p>The Arch Linux Wiki also contains many themes that can be used to configure
+the colors, windows, and iconography of the Desktop Environment.  You can
+navigate to the
+<a class="reference external" href="https://archlinux.org/packages/?sort=&amp;q=-theme&amp;maintainer=&amp;flagged=">Arch Themes</a>
+web page.  You should see a window that looks like the figure below.</p>
+<img alt="The Arch themes web page." src="_images/arch_themes.png" />
+<p>Like the Fonts library, this contains a library of themes that the user can
+download with the <code class="docutils literal notranslate"><span class="pre">pacman</span></code> command in terminal.  For example, I like to use
+the Arc <code class="docutils literal notranslate"><span class="pre">arc-gtk-theme</span></code> so we can download that via terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arc-gtk-theme
+</pre></div>
+</div>
+<p>Now if you open the the <code class="docutils literal notranslate"><span class="pre">tweaks</span></code> tool and navigate to the appearance tab,
+you can toggle the options for <code class="docutils literal notranslate"><span class="pre">shell</span></code>.  You should see <code class="docutils literal notranslate"><span class="pre">Arc-Dark</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Arc-Light</span></code>.  If you select one of these options you will see a change in
+the appearance of your desktop environment.  You should play around with different
+options and select a theme that supports your work flow.</p>
+<img alt="The apperance tab in the tweaks tool." src="_images/appearance.png" />
+</section>
+<section id="aur-themes">
+<h3>AUR Themes<a class="headerlink" href="#aur-themes" title="Link to this heading"></a></h3>
+<p>In addition to the themes in the <code class="docutils literal notranslate"><span class="pre">pacman</span></code> repository you can also
+download themese from theme
+<a class="reference external" href="https://aur.archlinux.org/packages?O=0&amp;K=-themes">Arch User Repsitory Themes</a>
+library.  The web page for the AUR Themes library should look like the image
+shown below.</p>
+<img alt="The  AUR themes web site" src="_images/aur_themes.png" />
+<p>The themes  here can be downloaded with the <code class="docutils literal notranslate"><span class="pre">yay</span></code> command. For
+example, if I wanted to install the <code class="docutils literal notranslate"><span class="pre">adwaita-shell-theme</span></code>, I could
+install it with the command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>adwaita-shell-theme
+</pre></div>
+</div>
+<p>In general I prefer a simple look to my desktop GUI; however, each user
+should browse these options and decide what themes you like to use.</p>
+</section>
+</section>
+<section id="modify-gnome-extras">
+<h2>Modify Gnome Extras<a class="headerlink" href="#modify-gnome-extras" title="Link to this heading"></a></h2>
+<p>We can add functionality to our Desktop Environment by navigating to the
+<a class="reference external" href="https://extensions.gnome.org/">Gnome Extensions</a> website.  The Gnome
+Extensions web site should look like the image below.</p>
+<img alt="The gnome extensions web site" src="_images/gnome_extension.png" />
+<p>In order for use to use
+the functionality in this web site, you must have the Gnome Extensions
+package downloaded, which was accomplished earlier in this section, but
+just in case, you can download it with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>gnome-extensions
+</pre></div>
+</div>
+<p>Each item in the Extensions site can be clicked on, which opens up another
+window with a slider button that can be used to turn the option on or off.
+The slider button should look like this example from the <code class="docutils literal notranslate"><span class="pre">Extension</span> <span class="pre">List</span></code>
+extra option.</p>
+<img alt="The extra slider bar option." src="_images/extra_slider.png" />
+<p>If turned on, the functionality will be displayed in the <code class="docutils literal notranslate"><span class="pre">Extensions</span></code>
+application. I personally user the <code class="docutils literal notranslate"><span class="pre">DashtoDock</span></code>, <code class="docutils literal notranslate"><span class="pre">Shortcuts</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Tactile</span></code>, and <code class="docutils literal notranslate"><span class="pre">Tiling</span> <span class="pre">Assistant</span></code> extensions.  However, each user should
+browse the options to see what extensions are right for you.  The image below
+shows somthing similar to what you might see in your <code class="docutils literal notranslate"><span class="pre">Extensions</span></code> Application.</p>
+<img alt="The Extras application" src="_images/extras.png" />
+</section>
+<section id="access-gnome-look-options">
+<h2>Access Gnome Look Options<a class="headerlink" href="#access-gnome-look-options" title="Link to this heading"></a></h2>
+<p>We can also use the <a class="reference external" href="https://www.gnome-look.org/browse/">Gnome-look</a> website
+to further customize out Desktop GUI.  When logged into the Gnome-desktop
+web site it should look like the image below.</p>
+<img alt="Gnome look web site" src="_images/gnome_look.png" />
+<p>Once here, scroll to the <code class="docutils literal notranslate"><span class="pre">GTK3/4</span> <span class="pre">Themes</span></code>.</p>
+<p>Inside of this you will see many themes that can be downloaded.  In this example,
+I clicked on the Desert-GTK theme, which brought up this page.</p>
+<img alt="An example with Desert-GTK theme" src="_images/gtk_theme.png" />
+<p>Once a theme option has been clicked, you can further click on the <code class="docutils literal notranslate"><span class="pre">File</span></code> option
+and then click the Install button.  This will lead you through a series of prompts
+that will lead to the installation of the theme on your computer.  You can access
+the themes from the <code class="docutils literal notranslate"><span class="pre">Tweaks</span></code> Application and turn the theme on or off in the
+Appearance tab. I prefer to use the <code class="docutils literal notranslate"><span class="pre">Relax-GTK</span></code> or <code class="docutils literal notranslate"><span class="pre">Graphite</span></code> themes.</p>
+</section>
+<section id="configure-terminal">
+<h2>Configure Terminal<a class="headerlink" href="#configure-terminal" title="Link to this heading"></a></h2>
+<p>Finally we need to update our terminal to allow for transparency.
+To do this we will need to install a new terminal with the follwing
+command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>gnome-terminal-transparency
+</pre></div>
+</div>
+<p>Accept the default installation options until it asks you if your
+want to remove the original terminal because it conflicts with this
+package. In this instante type <code class="docutils literal notranslate"><span class="pre">y</span></code> and then hit enter.  Once this complete
+downloading, if you close and open the terminal, you should now have a
+transparency option under the preferences menu.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Arch.html" class="btn btn-neutral float-left" title="Arch Linux Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Post.html" class="btn btn-neutral float-right" title="Post Installation Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jonathan A. Webb.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

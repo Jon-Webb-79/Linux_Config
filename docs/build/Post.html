@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Installation Options &mdash; Arch Linux Installation 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install Databases" href="DB.html" />
+    <link rel="prev" title="Configure the Gnome Desktop" href="Gnome.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Arch Linux Installation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Post Arch Install Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-code-directories">Create Code Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-necessary-packages">Install Necessary packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-python">Install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-poetry">Install Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-c-and-c-compilers">Install C and C++ Compilers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-arduino-files">Install Arduino Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-fonts">Install Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-misc-packages">Install Misc. Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-neovim">Configure NeoVim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-tmux">Install tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-shell-environments">Set up Shell Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-bash">Set up Bash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-zshell">Set up ZShell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-audio">Install Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-bluetooth">Install Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-shell-script">Backup Shell Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DB.html">Database Installations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trouble.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arch Linux Installation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Post Installation Options</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Post.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="post-installation-options">
+<h1>Post Installation Options<a class="headerlink" href="#post-installation-options" title="Link to this heading"></a></h1>
+<p>This section will require the use of <code class="docutils literal notranslate"><span class="pre">git</span></code>.  If you did not install <code class="docutils literal notranslate"><span class="pre">git</span></code>
+in the previous sections, install it now with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>git
+</pre></div>
+</div>
+<p>Also, if you did not install <code class="docutils literal notranslate"><span class="pre">yay</span></code> in the previous section, install it now
+with the following commands and replace any instance of <code class="docutils literal notranslate"><span class="pre">username</span></code> with
+your username.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt
+sudo<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://aur.archlinux.org/yay.git
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>username:users<span class="w"> </span>./yay
+<span class="nb">cd</span><span class="w"> </span>yay
+makepkg<span class="w"> </span>-si
+</pre></div>
+</div>
+<p>Once you have installed Arch Linux and configured Gnome, you are
+ready to begin the installation of other packages.  In addition, we
+will also rely on the use of configuration files that can be downloaded
+by the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Jon-Webb-79/Linux_Config.git<span class="w"> </span>~/Linux_Config
+</pre></div>
+</div>
+<section id="create-code-directories">
+<h2>Create Code Directories<a class="headerlink" href="#create-code-directories" title="Link to this heading"></a></h2>
+<p>The configuration files are predicated on Software Development Environments for
+the C, C++, and Pyhton languages.  We need to create the directories, where
+software for these three codes will be stored.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>Code_Dev
+mkdir<span class="w"> </span>Code_Dev/Python
+mkdir<span class="w"> </span>Code_Dev/C
+mkdir<span class="w"> </span>Code_Dev/C++
+</pre></div>
+</div>
+</section>
+<section id="install-necessary-packages">
+<h2>Install Necessary packages<a class="headerlink" href="#install-necessary-packages" title="Link to this heading"></a></h2>
+<p>In this section of the instructions we will install all packages necessary
+for software development and to support required functionality.</p>
+<section id="install-python">
+<h3>Install Python<a class="headerlink" href="#install-python" title="Link to this heading"></a></h3>
+<p>Install Python with the following commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
+</pre></div>
+</div>
+</section>
+<section id="install-poetry">
+<h3>Install Poetry<a class="headerlink" href="#install-poetry" title="Link to this heading"></a></h3>
+<p>Poetry is a package management too used for the Python language.</p>
+<p>Install Poetry with the following command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-
+</pre></div>
+</div>
+<p>Configure Poetry to read from virtual environments in project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="install-c-and-c-compilers">
+<h3>Install C and C++ Compilers<a class="headerlink" href="#install-c-and-c-compilers" title="Link to this heading"></a></h3>
+<p>At the moment I use <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and <code class="docutils literal notranslate"><span class="pre">clang</span></code> as compilers for C and C++
+work.  Install the compilers with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>clang
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>gcc
+</pre></div>
+</div>
+<p>In addition we want to install additional packages to support with code
+configuration management and testing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>googletest-git
+yay<span class="w"> </span>-S<span class="w"> </span>cmocka
+yay<span class="w"> </span>-S<span class="w"> </span>cmocks
+yay<span class="w"> </span>-S<span class="w"> </span>doxygen-git
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>code
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>github-cli
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>glibc
+</pre></div>
+</div>
+<p>The Github Command Line Interface (CLI) is based on the use of a key
+to access your Github website from your own erpository.  In order
+to git a token from the web site follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Log into your Github account and click on the User icon in the upper right.</p></li>
+<li><p>Click on Settings.</p></li>
+<li><p>Click on Developer Settings.</p></li>
+<li><p>Click on Personal Access Tokens.</p></li>
+<li><p>Click on Generate new token (classic style).</p></li>
+<li><p>Give the token a name and click on the appropriate settings, finally
+clicking on generate token.</p></li>
+<li><p>Save the token to a password file, somewhere of your choosing.  You may
+also choose to encrypt the file for privacy.</p></li>
+</ol>
+<p>Once you have a password, you can now associate the password with your git
+permissions by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gh<span class="w"> </span>auth<span class="w"> </span>login
+</pre></div>
+</div>
+<p>Follow the instructions to associate your key with github</p>
+</section>
+<section id="install-arduino-files">
+<h3>Install Arduino Files<a class="headerlink" href="#install-arduino-files" title="Link to this heading"></a></h3>
+<p>This section is optional and should only be downloaded if you plan on
+doing C code development for Arduino micro-controllers.  Install the
+following packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arduino
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arduino-cli
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arduino-docs
+</pre></div>
+</div>
+<p>Add your name to <code class="docutils literal notranslate"><span class="pre">uucp</span></code> and replace <code class="docutils literal notranslate"><span class="pre">username</span></code> with your username</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usermod<span class="w"> </span>-aG<span class="w"> </span>uucp<span class="w"> </span>usernmae
+</pre></div>
+</div>
+<p>Load the <code class="docutils literal notranslate"><span class="pre">cdc_acm</span></code> module</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>modprobe<span class="w"> </span>cdc_acm
+</pre></div>
+</div>
+<p>Set the serial port</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>cs8<span class="w"> </span><span class="m">9600</span><span class="w"> </span>ignbrk<span class="w"> </span>-brkint<span class="w"> </span>-imaxbel<span class="w"> </span>-opost<span class="w"> </span>-onlcr<span class="se">\</span>
+-isig<span class="w"> </span>-icanon<span class="w"> </span>-iexten<span class="w"> </span>-echo<span class="w"> </span>-echoe<span class="w"> </span>-echok<span class="w"> </span>-echoctl<span class="w"> </span>-echoke<span class="w"> </span>-noflsh<span class="se">\</span>
+-ixon<span class="w"> </span>-crtscts
+</pre></div>
+</div>
+<p>Update teh local cache of available platforms</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
+</pre></div>
+</div>
+<p>Check to see if the board is connected.  This assumes the arduino board is
+plugged into a USB port.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arduino-cli<span class="w"> </span>board<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Install the platform for your board.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+</pre></div>
+</div>
+<p>Verify the board is installed</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arduino-cli<span class="w"> </span>core<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Next we need to install AVR support for C code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>avr-binutils<span class="w"> </span>avr-gcc<span class="w"> </span>avr-libc
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>avrdude
+</pre></div>
+</div>
+</section>
+<section id="install-fonts">
+<h3>Install Fonts<a class="headerlink" href="#install-fonts" title="Link to this heading"></a></h3>
+<p>Install powerline fonts and nerd fonts used for powerline status in terminal
+with the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yay<span class="w"> </span>-S<span class="w"> </span>nerd-fonts-jetbrains-mono
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>powerline<span class="w"> </span>powerline-fonts
+</pre></div>
+</div>
+</section>
+<section id="install-misc-packages">
+<h3>Install Misc. Packages<a class="headerlink" href="#install-misc-packages" title="Link to this heading"></a></h3>
+<p>Install the following packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>google-earth-pro
+sudo<span class="w"> </span>pacman<span class="w"> </span>-s<span class="w"> </span>notepadqq
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>tree
+sudo<span class="w"> </span>pacman<span class="w"> </span>-s<span class="w"> </span>htop
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>rsync
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>fail2ban
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>xclip
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>libreoffice
+sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>cronie
+yay<span class="w"> </span>-S<span class="w"> </span>neofetch-btw
+yay<span class="w"> </span>-s<span class="w"> </span>masterpdfeditor
+</pre></div>
+</div>
+<p>If it is not already installed, then type the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>ssh
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configure-neovim">
+<h2>Configure NeoVim<a class="headerlink" href="#configure-neovim" title="Link to this heading"></a></h2>
+<p>If you did not do so in previous sectins, Install Neovim</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>neovim
+</pre></div>
+</div>
+<p>Next we need to install a package manager for neovim.  We will install
+<code class="docutils literal notranslate"><span class="pre">Packer</span></code> with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/wbthomason/packer.nvim<span class="se">\</span>
+~/.local/share/nvim/site/pack/packer/start/packer.nvim
+</pre></div>
+</div>
+<p>Next we need to create an <code class="docutils literal notranslate"><span class="pre">nvim</span></code> configuration directory.  If you already
+have an <code class="docutils literal notranslate"><span class="pre">~/.config/nvim</span></code> directory with configuration files in it copy
+it to the following location so you do not loose any data in it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/.config/nvim<span class="w"> </span>~/.config/backnvim
+</pre></div>
+</div>
+<p>Next copy all of the data from the cloned <code class="docutils literal notranslate"><span class="pre">Linux_Config</span></code> folder to a new
+<code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/nvim<span class="w"> </span>~/.config/
+</pre></div>
+</div>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file and open it with the command.  <strong>NOTE:</strong>
+when you execute the command below, it will likely produce many errors.  Do
+not worry about the errors, we will fix this in the next step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>~/.config/nvim/lua/core/packer.lua
+</pre></div>
+</div>
+<p>The above command probably produced many errors, since the packages in the
+<code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file have not been installed.  Lets install the packages while
+logged into the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file with vim.  Ensure you are in normal
+mode by pressing escape.  Next, depress the <code class="docutils literal notranslate"><span class="pre">:</span></code> key and then type
+PackerSync, like below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>:PackerSync
+</pre></div>
+</div>
+<p>After you hit enter, this should load all necessary packages.  Next log
+out of the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file by depressing the <code class="docutils literal notranslate"><span class="pre">:</span></code> key, typing <code class="docutils literal notranslate"><span class="pre">q</span></code>
+and then enter.  Log back into the file with the command;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>~/.config/nvim/lua/core/packer.lua
+</pre></div>
+</div>
+<p>This time their should be no errors, and your NeoVim application is now
+working with all necessary pacakges.  After this I would encourage you to
+explore the <code class="docutils literal notranslate"><span class="pre">.lua</span></code> files within your <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory and learn what
+each file does, and what packages are being used.</p>
+</section>
+<section id="install-tmux">
+<h2>Install tmux<a class="headerlink" href="#install-tmux" title="Link to this heading"></a></h2>
+<p>Next we will install tmux with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>tmux
+</pre></div>
+</div>
+<p>Move the <code class="docutils literal notranslate"><span class="pre">tmux.conf</span></code> file from the <code class="docutils literal notranslate"><span class="pre">Linux_COnfig</span></code> directory to you home
+directory with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/Linux_Config/tmux.conf<span class="w"> </span>~/tmux.conf
+</pre></div>
+</div>
+<p>Verify that <code class="docutils literal notranslate"><span class="pre">tmux</span></code> works properly with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux
+</pre></div>
+</div>
+<p>The above command should enter into a tmux session.  If it does, then
+exit tmux with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>kill-session
+</pre></div>
+</div>
+<p>Clone the plugin manager for tmux</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tmux-plugins/tpm/tpm<span class="w"> </span>~/.tmux/plugins/tpm
+</pre></div>
+</div>
+<p>Open a tmux session and type <code class="docutils literal notranslate"><span class="pre">Control-A-I</span></code> to install plugins</p>
+</section>
+<section id="set-up-shell-environments">
+<h2>Set up Shell Environments<a class="headerlink" href="#set-up-shell-environments" title="Link to this heading"></a></h2>
+<p>Next we will install shell environments for Bash and ZShell as well as
+aliased commands.  Before we start this process, lets move several files
+from the <code class="docutils literal notranslate"><span class="pre">Linux_Config</span></code> directory to the <code class="docutils literal notranslate"><span class="pre">.config</span></code> directory.  Type the
+following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/bash_scripts<span class="w"> </span>~/.config/
+cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/zsh_scripts<span class="w"> </span>~/.config/
+cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/py_files<span class="w"> </span>~/.config/
+cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/c_files<span class="w"> </span>~/.config/
+cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/c++_files<span class="w"> </span>~/.config/
+cp<span class="w"> </span>~/Linux_Config/.bash_profile<span class="w"> </span>~/.bash_profile
+cp<span class="w"> </span>~/Linux_Config/.bashrc<span class="w"> </span>~/.bashrc
+cp<span class="w"> </span>~/Linux_Config/.zsh_profile<span class="w"> </span>~/.zsh_profile
+cp<span class="w"> </span>~/Linux_Config/.zshrc<span class="w"> </span>~/.zshrc
+</pre></div>
+</div>
+<section id="set-up-bash">
+<h3>Set up Bash<a class="headerlink" href="#set-up-bash" title="Link to this heading"></a></h3>
+<p>Close your current terminal and re-open it.  At this point the files you
+added should take effect and you should notice powerline status bars in
+the terminal.  You also now have access to all of the aliases in the
+<code class="docutils literal notranslate"><span class="pre">~/.conifg/bash_scripts/.bash_aliases</span></code> file.</p>
+</section>
+<section id="set-up-zshell">
+<h3>Set up ZShell<a class="headerlink" href="#set-up-zshell" title="Link to this heading"></a></h3>
+<p>While the Bash environment is very powerful, I prefer to work from a ZShell
+environment when on my personal computer.  In order to facilitate this we
+need to install zshell with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>zsh
+</pre></div>
+</div>
+<p>type zsh into your terminal to temporarily transfer it to the zsh environment.
+You should notice a different powerline status bar.  Type <code class="docutils literal notranslate"><span class="pre">exit</span></code> to leave
+the session, and now lets make zshell permenent with the following command
+where <code class="docutils literal notranslate"><span class="pre">username</span></code> should be replaced with your actual username.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chsh<span class="w"> </span>-s<span class="w"> </span>/usr/bin/zsh<span class="w"> </span>username
+</pre></div>
+</div>
+<p>If you exit your current terminal and start another terminal instance, you
+should be logged into ZShell.</p>
+</section>
+</section>
+<section id="install-audio">
+<h2>Install Audio<a class="headerlink" href="#install-audio" title="Link to this heading"></a></h2>
+<p>At this point, even though we have a working instance of Arch, and a fully
+configured Gnome Desktop environment, you probably are not able to listen
+to any audio from your speakers.  In order to fix this we need to install
+a few packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>alsa-utils<span class="w"> </span>alsa-firmware<span class="w"> </span>sof-firmware<span class="w"> </span>alsa-ucm-conf
+</pre></div>
+</div>
+<p>Next type <code class="docutils literal notranslate"><span class="pre">alsamixer</span></code> into your terminal, and it should produce a window
+like the image below in your terminal.</p>
+<img alt="Alsa mixer utility window" src="_images/alsa.png" />
+<p>Type <code class="docutils literal notranslate"><span class="pre">m</span></code> to unmute your speakers, and then type <code class="docutils literal notranslate"><span class="pre">Control-c</span></code> to quit.
+After you have done this, you should have audio capability.</p>
+</section>
+<section id="install-bluetooth">
+<h2>Install Bluetooth<a class="headerlink" href="#install-bluetooth" title="Link to this heading"></a></h2>
+<p>Next we will install bluetooth capabilities.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>bluez<span class="w"> </span>bluez-utils<span class="w"> </span>blueman
+</pre></div>
+</div>
+<p>Check to see if bluetooth is loaded</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>btusb
+</pre></div>
+</div>
+<p>Enable bluetooth services</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bluetooth.service
+systemctl<span class="w"> </span>start<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+</section>
+<section id="backup-shell-script">
+<h2>Backup Shell Script<a class="headerlink" href="#backup-shell-script" title="Link to this heading"></a></h2>
+<p>Finally we need to install a script that allows us to conduct backups
+of our home directory and operating system.  Type the following
+command into your terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/Linux_Config/core_backup<span class="w"> </span>/usr/local/bin/core_backup/
+</pre></div>
+</div>
+<p>Now you can conduct backups by typing <code class="docutils literal notranslate"><span class="pre">core-backup</span></code> into your terminal.
+This command will bring up a menu of connected devices, and you can select
+which one you wish to backup your computer to.  This script will
+create a full backup of your computer.  Each time you execute the script
+it will create a brand new backup, and it will continue to do so until
+you have 4 full backups.  At that point, it will add a fifth backup, and then
+delete the oldest backup.  <strong>NOTE:</strong> This script requires that the <code class="docutils literal notranslate"><span class="pre">rsync</span></code>
+application be installed on your computer</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Gnome.html" class="btn btn-neutral float-left" title="Configure the Gnome Desktop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DB.html" class="btn btn-neutral float-right" title="Install Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Jonathan A. Webb.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

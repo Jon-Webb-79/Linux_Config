@@ -44,6 +44,10 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Post.html">Post Arch Install Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DB.html">Database Installations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trouble.html">Troubleshooting</a></li>
 </ul>
 
         </div>
@@ -74,19 +78,64 @@
 <h1>Arch Linux Installation for Jon Webb!<a class="headerlink" href="#arch-linux-installation-for-jon-webb" title="Link to this heading"></a></h1>
 <p>My name is Jon Webb and I am an engineer and scientist that specializes
 in Aerospace Engineering, Nuclear Engineering and Computer Science. While
-at the office I user whatever computer system my employer requires; however,
+at the office I use whatever computer system my employer requires; however,
 at home I prefer to use a computer system with an Arch Linux
 Operating System (OS).  Unfortunately Arch Linux can be a daunting OS for
 someone new to Linux, so I am writing this documentation to describe the step
-by step process for installing Arch as well as othe rprograms that are useful
+by step process for installing Arch as well as othe programs that are useful
 to someone interested in starting a career in Engineering, Data Science,
 and Computer Science.</p>
 <p><strong>NOTE:</strong> This installation process is crafted for someone using a UEFI
-encrypted hard drive.</p>
+encrypted hard drive. While this document describes the process for
+installing Arch Linux, it also has several instructions that are useful
+for someone using anothe rLinux distrubition or a Macintosh computer system</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Arch.html#pre-installation-activities">Pre-Installation Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arch.html#arch-linux-linux-installation">Arch Linux Linux Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#set-the-correct-location">Set the Correct Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#change-wallpaper">Change Wallpaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#access-applications">Access Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#install-aur">Install AUR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#install-more-packages">Install More Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#access-arch-themes">Access Arch Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#themes">Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#modify-gnome-extras">Modify Gnome Extras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#access-gnome-look-options">Access Gnome Look Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gnome.html#configure-terminal">Configure Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Post.html">Post Arch Install Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#create-code-directories">Create Code Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#install-necessary-packages">Install Necessary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#configure-neovim">Configure NeoVim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#install-tmux">Install tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#set-up-shell-environments">Set up Shell Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#install-audio">Install Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#install-bluetooth">Install Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post.html#backup-shell-script">Backup Shell Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DB.html">Database Installations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DB.html#sqlite">SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DB.html#mariadb">MariaDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DB.html#postgresql">PostGreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DB.html#sql-server">SQL-Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Trouble.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Trouble.html#cron-tab">Cron Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trouble.html#fail2ban-configuration">Fail2Ban Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trouble.html#rsync">rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trouble.html#ssh-configuration">SSH Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Trouble.html#usb">USB</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -100,7 +149,9 @@ encrypted hard drive.</p>
 </section>
 <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p>This package can be downloaded with the following command</p>
+<p>This package can be downloaded with the following command; however,
+you do not need to download this repository until after you have installed
+a Linux operating system.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Jon-Webb-79/Linux_Config.git<span class="w"> </span>Linux_Config
 </pre></div>
 </div>
