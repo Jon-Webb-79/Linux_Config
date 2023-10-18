@@ -281,7 +281,7 @@ following command.
 
    mv ~/Desktop/after ~/.config/nvim/
 
-Finally log back into the ``packer.lua`` file with the command;
+Next we need to log back into the ``packer.lua`` file with the command;
 
 .. code-block:: bash 
 
@@ -291,6 +291,12 @@ This time their should be no errors, and your NeoVim application is now
 working with all necessary pacakges.  After this I would encourage you to
 explore the ``.lua`` files within your ``nvim`` directory and learn what 
 each file does, and what packages are being used.
+
+**NOTE:** In order to ensure that NeoVim icons are displayed correctly,
+you need to ensure that the Terminal is using a Powerline font.  The 
+selected font can be modified through the preferences menu, which can be 
+found by clicking on the three horizontal lines that appear on the upper 
+right corner of the Terminal.
 
 Install tmux
 ============
