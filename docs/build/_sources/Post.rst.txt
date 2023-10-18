@@ -247,16 +247,22 @@ Next copy all of the data from the cloned ``Linux_Config`` folder to a new
 
    cp -r ~/Linux_Config/.config/nvim ~/.config/
 
-Navigate to the ``packer.lua`` file and open it with the command.  **NOTE:**
-when you execute the command below, it will likely produce many errors.  Do 
-not worry about the errors, we will fix this in the next step.
+Next, we need to temporarily move the ``~/.config/nvim/after`` directory 
+to a temporary location, so the files in it do not interfere with the 
+process of installing the requisite NeoVim package.  Move the ``after``
+directory to the Desktop with the following command.
+
+.. code-block:: bash 
+
+   mv ~/.config/nvim/after ~/Desktop/ 
+
+Navigate to the ``packer.lua`` file and open it with the command.
 
 .. code-block:: bash 
 
    nvim ~/.config/nvim/lua/core/packer.lua
 
-The above command probably produced many errors, since the packages in the 
-``packer.lua`` file have not been installed.  Lets install the packages while
+Next lets install the packages while
 logged into the ``packer.lua`` file with vim.  Ensure you are in normal 
 mode by pressing escape.  Next, depress the ``:`` key and then type
 PackerSync, like below
@@ -267,7 +273,15 @@ PackerSync, like below
 
 After you hit enter, this should load all necessary packages.  Next log 
 out of the ``packer.lua`` file by depressing the ``:`` key, typing ``q``
-and then enter.  Log back into the file with the command;
+and then enter.  Now that we have loaded the necessary packages, lets 
+move the ``after`` directory back to the ``nvim`` directory with the 
+following command.
+
+.. code-block:: bash 
+
+   mv ~/Desktop/after ~/.config/nvim/
+
+Finally log back into the ``packer.lua`` file with the command;
 
 .. code-block:: bash 
 

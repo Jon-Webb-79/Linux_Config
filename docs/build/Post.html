@@ -298,14 +298,18 @@ it to the following location so you do not loose any data in it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>~/Linux_Config/.config/nvim<span class="w"> </span>~/.config/
 </pre></div>
 </div>
-<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file and open it with the command.  <strong>NOTE:</strong>
-when you execute the command below, it will likely produce many errors.  Do
-not worry about the errors, we will fix this in the next step.</p>
+<p>Next, we need to temporarily move the <code class="docutils literal notranslate"><span class="pre">~/.config/nvim/after</span></code> directory
+to a temporary location, so the files in it do not interfere with the
+process of installing the requisite NeoVim package.  Move the <code class="docutils literal notranslate"><span class="pre">after</span></code>
+directory to the Desktop with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/.config/nvim/after<span class="w"> </span>~/Desktop/
+</pre></div>
+</div>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file and open it with the command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>~/.config/nvim/lua/core/packer.lua
 </pre></div>
 </div>
-<p>The above command probably produced many errors, since the packages in the
-<code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file have not been installed.  Lets install the packages while
+<p>Next lets install the packages while
 logged into the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file with vim.  Ensure you are in normal
 mode by pressing escape.  Next, depress the <code class="docutils literal notranslate"><span class="pre">:</span></code> key and then type
 PackerSync, like below</p>
@@ -314,7 +318,13 @@ PackerSync, like below</p>
 </div>
 <p>After you hit enter, this should load all necessary packages.  Next log
 out of the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file by depressing the <code class="docutils literal notranslate"><span class="pre">:</span></code> key, typing <code class="docutils literal notranslate"><span class="pre">q</span></code>
-and then enter.  Log back into the file with the command;</p>
+and then enter.  Now that we have loaded the necessary packages, lets
+move the <code class="docutils literal notranslate"><span class="pre">after</span></code> directory back to the <code class="docutils literal notranslate"><span class="pre">nvim</span></code> directory with the
+following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/Desktop/after<span class="w"> </span>~/.config/nvim/
+</pre></div>
+</div>
+<p>Finally log back into the <code class="docutils literal notranslate"><span class="pre">packer.lua</span></code> file with the command;</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvim<span class="w"> </span>~/.config/nvim/lua/core/packer.lua
 </pre></div>
 </div>
