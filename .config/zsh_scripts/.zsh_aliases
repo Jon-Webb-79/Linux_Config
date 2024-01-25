@@ -159,6 +159,8 @@ alias create_cpp_test='zsh ~/.config/zsh_scripts/create_file.zsh C++_Test'
 alias create_cpp_lib='zsh ~/.config/zsh_scripts/create_file.zsh C++_Lib'
 alias open_cpp_ide='zsh ~/.config/zsh_scripts/create_project_tmux.zsh C++'
 alias create_cpp_lib='zsh ~/.config/zsh_scripts/create_file.zsh C++_Lib'
+alias create_cpp_main='zsh ~/.config/zsh_scripts/create_file.zsh C++_Main'
+
 
 delete_cpp_dir() {                                           # Delete a Python project
 	echo enter directory

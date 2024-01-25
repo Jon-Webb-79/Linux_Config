@@ -7,26 +7,20 @@
 # - Author:  Name 
 # - Date:    Month Day, Year
 # - Version: 1.0
-# - Copyright: Copyright Year, Company Inc.
+# - Copyright: Copyright Year, Name Inc.
 # ================================================================================
 # ================================================================================
 # Set minimum cmake version
-cmake_minimum_required(VERSION 3.22.2)
+# Create the test executable using unit_test.c and test_hello.c
+add_executable(unit_tests
+	test.cpp)
 
-enable_testing()
+# Link the test executable against the Hello library and cmocka
+target_link_libraries(unit_tests prjct_name)
 
-add_executable(
-  unit_tests
-  test.cpp
-)
-target_link_libraries(
-  unit_tests
-  gtest_main
-  include
-)
+# Register the unit_tests executable as a test for CTest
+add_test(NAME unit_tests COMMAND unit_test)
 
-include(GoogleTest)
-gtest_discover_tests(unit_tests)
 # ================================================================================
 # ================================================================================
 # eof

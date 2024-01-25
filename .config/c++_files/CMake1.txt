@@ -1,53 +1,58 @@
 # ================================================================================
 # ================================================================================
 # - File:    CMakeLists.txt
-# - Purpose: Primary CMake file for C++ build system
+# - Purpose: Primary CMake file for C build system
 #
 # Source Metadata
-# - Author:  Name 
+# - Author:  Name
 # - Date:    Month Day, Year
 # - Version: 1.0
-# - Copyright: Copyright Year, Company Inc.
+# - Copyright: Copyright Year, Name Inc.
 # ================================================================================
 # ================================================================================
-# Set generic terms
-
-# CMake version
-cmake_minimum_required(VERSION 3.22.2)
+cmake_minimum_required(VERSION X.YY.ZZ)
 project(prjct_name)
 
-# Set the compiler, for some reason this does not work with clang++ or g++
-set(CMAKE_CXX_COMPILER "/usr/bin/c++")
+# Set the compiler (Optional)
+# set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# --------------------------------------------------------------------------------
-# Set executable terms
 
-# Specify directory where the executable is stored
-# set(CMAKE_CURRENT_BINARY_DIR "bin")
+enable_testing()
 
-# Add subdirectories
-add_subdirectory(include)
+# Set compiler flags
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wpedantic")
+endif()
 
-# Create name for executable
-add_executable(${PROJECT_NAME} main.cpp)
+# Define the library
+add_library(prjct_name
+	main.cpp)
 
-# Add target libraries if necessary
-target_link_libraries(${PROJECT_NAME} PUBLIC include)
-# --------------------------------------------------------------------------------
-# Set test terms
+add_executable(unit_tests
+	test/test.cpp
+)
+
+target_include_directories(prjct_name PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# Link against Google Test libraries
+target_link_libraries(unit_tests gtest gtest_main)
 
 include(FetchContent)
+
+# Specify the version and URL for Google Test
+set(GTEST_VERSION 1.10.0)  # Replace with the desired version
 FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+    googletest
+    URL https://github.com/google/googletest/archive/release-${GTEST_VERSION}.tar.gz
 )
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+# Fetch and configure Google Test
 FetchContent_MakeAvailable(googletest)
 
-add_subdirectory(test)
+# Link against Google Test libraries
+target_link_libraries(unit_tests gtest gtest_main)
 # ================================================================================
 # ================================================================================
 # eof

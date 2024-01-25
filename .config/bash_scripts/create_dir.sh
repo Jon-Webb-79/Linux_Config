@@ -261,7 +261,6 @@ elif [ $language == "C++" ] ; then
     $make_dir $path_length'/'$project_name'/build'
 	$make_dir $path_length'/'$project_name'/include'
 	$copy $cpp_dir'CMake1.txt' $path_length'/'$project_name'/CMakeLists.txt'
-    $copy $cpp_dir'CMake2.txt' $path_length'/'$project_name'/include/CMakeLists.txt'
 	$copy $cpp_dir'CMaketest.txt' $path_length'/'$project_name'/test/CMakeLists.txt'
 	$copy $script_dir'build.sh' $path_length'/scripts/'$script_type'/build.sh'
     $copy $script_dir'compile.sh' $path_length'/scripts/'$script_type'/compile.sh'
@@ -306,6 +305,13 @@ elif [ $language == "C++" ] ; then
 
 	$replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/build.sh' 
     $replace -i "s/prjct_name/$project_name/g" $path_length'/scripts/'$script_type'/compile.sh'
+
+    # Determine the installed version of CMake
+	CMAKE_VERSION=$(cmake --version | head -n1 | awk '{print $3}')
+
+	# Replace placeholders in CMakeLists.txt with the detected version
+	sed -i "s/X\.YY\.ZZ/${CMAKE_VERSION}/" $project_name'/CMakeLists.txt'
+
 	$script_type $script_dir'create_project_tmux.sh' C++ $project_name
 fi
 # ================================================================================

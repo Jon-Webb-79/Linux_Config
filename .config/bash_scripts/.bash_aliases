@@ -158,6 +158,7 @@ alias create_cpp_file='bash ~/.config/bash_scripts/create_file.sh C++'
 alias create_cpp_test='bash ~/.config/bash_scripts/create_file.sh C++_Test'
 alias create_cpp_lib='bash ~/.config/bash_scripts/create_file.sh C++_Lib'
 alias open_cpp_ide='bash ~/.config/bash_scripts/create_project_tmux.sh C++'
+alias create_cpp_main='bash ~/.config/bash_scripts/create_file.sh C++_Main'
 
 delete_cpp_dir() {                                           # Delete a Python project
 	echo enter directory
