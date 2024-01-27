@@ -253,6 +253,7 @@ if [ $language == "C" ] ; then
 # C++ Specific files and directories
 
 elif [ $language == "C++" ] ; then
+    $copy $c_dir'conf.py' $path_length'/docs/doxygen/sphinx_docs/conf.py'
     $copy $cpp_dir'.gitignore' $path_length'/.gitignore'
     $copy $cpp_dir'README.rst' $path_length'/README.rst'
     $copy $cpp_dir'LICENSE' $path_length'/LICENSE'
