@@ -60,41 +60,46 @@ if [ "$SESSIONEXISTS" = "" ]; then
     tmux new-session -d -s $SESSION
 # -------------------------------------------------------------------------------- 
 # Configure the Main window
-    
+   
     # Name the first window Main
-    tmux rename-window -t 1 'Main'
+    tmux rename-window -t "$SESSION:1" 'Main'
 
-    # Create Three window panes
+    # Split the window into two horizontal panes
+    tmux split-window -v
+
     tmux selectp -t 1
-    tmux splitw -v -p 10
-    tmux selectp -t 1
-    tmux splitw -h -p 50
+    # Split the upper pane into two vertical panes
+    tmux split-window -h
+
+    tmux resize-pane -y 25
 # -------------------------------------------------------------------------------- 
 # Create second window for File Testing
     if [ $language == "Python" ] ; then
         cd ../tests
-		# Create second window with style matching the first 
+        # Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
-		tmux selectp -t 1
-		tmux splitw -v -p 10
-		tmux selectp -t 1
-		tmux splitw -h -p 50
+        tmux split-window -v
+        tmux selectp -t 1
+        # Split the upper pane into two vertical panes
+        tmux split-window -h
+        tmux resize-pane -y 25
 		cd ..
 	else
-		cd test
+        cd test
 		# Create second window with style matching the first 
 		tmux new-window -t $SESSION:2 -n "Test"
-		tmux selectp -t 1
-		tmux splitw -v -p 10
-		tmux selectp -t 1
-		tmux splitw -h -p 50
+        tmux split-window -v
+        tmux selectp -t 1
+        # Split the upper pane into two vertical panes
+        tmux split-window -h
+        tmux resize-pane -y 25
 		cd ../..
 	fi
 # -------------------------------------------------------------------------------- 
 # Create third window for README file 
 
     # Create second window with upper and lower window 
-	tmux new-window -t $SESSION:3 -n 'README'
+    tmux new-window -t $SESSION:3 -n 'README' -d 'nvim README.rst'
 	tmux send-keys -t $SESSION:3 'nvim README.rst' C-m
 
     #tmux new-window -t $SESSION:3 -n 'README' -d 'nvim README.rst'
@@ -110,7 +115,11 @@ if [ "$SESSIONEXISTS" = "" ]; then
 # Create fifth window for Python window 
    
     # Create second window with upper and lower window 
-    tmux new-window -t $SESSION:5 -n 'Bash'
+    if [ $language == "Python" ]; then 
+        tmux new-window -t $SESSION:5 -n 'Bash'
+    else 
+        tmux new-window -t $SESSION:4 -n 'Bash'
+    fi
 # ================================================================================ 
 # Attach session 
 
