@@ -94,6 +94,7 @@ configuration management and testing.
    sudo pacman -S code 
    sudo pacman -S github-cli
    sudo pacman -S glibc
+   sudo pacman -S glfw
 
 The Github Command Line Interface (CLI) is based on the use of a key
 to access your Github website from your own erpository.  In order

@@ -1,4 +1,4 @@
-#!/home/jonwebb/Linux_Config/docs/.venv/bin/python
+#!/home/jonwebb/Linux_Config/docs/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

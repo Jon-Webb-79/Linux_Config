@@ -810,6 +810,9 @@ computer.  Now lets do some post-install tweaks to our OS.
 
 #. Install the video driver 
 
+   The steps listed below will also install OpenGL in addition 
+   to the drivers.
+
    For intel and AMD.
 
    .. code-block:: bash 
