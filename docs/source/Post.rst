@@ -95,6 +95,10 @@ configuration management and testing.
    sudo pacman -S github-cli
    sudo pacman -S glibc
    sudo pacman -S glfw
+   sudo pacman -S vulkan-intel
+   sudo pacman -S vulkan-validation-layers
+   sudo pacman -S vulkan-tools 
+   yay -S vulkan-man-pages
 
 The Github Command Line Interface (CLI) is based on the use of a key
 to access your Github website from your own erpository.  In order
