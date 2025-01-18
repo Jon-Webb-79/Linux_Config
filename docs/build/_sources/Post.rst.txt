@@ -29,6 +29,28 @@ by the following command.
 
    git clone https://github.com/Jon-Webb-79/Linux_Config.git ~/Linux_Config 
 
+Update Terminal 
+===============
+During the Gnome updates we installed ``gnome-terminal-transparency`` which provides a 
+sufficient terminal.  However, in this section lets install a better termianl titled 
+``ghostty``.
+
+.. code-block:: bash 
+
+   sudo pacman -S ghostty 
+
+In addtion lets install some basic fuzzy finder capability to work with the 
+terminal 
+
+.. code-block:: bash 
+
+   sudo pacman -S fzf
+
+The ``ghostty`` terminal is configured based on a config file stored at 
+``~/username/.config/ghostty/config``, which must be created.  In this case,
+move the file from the ``Linux_Config`` directory to your ``.config``
+directory.
+
 Create Code Directories
 =======================
 The configuration files are predicated on Software Development Environments for 

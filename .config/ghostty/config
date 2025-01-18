@@ -1,0 +1,40 @@
+# Window appearance
+
+background-opacity = 0.80
+window-decoration = true
+title = "Terminator"
+window-height = 45
+window-width = 140
+adjust-cell-height = 20%
+window-padding-x = 20
+window-padding-y = 10
+window-save-state = always
+# ================================================================================ 
+# Shaders 
+# custom-shader = "~/.config/ghostty/shaders/julias.glsl"  # Does not work properly
+# custom-shader = "~/.config/ghostty/shaders/smoke-and-ghosts.glsl"
+# custom-shader = "~/.config/ghostty/shaders/just-snow.glsl"
+# custom-shader = "~/.config/ghostty/shaders/gears-and-belts.glsl"
+# custom-shader = "~/.config/ghostty/shaders/dither.glsl"
+# custom-shader = "~/.config/ghostty/shaders/matrix-hallway.glsl"
+# custom-shader = "~/.config/ghostty/shaders/sin-interference.glsl"
+# custom-shader = "~/.config/ghostty/shaders/starfield-colors.glsl"
+# =================================================================================
+# Shell Integration
+
+shell-integration = zsh
+# ================================================================================ 
+# Text Appearance
+
+font-size = 14
+theme = Banana Blueberry
+# theme = OneHalfDark
+# theme = Desert
+# theme = Atom
+mouse-hide-while-typing = true
+# ================================================================================ 
+# key bindings
+
+keybind = shift+ctrl+r=reload_config
+keybind = shift+ctrl+v=new_split:left
+keybind = shift+ctrl+s=new_split:up

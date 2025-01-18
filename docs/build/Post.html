@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,19 +7,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Post Installation Options &mdash; Arch Linux Installation 0.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -49,6 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Arch.html">Arch Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gnome.html">Configure Gnome</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Post Arch Install Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#update-terminal">Update Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-code-directories">Create Code Directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-necessary-packages">Install Necessary packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install-python">Install Python</a></li>
@@ -123,6 +122,24 @@ by the following command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Jon-Webb-79/Linux_Config.git<span class="w"> </span>~/Linux_Config
 </pre></div>
 </div>
+<section id="update-terminal">
+<h2>Update Terminal<a class="headerlink" href="#update-terminal" title="Link to this heading"></a></h2>
+<p>During the Gnome updates we installed <code class="docutils literal notranslate"><span class="pre">gnome-terminal-transparency</span></code> which provides a
+sufficient terminal.  However, in this section lets install a better termianl titled
+<code class="docutils literal notranslate"><span class="pre">ghostty</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>ghostty
+</pre></div>
+</div>
+<p>In addtion lets install some basic fuzzy finder capability to work with the
+terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>fzf
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ghostty</span></code> terminal is configured based on a config file stored at
+<code class="docutils literal notranslate"><span class="pre">~/username/.config/ghostty/config</span></code>, which must be created.  In this case,
+move the file from the <code class="docutils literal notranslate"><span class="pre">Linux_Config</span></code> directory to your <code class="docutils literal notranslate"><span class="pre">.config</span></code>
+directory.</p>
+</section>
 <section id="create-code-directories">
 <h2>Create Code Directories<a class="headerlink" href="#create-code-directories" title="Link to this heading"></a></h2>
 <p>The configuration files are predicated on Software Development Environments for
