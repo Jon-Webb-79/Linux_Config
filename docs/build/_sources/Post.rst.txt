@@ -45,6 +45,7 @@ terminal
 .. code-block:: bash 
 
    sudo pacman -S fzf
+   sudo pacman -S bat
 
 The ``ghostty`` terminal is configured based on a config file stored at 
 ``~/username/.config/ghostty/config``, which must be created.  In this case,

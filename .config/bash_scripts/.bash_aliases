@@ -37,6 +37,7 @@ mkcdir() { mkdir -p -- "$1" && cd -P -- "$1"; } # Create directory then cd into 
 alias bashscripts='cd ~/.config/bash_scripts/'
 alias zscripts='cd ~/.config/zsh_scripts'
 alias cdnvim='cd ~/.config/nvim'
+alias fzfvim='nvim $(fzf -m --preview="bat --color=always {}")'
 # --------------------------------------------------------------------------------
 # Commands to display relevant file information
 
