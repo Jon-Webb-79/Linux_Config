@@ -19,6 +19,9 @@ Install git
 	   && sudo apt install gh -y 
     3. sudo apt update 
     4. sudo apt install gh
+
+Install sqlite3
+    1. sudo apt install sqlite3
     
 Install Google Chrome
     1. Navigate to Google Chrome web site
