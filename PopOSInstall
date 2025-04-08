@@ -1,0 +1,190 @@
+Update Firmware
+    1. Click the clock at the top of the screen
+    2. Click on Firmware
+    3. Update any firmware that needs to be updates
+
+Update Packages
+    1. Open terminal
+    2. Type 'sudo apt update'
+    
+Install git
+    1. sudo apt install git
+    2. (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+	   && sudo mkdir -p -m 755 /etc/apt/keyrings \
+       && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+       && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+	   && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+	   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	   && sudo apt update \
+	   && sudo apt install gh -y 
+    3. sudo apt update 
+    4. sudo apt install gh
+    
+Install Google Chrome
+    1. Navigate to Google Chrome web site
+    2. Download Ubintu/Debian version of Chrome
+    3. Open terminal
+    4. type 'cd Downloads'
+    5. type 'sudo apt install ./google-chrome-stable_current_amd64.deb'
+    6. Verify Chrome installed in applications window
+    7. Open Chrome and follow prompts to set up
+    
+Set up Gnome Extensions
+    1. Navigate to Gnome Extensions web site
+    2. Click to enable extensions
+    3. I like to use Shortcuts, Tactile, Tiling Assistant and Tiling Shell
+    
+Install snapd
+    1. Open terminal
+    2. sudo apt install snapd
+
+Update Terminal
+    1. Open Terminal
+    2. Type '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"'
+    
+Install fuzzy finder
+    1. Open terminal
+    2. Type 'sudo apt install fzf'
+    3. Type 'sudo apt install bat'
+
+Install pdf latex
+    1. sudo apt-get install texlive-latex-base
+    2. sudo apt-get install texlive-fonts-recommended
+    3. sudo apt-get install texlive-fonts-extra 
+
+Create Code directories
+    1. Open terminal and type the following commsnds
+    2. mkdir Code_Dev
+    3. mkdir Code_Dev/Python
+    4. mkdir Code_Dev/C
+    5. mkdir Code_Dev/C++
+    
+Install Python
+    1. Open terminal
+    2. Type 'sudo apt install software-properties-common'
+    3. Type 'sudo add-apt-repository ppa:deadsnakes/ppa'
+    4. Type 'sudo apt update'
+    5. Type 'sudo apt-cache policy python3.XX' this checks if the version is available
+    6. Type 'sudo apt install python 3.XX'
+    7. Type 'python3 --version' to get full revision of existing python (it comes with PopOS)
+    7. Type 'python3.XX --version' to get the full version just downloard
+    7. Type 'sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.XX 1'
+       - This sets the downloaded version as the default option
+    8. Type 'sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.YY 2'
+       - This sets the old version to the alternate
+    9. Type 'sudo update-alternatives --config python
+       - Type the selection # for the default option to be used
+    10. type 'sudo apt install python3-pip'
+    
+Install Poetry
+    1. Type the following to install pipx
+       - sudo apt install pipx
+       - pipx ensurepath
+    2. Type 'pipx install poetry'
+    3. Type 'poetry config virtualenvs.in-project true'
+    
+Install C and C++ Compilers
+    1. Type 'sudo apt install clang'
+    2. Type 'sudo apt install gcc'
+
+Install CMake
+    apt does not maintain a modern version of CMake.  Follow these 
+    instructions to get an up to date version.
+
+    1. sudo apt update
+    2. sudo apt install -y apt-transport-https ca-certificates gnupg software-properties-common wget
+
+    3. wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | \
+        gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg > /dev/null
+
+    4. echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' | \
+        sudo tee /etc/apt/sources.list.d/kitware.list > /dev/null
+    
+    5. sudo apt update
+    6. sudo apt install cmake
+
+Install CMocka
+    1. sudo apt update
+    2. sudo apt install libcmocka-dev
+
+    
+Add relevant Nerd Fonts
+    1. Navigate to https://www.nerdfonts.com/font-downloads
+    2. Download preferred fonts (i.e. JetBrains, etc.)
+    3. Type filename=UbuntuMono.zip
+            extension="${filename##*.}"
+            filename="${filename%.*}"
+            mkdir ${filename} && pushd ${filename}
+            unzip ../${filename}.${extension}
+            popd
+    4. Type mkdir -p ~/.fonts
+            mv ${filename} ~/.fonts/
+    5. Update cache 'fc-cache -fv'
+ 
+Install Google Earth Pro
+    1. Navigate to the Google Earth web site
+    2. Download pro version
+    3. Navigate terminal to /Downloads folder
+    5. Type 'sudo apt install ./google-earth-pro-stable_current_amd64.deb
+    
+Install Misc. Packages
+    1. sudo apt install notepadqq
+    2. sudo apt install tree
+    3. sudo apt install htop
+    4. sudo apt install rsync
+    5. sudo apt install fail2ban
+    6. sudo apt install xclip
+    7. sudo apt install libreoffice
+    8. sudo apt install neofetch
+    9. sudo apt install masterpdfeditor
+    10. Navigate to the MasterPDFEditor web page
+        - Download the debian version
+        - Navigate to /Downloads directory
+        - Type 'sudo apt install package name here'
+    11. sudo apt install powerline
+        
+Install Neovim
+    1. Move the ./.config/nvim file from the Linux_Config file to your ./.config directory 
+    2. mv ~/.config/nvim/after ~/Desktop 
+    3. Type 'sudo add-apt-repository ppa:neovim-ppa/unstable'
+    4. sudo apt-get update 
+    5. sudo apt-get-install neovim
+    6. nvim ~/.config/nvim/lua/core/packer.lua  
+    7. Type :so 
+    8. Type :PackerSync
+    9. mv ~/Desktop/after ~/.config/nvim
+    10. Open a file with nvim and it will update with contents of after file
+
+Install tmux 
+    1. sudo apt install tmux
+    2. git clone https://github.com/tmux-plugins/tpm/tpm ~/.tmux/plugins/tpm 
+    3. Move .tmux.conf file from Linux_Config to ~/.tmux.config
+    4. tmux source ~/.tmux.conf
+
+Setup Shell Environments
+    1. cp -r ~/Linux_Config/.config/bash_scripts ~/.config/
+       cp -r ~/Linux_Config/.config/zsh_scripts ~/.config/
+       cp -r ~/Linux_Config/.config/py_files ~/.config/
+       cp -r ~/Linux_Config/.config/c_files ~/.config/
+       cp -r ~/Linux_Config/.config/c++_files ~/.config/
+       cp ~/Linux_Config/.bash_profile ~/.bash_profile
+       cp ~/Linux_Config/.bashrc ~/.bashrc
+       cp ~/Linux_Config/.zsh_profile ~/.zsh_profile
+       cp ~/Linux_Config/.zshrc ~/.zshrc 
+    2. sudo apt install zsh 
+    3. chsh -s /usr/bin/zsh username
+
+Install utilities
+    1. sudo apt install exfat-utils ntfs-3g
+    2. type 'lsblk' to find the backup.  For example assume the backup is at 
+       /dev/sdc1, but ensure you find the right location for your drive
+    3. Ensure the drive is unmounted
+        sudo umount /dev/sdc1
+    2. You can relabel connected drives with 
+        sudo mkfs.ext4 -L LinuxPopBack /dev/sdc1
+    5. Verify renamed drive with 'lsblk' command
+
+Move backup option to correct location 
+    1. Move core_backup file from Linux_Config to 
+       /usr/local/bin/core_backup
+    
